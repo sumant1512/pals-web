@@ -1,0 +1,209 @@
+@import "variables";
+
+.dark-theme {
+  --app-body-bg: #{$black-2};
+
+  --app-first-name: #{$white};
+  --app-last-name: #{$blue-1};
+  --navbar-bg: #{$dark-navbar-bg};
+  --navbar-link: #{$white-1};
+  --navbar-search-bg: #{$black-15};
+  --navbar-search-bg-focus: #{$black};
+  --navbar-search-input-color: #{$white};
+  --navbar-search-input-placeholder-color: #{$gray-13};
+  --navbar-search-input-border: #{$black};
+  --navbar-search-input-border-focus: #{$gray-14};
+  --navbar-cart-bg: #{$black-15};
+  --navbar-cart-selected-border: #{$gray-3};
+  --navbar-user-img-border: #{$gray-15};
+  --navbar-user-img-selected-border: #{$gray-3};
+  --navbar-badge-bg-color: #{$blue-1};
+  --navbar-badge-color: #{$white};
+  --navbar-mobile-hamberger: #{$white-15};
+
+  --footer-bg: #{$dark-navbar-bg};
+  --footer-social-media-bg-color: #{$white};
+  --footer-app-first-name: #{$white};
+  --footer-app-last-name: #{$blue-1};
+  --footer-header-color: #{$white-15};
+  --footer-url-color: #{$gray-13};
+
+  --offer-card-header-color: #{$black};
+  --offer-card-spicy-bg: #{$orange-2};
+  --offer-card-spicy-offer-color: #{$orange-1};
+  --offer-card-sweet-bg: #{$blue-3};
+  --offer-card-sweet-offer-color: #{$blue-1};
+
+  --product-thumbnail-border: #{$gray-2};
+  --product-thumbnail-background-hover: #{$black};
+  --product-thumbnail-background-focus: #{$black};
+  --product-thumbnail-text-color: #{$white};
+
+  --load-more-btn-border: #{$blue-1};
+  --load-more-btn-text-color: #{$blue-2};
+
+  --deal-card-red-btn-color: #{$red-0};
+  --deal-card-red-btn-border: #{$red-0};
+  --deal-card-green-btn-color: #{$green-0};
+  --deal-card-green-btn-border: #{$green-0};
+  --deal-card-orange-btn-color: #{$orange-0};
+  --deal-card-orange-btn-border: #{$orange-0};
+  --deal-card-details-color: #{$white-1};
+  --deal-card-header-color: #{$gray-3};
+  --deal-card-validity-info-color: #{$gray-3};
+
+  --promotion-red-btn-color: #{$red-0};
+  --promotion-red-btn-border: #{$red-0};
+  --promotion-green-btn-color: #{$green-0};
+  --promotion-green-btn-border: #{$green-0};
+  --promotion-orange-btn-color: #{$orange-0};
+  --promotion-orange-btn-border: #{$orange-0};
+  --promotion-details-color: #{$white-1};
+  --promotion-header-color: #{$gray-3};
+  --promotion-validity-info-color: #{$gray-3};
+
+  --order-table-body-border-color: #{$gray-5};
+  --order-in-progress-status-color: #{$blue-0};
+
+  --order-details-deliverycard-line-separator-bg-color: #{$green-0};
+
+  --restaurant-card-border-color: #{$gray-0};
+  --restaurant-card-delivery-time-color: #{$gray-3};
+  --restaurant-card-time-separator-color: #{$blue-15};
+  --restaurant-card-cart-badge-bg-color: #{$blue-1};
+  --restaurant-card-cart-badge-color: #{$white};
+  --restaurant-card-item-badge-bg-color: #{$gray-0};
+
+  --restaurant-details-header-bg-color: #{$black-15};
+  --restaurant-details-header-time-separator-color: #{$blue-15};
+  --restaurant-details-header-delivery-time-color: #{$gray-3};
+  --restaurant-details-header-location-img-border-color: #{$white};
+  --restaurant-details-header-restaurant-thumbnail-bg-color: #{$white};
+  --restaurant-details-heading-active-color: #{$white};
+  --restaurant-details-heading-deactive-color: #{$gray-13};
+
+  --menu-card-border: #{$gray-2};
+  --menu-card-one-add-sub-btn-bg: #{$black-15};
+  --menu-card-one-add-sub-btn-color: #{$white};
+  --menu-card-one-add-sub-btn-disabled-color: #{$gray-3};
+
+  --review-rating-header-separator-color: #{$gray-2};
+  --review-rating-num-color: #{$blue-0};
+  --review-rating-separator: #{$gray-2};
+  --review-rating-like-dislike-num-color: #{$gray-3};
+
+  --settings-card-bg-color: #{$white};
+  --settings-card-selected-bg-color: #{$blue-3};
+  --settings-card-heading-color: #{$black};
+  --settings-card-description-color: #{$gray-3};
+
+  --selection-card-bg-color: #{$black-15};
+  --selection-card-selected-bg-color: #{$black-2};
+  --selection-card-heading-color: #{$black};
+  --selection-card-description-color: #{$gray-3};
+
+  --account-info-avtar-color: #{$gray-3};
+
+  --address-card-box-border: #{$gray-7};
+  --address-card-action-color: #{$black-14};
+  --address-card-action-bg-color: #{$black-2};
+
+  --payment-card-expiry-name-color: #{$black-14};
+
+  --checkout-back-underline-color: #{$black-14};
+
+  --registration-circle-unselected: #{$gray-7};
+  --registration-circle-selected: #{$blue-15};
+
+  --popular-meals-price-color: #{$blue-0};
+
+  // common
+
+  --box-border-color: #{$gray-15};
+  --box-border-2-color: #{$gray-7};
+  --separator-color: #{$gray-15};
+  --box-border-hover-color: #{$white};
+  --box-border-focus-color: #{$white};
+  --border-box-shadow-color: #{$gray-4};
+  --icons-bg-color: #{$gray-1};
+  --icons-bg-selected-color: #{$black-15};
+  --success-status-color: #{$green-0};
+  --failed-status-color: #{$red-0};
+
+  // table
+  --table-head-border-color: #{$gray-5};
+  --table-bg-color: #{$black};
+  --table-text-color: #{$white};
+
+  // label
+  --label-1: #{$black-14};
+  --label-2: #{$white};
+  --label-3: #{$blue-0};
+  --label-4: #{$gray};
+  --label-5: #{$gray-3};
+  --label-6: #{$gray-2};
+  --label-7: #{$white};
+
+  //link
+  --app-link: #{$blue-0};
+
+  //auth pages
+
+  --auth-section-two-bg: #{$blue-2};
+
+  // components colors
+
+  --toggle-bg-color: #{$gray-6};
+  --toggle-label-color: #{$black};
+  --toggle-switch-bg-color: #{$black-1};
+  --toggle-switch-text-color: #{$white};
+
+  --tab-bg-color: #{$gray-6};
+  --tab-label-color: #{$black};
+  --tab-switch-bg-color: #{$black-1};
+  --tab-switch-text-color: #{$white};
+
+  --primary-btn-border: #{$gray};
+  --primary-btn-text-color: #{$gray};
+  --primary-btn-bg-color: #{$black};
+  --primary-btn-bg-color-hover: #{$black-2};
+  --primary-btn-text-color-hover: #{$white};
+
+  --primary-select-border: #{$blue-1};
+  --primary-select-text-color: #{$blue-2};
+
+  --primary-filled-btn-bg: #{$black-15};
+  --primary-filled-btn-bg-hover: #{$black};
+  --primary-filled-btn-color: #{$gray-3};
+  --primary-filled-btn-color-hover: #{$white};
+
+  --transparent-filled-btn-bg: #{$black-15};
+  --transparent-filled-btn-bg-hover: #{$black};
+  --transparent-filled-btn-color: #{$gray-3};
+  --transparent-filled-btn-color-hover: #{$white};
+
+  --primary-rating-color: #{$gray-1};
+  --primary-rating-filled-color: #{$blue-0};
+  --primary-rating-color-hover: #{$blue-0};
+
+  --danger-btn-border: #{$red-0};
+  --danger-btn-text-color: #{$red-0};
+  --danger-btn-bg-color: #{$white};
+  --danger-btn-bg-color-hover: #{$red-0};
+  --danger-btn-text-color-hover: #{$white};
+
+  --input-border: #{$black-14};
+  --input-background-color: #{$black-15};
+  --input-color: #{$white};
+  --input-border-focused: #{$black};
+  --input-disbled-border-color: #{$gray-6};
+  --input-disbled-background-color: #{$gray-14};
+  --input-disbled-color: #{$gray-15};
+
+  --search-dropdown-placeholder: #{$gray};
+
+  // kebab action
+  --kebab-action-color: #{$white};
+  --kebab-action-bg-color: #{$black};
+  --kebab-hover-bg-color: #{$gray};
+}

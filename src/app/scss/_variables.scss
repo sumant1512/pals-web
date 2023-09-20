@@ -1,0 +1,58 @@
+// General
+$light-purple: hsl(252, 100%, 73%);
+$dark-purple: hsl(252, 94%, 67%);
+$light-bg: hsl(0, 0%, 100%);
+$dark-bg: hsl(233, 31%, 21%);
+$status-paid: hsl(160, 67%, 52%);
+$status-pending: hsl(34, 100%, 50%);
+
+// Navbar
+$light-navbar-bg: hsl(0, 100%, 100%);
+$dark-navbar-bg: hsl(0, 0%, 0%);
+
+//color
+$white: hsl(0, 100%, 100%);
+$white-1: hsl(240, 20%, 90%);
+$white-13: hsl(197, 74%, 88%);
+$white-14: hsl(197, 100%, 95%);
+$white-15: hsl(197, 19%, 93%);
+
+$black: hsl(0, 0%, 0%);
+$black-1: hsl(240, 22%, 22%);
+$black-2: hsl(0, 0%, 15%);
+$black-14: hsl(0, 1.4%, 43.3%);
+$black-15: hsl(0, 0%, 20%);
+
+$blue-0: hsl(240, 100%, 50%);
+$blue-1: hsl(234, 100%, 65%);
+$blue-2: hsl(233, 100%, 71%);
+$blue-3: hsl(235, 100%, 98%);
+$blue-4: hsl(231, 100%, 99%);
+$blue-15: hsl(233deg 100% 50%);
+
+$gray: hsl(0, 0%, 50%);
+$gray-0: hsl(228, 16%, 94%);
+$gray-1: hsl(0, 37%, 93%);
+$gray-2: hsl(228, 6%, 90%);
+$gray-3: hsl(235, 11%, 56%);
+$gray-4: hsl(0, 0%, 30%);
+$gray-5: hsl(228, 7%, 77%);
+$gray-6: hsl(0, 100%, 98%);
+$gray-7: hsl(228, 5%, 78%);
+$gray-12: hsl(235deg 8.87% 33.99%);
+$gray-13: hsl(0, 0%, 57%);
+$gray-14: hsl(0, 0%, 41%);
+$gray-15: hsl(0, 0%, 31%);
+
+$red-0: hsl(0, 100%, 50%);
+
+$orange-0: hsl(39, 100%, 50%);
+$orange-1: hsl(21, 98%, 56%);
+$orange-2: hsl(20, 100%, 96%);
+
+$green-0: hsl(120, 100%, 25%);
+
+// Convert the value of a hexadecimal variable to RGB
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

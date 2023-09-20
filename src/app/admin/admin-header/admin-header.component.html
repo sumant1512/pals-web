@@ -1,0 +1,47 @@
+<div class="header-container">
+  <nav class="container navbar navbar-expand-sm navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand pe-cursor" (click)="navigateToPage('')">
+        <div class="mb-0 app-first-name">Food</div>
+        <div class="app-last-name">Delivery</div>
+      </a>
+      <button
+        class="border-0 mobile-hamberger d-block d-sm-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        (click)="toggleHamburger()"
+      >
+        <div class="hamburger" id="hamburger-9">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-bar-list mb-2 mb-lg-0 ms-auto">
+          <li class="nav-item me-0 me-md-2 me-lg-3 pe-cursor">
+            <a
+              tabindex="1"
+              class="nav-link header-nav-link fw-bold"
+              aria-current="page"
+              [routerLink]="[appRoutes.ADMIN.CHILD_ROUTES.CREATE_QR]"
+              >Create QR</a
+            >
+          </li>
+          <li class="nav-item me-0 me-md-2 me-lg-3 pe-cursor">
+            <a
+              tabindex="1"
+              class="nav-link header-nav-link fw-bold"
+              [routerLink]="[appRoutes.ADMIN.CHILD_ROUTES.LIST_QR]"
+              >QR List</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
