@@ -8,6 +8,7 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { QrCreateFormComponent } from './qr-create-form/qr-create-form.component';
 import { QrListComponent } from './qr-list/qr-list.component';
+import { PaymentRequestComponent } from './payment-request/payment-request.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { QrListComponent } from './qr-list/qr-list.component';
     AdminHeaderComponent,
     QrCreateFormComponent,
     QrListComponent,
+    PaymentRequestComponent,
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { APP_ROUTES } from '../shared/constants/app-routes.constants';
 import { QrCreateFormComponent } from './qr-create-form/qr-create-form.component';
 import { QrListComponent } from './qr-list/qr-list.component';
+import { PaymentRequestComponent } from './payment-request/payment-request.component';
 
 const routes: Routes = [
   {
@@ -11,12 +12,21 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
+        path: '',
+        redirectTo: APP_ROUTES.ADMIN.CHILD_ROUTES.CREATE_QR,
+        pathMatch: 'full',
+      },
+      {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.CREATE_QR,
         component: QrCreateFormComponent,
       },
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.LIST_QR,
         component: QrListComponent,
+      },
+      {
+        path: APP_ROUTES.ADMIN.CHILD_ROUTES.PAYMENT_REQUEST,
+        component: PaymentRequestComponent,
       },
     ],
   },
