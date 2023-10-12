@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+a:hover {
+  cursor: pointer;
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bg-dark-black {
+  background-color: #000000;
+}
+
+.bg-gray {
+  background-color: #171717;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.box-shadow {
+  box-shadow: 0px 5px 100px -5px #ffffff;
+}
+
+.horizontal-line {
+  border-bottom: 1px solid white;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+/* bottom to top animation start */
+
+.bottom-to-top {
+  position: relative;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.5s;
+  animation-name: animatetop;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes animatetop {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+/* bottom to top animation end */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .mt-md-9 {
+    margin-top: 5.5rem !important;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+  .mt-sm-9 {
+    margin-top: 5.5rem !important;
+  }
+}
