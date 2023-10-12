@@ -6,25 +6,25 @@
   #header
 >
   <nav
-    [ngClass]="{ 'box-shadow': scrollStatus || sideNavStatus }"
-    class="bg-dark-black navbar navbar-expand-lg navbar-dark pt-3 pb-3 justify-content-sm-start"
+    [ngClass]="{ 'nav-box-shadow': scrollStatus || sideNavStatus }"
+    class="navbar navbar-expand-lg navbar-dark justify-content-sm-start"
   >
     <a
       class="navbar-brand order-0 pt-0 order-lg-0 pb-0 ml-0 ml-md-3 ml-lg-4 mr-auto"
       (click)="scrollPage('home')"
     >
-      <img class="nav-icon" src="../../assets/lightLogo.png" />
+      <img class="nav-icon" src="./../../../assets/header_logo.png" />
     </a>
     <button
-      class="navbar-toggler text-light border-0 mt-2 pt-1 align-self-start"
+      class="navbar-toggler border-0 mt-2 pt-1 align-self-start"
       (click)="navToggle()"
       type="button"
     >
       <div *ngIf="sideNavStatus; else cross">
-        <i class="text-light fa-2x fa fa-times"></i>
+        <i class="fa-2x fa fa-times"></i>
       </div>
       <ng-template #cross>
-        <i class="text-light fa-2x fa fa-bars"></i>
+        <i class="fa-2x fa fa-bars"></i>
       </ng-template>
     </button>
     <div
@@ -36,7 +36,7 @@
         class="navbar-nav align-self-stretch text-center text-sm-center text-md-left my-lg-2"
       >
         <li class="nav-item mx-3">
-          <a class="nav-link" (click)="scrollPage('carousel')">HOME</a>
+          <a class="nav-link" (click)="scrollPage('banner')">HOME</a>
         </li>
         <li class="nav-item mx-3">
           <a class="nav-link" (click)="scrollPage('about')">ABOUT</a>
@@ -44,8 +44,10 @@
         <li class="nav-item mx-3">
           <a class="nav-link" (click)="scrollPage('products')">PRODUCTS</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" (click)="scrollPage('contact')">CONTACT</a>
+        <li class="nav-item mx-3 me-5">
+          <a class="nav-link pt-2 me-5" (click)="scrollPage('contact')">
+            <button type="button" class="contact">CONTACT</button></a
+          >
         </li>
       </ul>
     </div>
