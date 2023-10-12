@@ -9,7 +9,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     ContactUsComponent,
     HomeHeaderComponent,
     HomeFooterComponent,
-    CarouselComponent,
+    BannerComponent,
   ],
   imports: [CommonModule, HomeRoutingModule],
 })

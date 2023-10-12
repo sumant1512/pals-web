@@ -1,0 +1,28 @@
+.banner-container {
+  background-image: url("./../../../assets/banner.png");
+  width: 100%;
+  height: 620px;
+  display: flex;
+  align-items: center;
+
+  .title {
+    font-size: 70px;
+    font-weight: bold;
+    font-family: cursive;
+  }
+
+  .sub-title {
+    letter-spacing: 0.3px;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: cursive;
+  }
+
+  .explore-btn {
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 3px 16px 6px 16px;
+    color: white;
+    font-family: cursive;
+  }
+}
