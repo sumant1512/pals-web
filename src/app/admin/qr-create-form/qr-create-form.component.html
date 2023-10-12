@@ -1,0 +1,27 @@
+<form [formGroup]="createQrForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="amount" class="form-label">Amount*</label>
+    <input
+      type="number"
+      class="form-control"
+      id="amount"
+      formControlName="amount"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="noOfCoupans" class="form-label">No of coupans*</label>
+    <input
+      type="number"
+      class="form-control"
+      id="noOfCoupans"
+      formControlName="noOfCoupans"
+    />
+  </div>
+  <button
+    type="submit"
+    [disabled]="createQrForm.invalid"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+</form>

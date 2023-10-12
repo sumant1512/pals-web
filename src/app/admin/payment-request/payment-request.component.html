@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Status</th>
+      <th scope="col">Request Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payment of paymentRequestList">
+      <th scope="row">{{ payment.id }}</th>
+      <td>{{ payment.userId }}</td>
+      <td>{{ payment.debited }}</td>
+      <td>{{ payment.status }}</td>
+      <td>{{ payment.transactionDate }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="approve(payment.id)"
+        >
+          Approve
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

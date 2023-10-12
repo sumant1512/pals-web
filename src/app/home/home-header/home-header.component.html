@@ -1,0 +1,53 @@
+<header
+  [ngClass]="
+    scrollStatus || sideNavStatus ? 'position-fixed' : 'position-relative'
+  "
+  class="w-100 text-center top-0"
+  #header
+>
+  <nav
+    [ngClass]="{ 'box-shadow': scrollStatus || sideNavStatus }"
+    class="bg-dark-black navbar navbar-expand-lg navbar-dark pt-3 pb-3 justify-content-sm-start"
+  >
+    <a
+      class="navbar-brand order-0 pt-0 order-lg-0 pb-0 ml-0 ml-md-3 ml-lg-4 mr-auto"
+      (click)="scrollPage('home')"
+    >
+      <img class="nav-icon" src="../../assets/lightLogo.png" />
+    </a>
+    <button
+      class="navbar-toggler text-light border-0 mt-2 pt-1 align-self-start"
+      (click)="navToggle()"
+      type="button"
+    >
+      <div *ngIf="sideNavStatus; else cross">
+        <i class="text-light fa-2x fa fa-times"></i>
+      </div>
+      <ng-template #cross>
+        <i class="text-light fa-2x fa fa-bars"></i>
+      </ng-template>
+    </button>
+    <div
+      [ngClass]="sideNavStatus ? 'open bg-dark-black' : ''"
+      class="collapse navbar-collapse mt-sm-9 mt-md-9 mt-lg-0 d-flex flex-column p-3 p-lg-0 flex-lg-row flex-xl-row justify-content-lg-end mobile-menu"
+      id="navbarSupportedContent"
+    >
+      <ul
+        class="navbar-nav align-self-stretch text-center text-sm-center text-md-left my-lg-2"
+      >
+        <li class="nav-item mx-3">
+          <a class="nav-link" (click)="scrollPage('carousel')">HOME</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" (click)="scrollPage('about')">ABOUT</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" (click)="scrollPage('products')">PRODUCTS</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" (click)="scrollPage('contact')">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
