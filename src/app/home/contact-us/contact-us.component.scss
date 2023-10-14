@@ -1,0 +1,33 @@
+.contact-container {
+  background-color: #2596be;
+  height: 400px;
+
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+  }
+
+  .contact-image {
+    margin-top: -33px;
+  }
+
+  input,
+  textarea {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 8px;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+  .contact-container {
+    height: auto;
+  }
+}
