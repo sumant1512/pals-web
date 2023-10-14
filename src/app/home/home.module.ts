@@ -10,6 +10,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { BannerComponent } from './banner/banner.component';
+import { ProductCardComponent } from './products/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BannerComponent } from './banner/banner.component';
     HomeHeaderComponent,
     HomeFooterComponent,
     BannerComponent,
+    ProductCardComponent,
   ],
   imports: [CommonModule, HomeRoutingModule],
 })
