@@ -26,21 +26,25 @@ a {
   padding-top: 14px;
   padding-bottom: 14px;
   font-weight: 500;
-  font-family: cursive;
+  font-family: sans-serif;
 }
 
 a:hover {
   color: #005192;
 }
 
-.contact {
-  background-color: blue;
-  padding: 4px 20px 4px 20px;
-  color: white;
-  border-radius: 25px;
-  font-weight: 500;
-  border: none;
-  font-family: cursive;
+.contact-link {
+  padding-top: 10px;
+
+  .contact {
+    background-color: blue;
+    padding: 4px 20px 4px 20px;
+    color: white;
+    border-radius: 25px;
+    font-weight: 500;
+    border: none;
+    font-family: sans-serif;
+  }
 }
 
 /* This is for I-pad view to open header as side nav */
