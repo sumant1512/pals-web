@@ -11,6 +11,7 @@ import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
     BannerComponent,
     ProductCardComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [CommonModule, HomeRoutingModule, FormsModule, ReactiveFormsModule],
 })
 export class HomeModule {}
