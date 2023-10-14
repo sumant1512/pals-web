@@ -17,7 +17,12 @@ export class HomeHeaderComponent {
   @Output() toggleStatus = new EventEmitter<IToggleStatusEvent>();
   @ViewChild('header', { static: false }) header!: ElementRef;
   scrollStatus: boolean = false;
-  sideNavStatus: boolean = false;
+  isHeaderOpen: boolean = false;
+  headerLinks = [
+    { label: 'Home', id: 'banner' },
+    { label: 'About', id: 'about' },
+    { label: 'Products', id: 'products' },
+  ];
   toggleDataEmit: IToggleStatusEvent = {
     toggleStatus: false,
     selectedPage: '',
@@ -44,12 +49,12 @@ export class HomeHeaderComponent {
 
   // this function is to open and close the scrollPage in mobile and i-pad view
   navToggle() {
-    this.sideNavStatus = !this.sideNavStatus;
+    this.isHeaderOpen = !this.isHeaderOpen;
   }
 
   // this function is for scrollPage of pages
   scrollPage(selectedPage: string) {
-    this.sideNavStatus = false; // this close the scrollPage bar for i-pad and mobile view.
+    this.isHeaderOpen = false; // this close the scrollPage bar for i-pad and mobile view.
     this.toggleDataEmit = {
       toggleStatus: false,
       selectedPage: selectedPage,

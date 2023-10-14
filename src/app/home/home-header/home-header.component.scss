@@ -1,12 +1,19 @@
-nav {
+nav,
+.header-container {
   background-color: white;
   height: 70px;
 }
 
-.nav-icon {
-  margin-top: 70px;
+.navbar-toggler {
+  margin-top: -50px;
+}
+
+.navbar-brand {
+  margin-top: 50px;
   width: 300px;
   height: 90px;
+  position: relative;
+  z-index: 9;
 }
 
 .nav-box-shadow {
@@ -36,29 +43,6 @@ a:hover {
   font-family: cursive;
 }
 
-/* This is for header animation for slide to down when page is scrolled */
-
-header {
-  z-index: 1030;
-}
-
-header.sticky {
-  animation: slide-down 0.7s;
-}
-
-@keyframes slide-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  100% {
-    opacity: 0.9;
-    transform: translateY(0);
-  }
-}
-
-/* Animation end */
-
 /* This is for I-pad view to open header as side nav */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -72,8 +56,15 @@ header.sticky {
     transition: all ease 0.7s;
   }
   .open {
-    width: 30%;
-    transform: translateX(0);
+    height: 100%;
+  }
+  .navbar-brand {
+    width: 225px;
+    height: 80px;
+    margin-top: 20px;
+  }
+  .navbar-toggler {
+    margin-top: -25px;
   }
 }
 
@@ -90,7 +81,14 @@ header.sticky {
     transition: all ease 0.7s;
   }
   .open {
-    width: 100%;
-    transform: translateX(0);
+    height: 100%;
+  }
+  .navbar-brand {
+    width: 185px;
+    height: 65px;
+    margin-top: 30px;
+  }
+  .navbar-toggler {
+    margin-top: -30px;
   }
 }
