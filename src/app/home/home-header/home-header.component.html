@@ -1,55 +1,62 @@
-<header
-  [ngClass]="
-    scrollStatus || sideNavStatus ? 'position-fixed' : 'position-relative'
-  "
-  class="w-100 text-center top-0"
+<nav
+  [ngClass]="{ 'nav-box-shadow': scrollStatus }"
+  class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 py-0"
   #header
 >
-  <nav
-    [ngClass]="{ 'nav-box-shadow': scrollStatus || sideNavStatus }"
-    class="navbar navbar-expand-lg navbar-dark justify-content-sm-start"
+  <div
+    [ngClass]="isHeaderOpen ? '' : 'header-container'"
+    class="container-fluid bg-light ps-0"
   >
-    <a
-      class="navbar-brand order-0 pt-0 order-lg-0 pb-0 ml-0 ml-md-3 ml-lg-4 mr-auto"
-      (click)="scrollPage('home')"
-    >
-      <img class="nav-icon" src="./../../../assets/header_logo.png" />
-    </a>
+    <img class="navbar-brand" src="./../../../assets/header_logo.png" />
     <button
-      class="navbar-toggler border-0 mt-2 pt-1 align-self-start"
-      (click)="navToggle()"
+      class="navbar-toggler"
       type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="navToggle()"
     >
-      <div *ngIf="sideNavStatus; else cross">
-        <i class="fa-2x fa fa-times"></i>
-      </div>
-      <ng-template #cross>
-        <i class="fa-2x fa fa-bars"></i>
-      </ng-template>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div
-      [ngClass]="sideNavStatus ? 'open bg-dark-black' : ''"
-      class="collapse navbar-collapse mt-sm-9 mt-md-9 mt-lg-0 d-flex flex-column p-3 p-lg-0 flex-lg-row flex-xl-row justify-content-lg-end mobile-menu"
-      id="navbarSupportedContent"
+      class="collapse navbar-collapse text-center text-lg-end"
+      id="navbarNav"
     >
-      <ul
-        class="navbar-nav align-self-stretch text-center text-sm-center text-md-left my-lg-2"
-      >
-        <li class="nav-item mx-3">
-          <a class="nav-link" (click)="scrollPage('banner')">HOME</a>
+      <ul class="navbar-nav float-lg-end">
+        <li class="nav-item" *ngFor="let link of headerLinks">
+          <a
+            class="nav-link active d-block d-lg-none"
+            aria-current="page"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            (click)="scrollPage(link.id)"
+            [innerHTML]="link.label"
+          ></a>
+          <a
+            class="nav-link active d-none d-lg-block"
+            aria-current="page"
+            (click)="scrollPage(link.id)"
+            [innerHTML]="link.label"
+          ></a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" (click)="scrollPage('about')">ABOUT</a>
+        <li class="nav-item d-block d-lg-none">
+          <a
+            class="nav-link"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            (click)="scrollPage('contact')"
+          >
+            <button type="button" class="contact">CONTACT</button></a
+          >
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" (click)="scrollPage('products')">PRODUCTS</a>
-        </li>
-        <li class="nav-item mx-3 me-5">
-          <a class="nav-link pt-2 me-5" (click)="scrollPage('contact')">
+        <li class="nav-item d-none d-lg-block">
+          <a class="nav-link" (click)="scrollPage('contact')">
             <button type="button" class="contact">CONTACT</button></a
           >
         </li>
       </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
