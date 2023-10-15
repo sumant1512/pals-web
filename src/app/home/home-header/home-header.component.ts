@@ -49,7 +49,13 @@ export class HomeHeaderComponent {
 
   // this function is to open and close the scrollPage in mobile and i-pad view
   navToggle() {
-    this.isHeaderOpen = !this.isHeaderOpen;
+    if (this.isHeaderOpen) {
+      setTimeout(() => {
+        this.isHeaderOpen = !this.isHeaderOpen;
+      }, 190);
+    } else {
+      this.isHeaderOpen = !this.isHeaderOpen;
+    }
   }
 
   // this function is for scrollPage of pages
