@@ -1,6 +1,5 @@
 .contact-container {
   background-color: #2596be;
-  height: 400px;
 
   .title {
     font-size: 32px;
@@ -33,11 +32,5 @@
     font-weight: 500;
     color: white;
     background-image: linear-gradient(to right, #3b008e, #158bcd);
-  }
-}
-
-@media only screen and (min-width: 300px) and (max-width: 767px) {
-  .contact-container {
-    height: auto;
   }
 }
