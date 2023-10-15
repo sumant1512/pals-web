@@ -1,14 +1,26 @@
 .customers-container {
   background-image: url("./../../../assets/cutomers_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   .testimonials-title {
     font-size: 32px;
     font-weight: bold;
     font-family: sans-serif;
     color: #005192;
+    margin-bottom: 16px;
+  }
+
+  .comma {
+    position: absolute;
+    top: 50px;
+    right: 0;
   }
 
   .inverted {
     transform: rotate(180deg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }

@@ -1,11 +1,172 @@
-<div class="container customers-container mb-5">
-  <div class="text-center text-md-start mb-4">
-    <p class="testimonials-title">Our Happy Customers</p>
-  </div>
+<div class="customers-container mb-5 py-5">
+  <div class="row">
+    <div class="col-1 position-relative">
+      <img
+        class="comma img-fluid"
+        src="./../../../assets/inverted_comma.png"
+        alt="comma"
+      />
+    </div>
 
-  <div><img src="./../../../assets/inverted_comma.png" alt="" /></div>
+    <div class="col-10">
+      <div class="text-center text-md-start mb-4">
+        <p class="testimonials-title">Our Happy Customers</p>
+      </div>
+      <div class="row d-none d-md-block">
+        <div
+          id="testimonialCarouselRide"
+          class="carousel slide carousel-fade"
+          data-bs-ride="true"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_1.jpeg'"
+                    [productName]="'Wall Primer (Interior)'"
+                  ></app-product-card>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_2.jpeg'"
+                    [productName]="'Wall Primer (Exterior)'"
+                  ></app-product-card>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_3.jpeg'"
+                    [productName]="'Acrylic Washable Distemper'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_4.jpeg'"
+                    [productName]="'Plastic Paint (Interior)'"
+                  ></app-product-card>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_5.jpeg'"
+                    [productName]="'Plastic Paint (Exterior)'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <div>
-    <img class="inverted" src="./../../../assets/inverted_comma.png" alt="" />
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarouselRide"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarouselRide"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="row d-block d-md-none">
+        <div
+          id="testimonialMobileCarouselRide"
+          class="carousel slide carousel-fade"
+          data-bs-ride="true"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_1.jpeg'"
+                    [productName]="'Wall Primer (Interior)'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_2.jpeg'"
+                    [productName]="'Wall Primer (Exterior)'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_3.jpeg'"
+                    [productName]="'Acrylic Washable Distemper'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_4.jpeg'"
+                    [productName]="'Plastic Paint (Interior)'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-product-card
+                    [productImage]="'./../../../assets/products/product_5.jpeg'"
+                    [productName]="'Plastic Paint (Exterior)'"
+                  ></app-product-card>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialMobileCarouselRide"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialMobileCarouselRide"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-1 position-relative">
+      <img
+        class="inverted img-fluid"
+        src="./../../../assets/inverted_comma.png"
+        alt="comma"
+      />
+    </div>
   </div>
 </div>
