@@ -2,8 +2,12 @@
   <div class="text-center text-md-start mb-4">
     <p class="products-title">Our Products</p>
   </div>
-  <div class="row">
-    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+  <div class="row d-none d-md-block">
+    <div
+      id="carouselExampleRide"
+      class="carousel slide carousel-fade"
+      data-bs-ride="true"
+    >
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row">
@@ -44,6 +48,7 @@
           </div>
         </div>
       </div>
+
       <button
         class="carousel-control-prev"
         type="button"
@@ -57,6 +62,86 @@
         class="carousel-control-next"
         type="button"
         data-bs-target="#carouselExampleRide"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row d-block d-md-none">
+    <div
+      id="carouselMobileRide"
+      class="carousel slide carousel-fade"
+      data-bs-ride="true"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+              <app-product-card
+                [productImage]="'./../../../assets/products/product_1.jpeg'"
+                [productName]="'Wall Primer (Interior)'"
+              ></app-product-card>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+              <app-product-card
+                [productImage]="'./../../../assets/products/product_2.jpeg'"
+                [productName]="'Wall Primer (Exterior)'"
+              ></app-product-card>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+              <app-product-card
+                [productImage]="'./../../../assets/products/product_3.jpeg'"
+                [productName]="'Acrylic Washable Distemper'"
+              ></app-product-card>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+              <app-product-card
+                [productImage]="'./../../../assets/products/product_4.jpeg'"
+                [productName]="'Plastic Paint (Interior)'"
+              ></app-product-card>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+              <app-product-card
+                [productImage]="'./../../../assets/products/product_5.jpeg'"
+                [productName]="'Plastic Paint (Exterior)'"
+              ></app-product-card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselMobileRide"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselMobileRide"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
