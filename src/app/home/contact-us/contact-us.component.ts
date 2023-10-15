@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactUsForm } from './contact-us.form';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 @Component({
   selector: 'app-contact-us',
@@ -12,6 +13,30 @@ export class ContactUsComponent {
   contact(): void {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value);
+      emailjs
+        .send(
+          'service_5vbppd5',
+          'template_q1tnor7',
+          {
+            firstName: this.contactForm.value.firstName,
+            lastName: this.contactForm.value.lastName,
+            email: this.contactForm.value.email,
+            phone: this.contactForm.value.phone,
+            message: this.contactForm.value.message,
+          },
+          'SxqZlqYGgxgAgw6he'
+        )
+        .then(
+          (response: EmailJSResponseStatus) => {
+            this.contactForm.reset();
+            alert('We will gwt back to you withing 24 hours.');
+          },
+          (error) => {
+            alert(
+              'Currently we are facing some problem. Please try after sometime.'
+            );
+          }
+        );
     }
   }
 }
