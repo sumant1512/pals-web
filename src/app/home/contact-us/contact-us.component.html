@@ -51,7 +51,7 @@
           </div>
           <div class="col-12 mb-3">
             <button
-              class="submit-btn"
+              class="pals-btn"
               type="submit"
               [disabled]="contactForm.invalid"
               (click)="contact()"
@@ -68,6 +68,33 @@
         src="./../../../assets/contact.png"
         alt=""
       />
+    </div>
+  </div>
+</div>
+
+<div
+  [ngClass]="{ 'show d-block': isModalOpen }"
+  class="modal fade modal-index"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title title">Pals Paint</h5>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="closeModal()"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">{{ modalMessage }}</div>
+      <div class="modal-footer">
+        <button type="button" class="pals-btn" (click)="closeModal()">
+          Close
+        </button>
+      </div>
     </div>
   </div>
 </div>

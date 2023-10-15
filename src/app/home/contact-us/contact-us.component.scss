@@ -24,14 +24,25 @@
   ::placeholder {
     color: white;
   }
+}
 
-  .submit-btn {
-    box-shadow: none;
-    border: none;
-    padding: 8px 24px;
-    border-radius: 25px;
-    font-weight: 500;
-    color: white;
-    background-image: linear-gradient(to right, #3b008e, #158bcd);
-  }
+.modal-index {
+  z-index: 9999;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #005192;
+}
+
+.pals-btn {
+  box-shadow: none;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 25px;
+  font-weight: 500;
+  color: white;
+  background-image: linear-gradient(to right, #3b008e, #158bcd);
 }
