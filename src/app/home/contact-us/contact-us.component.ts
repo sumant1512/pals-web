@@ -9,6 +9,12 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 })
 export class ContactUsComponent {
   contactForm = ContactUsForm();
+  isModalOpen = false;
+  modalMessage = '';
+
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
 
   contact(): void {
     if (this.contactForm.valid) {
@@ -29,12 +35,14 @@ export class ContactUsComponent {
         .then(
           (response: EmailJSResponseStatus) => {
             this.contactForm.reset();
-            alert('We will gwt back to you withing 24 hours.');
+            this.isModalOpen = true;
+            this.modalMessage =
+              'Thank you for contacting us. We will get back to you withing 24 hours.';
           },
           (error) => {
-            alert(
-              'Currently we are facing some problem. Please try after sometime.'
-            );
+            this.isModalOpen = true;
+            this.modalMessage =
+              'Thank you for trying to connect with us. Currently we are facing some problem. Please try after sometime.';
           }
         );
     }
