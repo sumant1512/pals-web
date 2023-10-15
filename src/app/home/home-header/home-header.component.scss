@@ -3,6 +3,7 @@ nav,
   background-color: white;
   height: 70px;
   z-index: 9999;
+  transition: all ease 5s;
 }
 
 .navbar-toggler {
@@ -67,9 +68,9 @@ a:hover {
     transform: translateX(-100%);
     transition: all ease 0.7s;
   }
-  .open {
-    height: 100%;
-  }
+  // .open {
+  //   height: 100%;
+  // }
   .navbar-brand {
     width: 225px;
     height: 80px;
@@ -92,9 +93,10 @@ a:hover {
     transform: translateX(-100%);
     transition: all ease 0.7s;
   }
-  .open {
-    height: 100%;
-  }
+  // .open {
+  //   height: 100%;
+  //   transition: all ease 0.7s;
+  // }
   .navbar-brand {
     width: 185px;
     height: 65px;
