@@ -12,6 +12,7 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TestimonialCardComponent } from './testimonials/testimonial-card/testimonial-card.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeFooterComponent,
     BannerComponent,
     ProductCardComponent,
+    TestimonialCardComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, FormsModule, ReactiveFormsModule],
 })

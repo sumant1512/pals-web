@@ -1,6 +1,6 @@
 <div class="customers-container mb-5 py-5">
-  <div class="row">
-    <div class="col-1 position-relative">
+  <div class="row mx-0">
+    <div class="col-lg-1 d-none d-lg-block position-relative">
       <img
         class="comma img-fluid"
         src="./../../../assets/inverted_comma.png"
@@ -8,7 +8,7 @@
       />
     </div>
 
-    <div class="col-10">
+    <div class="col-12 col-lg-10">
       <div class="text-center text-md-start mb-4">
         <p class="testimonials-title">Our Happy Customers</p>
       </div>
@@ -22,38 +22,31 @@
             <div class="carousel-item active">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_1.jpeg'"
-                    [productName]="'Wall Primer (Interior)'"
-                  ></app-product-card>
+                  <app-testimonial-card
+                    [userName]="'Mr. Jayesh Bajaj'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints exceeded my expectations with their exceptional exterior quality! Their paint not only transformed my home but also stood strong against the elements.'
+                    "
+                  ></app-testimonial-card>
                 </div>
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_2.jpeg'"
-                    [productName]="'Wall Primer (Exterior)'"
-                  ></app-product-card>
+                  <app-testimonial-card
+                    [userName]="'Mr. Rohit Birla'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints sets the gold standard for exterior quality! Their paint not only enhances the aesthetics of my property but also provides unmatched durability. Highly recommend their top-notch products!'
+                    "
+                  ></app-testimonial-card>
                 </div>
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_3.jpeg'"
-                    [productName]="'Acrylic Washable Distemper'"
-                  ></app-product-card>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_4.jpeg'"
-                    [productName]="'Plastic Paint (Interior)'"
-                  ></app-product-card>
-                </div>
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_5.jpeg'"
-                    [productName]="'Plastic Paint (Exterior)'"
-                  ></app-product-card>
+                  <app-testimonial-card
+                    [userName]="'Mr. Roshan Raj'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints deliver unmatched exterior quality! Their vibrant colors and long-lasting finish transformed my home into a masterpiece'
+                    "
+                  ></app-testimonial-card>
                 </div>
               </div>
             </div>
@@ -90,50 +83,39 @@
             <div class="carousel-item active">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_1.jpeg'"
-                    [productName]="'Wall Primer (Interior)'"
-                  ></app-product-card>
+                  <app-testimonial-card
+                    [userName]="'Mr. Jayesh Bajaj'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints exceeded my expectations with their exceptional exterior quality! Their paint not only transformed my home but also stood strong against the elements.'
+                    "
+                  ></app-testimonial-card>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_2.jpeg'"
-                    [productName]="'Wall Primer (Exterior)'"
-                  ></app-product-card>
+                  <app-testimonial-card
+                    [userName]="'Mr. Rohit Birla'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints sets the gold standard for exterior quality! Their paint not only enhances the aesthetics of my property but also provides unmatched durability. Highly recommend their top-notch products!'
+                    "
+                  ></app-testimonial-card>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_3.jpeg'"
-                    [productName]="'Acrylic Washable Distemper'"
-                  ></app-product-card>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_4.jpeg'"
-                    [productName]="'Plastic Paint (Interior)'"
-                  ></app-product-card>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                  <app-product-card
-                    [productImage]="'./../../../assets/products/product_5.jpeg'"
-                    [productName]="'Plastic Paint (Exterior)'"
-                  ></app-product-card>
+                  <app-testimonial-card
+                    [userName]="'Mr. Roshan Raj'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints deliver unmatched exterior quality! Their vibrant colors and long-lasting finish transformed my home into a masterpiece'
+                    "
+                  ></app-testimonial-card>
                 </div>
               </div>
             </div>
@@ -161,7 +143,7 @@
       </div>
     </div>
 
-    <div class="col-1 position-relative">
+    <div class="col-lg-1 d-none d-lg-block position-relative">
       <img
         class="inverted img-fluid"
         src="./../../../assets/inverted_comma.png"
