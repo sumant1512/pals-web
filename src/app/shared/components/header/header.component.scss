@@ -2,6 +2,10 @@
 
 @import "mq";
 
+.test {
+  display: block !important;
+}
+
 .header-container {
   background-color: var(--navbar-bg);
   border-bottom: 2px solid var(--separator-color);
