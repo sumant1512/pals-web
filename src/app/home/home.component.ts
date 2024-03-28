@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
-import { IToggleStatusEvent } from './home-header/home-header.interface';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { HeaderScrollService } from '../shared/services/header-scroll.service';
+import { Subscription } from 'rxjs';
+import { IToggleStatusEvent } from '../shared/interfaces/header-scroll.interface';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  subscription = new Subscription();
   status: boolean = false;
 
+  constructor(private headerScrollService: HeaderScrollService) {}
+
+  ngOnInit(): void {
+    this.subscription.add(
+      this.headerScrollService.toggleDataEmit.subscribe((resp) => {
+        this.toggleforHeader(resp);
+      })
+    );
+  }
+
   toggleforHeader(selectedPage: IToggleStatusEvent) {
-    console.log(selectedPage);
     this.smoothScrollToElementWithOffset(
       selectedPage.selectedPage as string,
       100
@@ -40,5 +52,9 @@ export class HomeComponent {
 
       window.requestAnimationFrame(scrollStep);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

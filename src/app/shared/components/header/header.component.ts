@@ -1,56 +1,65 @@
-import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { APP_ROUTES } from '../../constants/app-routes.constants';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { HeaderScrollService } from '../../services/header-scroll.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [CommonModule, RouterModule],
-  standalone: true,
 })
 export class HeaderComponent {
-  subscription = new Subscription();
-  appRoutes = APP_ROUTES;
-  bellItemCount = 1;
-  selectedRoute = APP_ROUTES.ADMIN.PARENT;
+  @ViewChild('header', { static: false }) header!: ElementRef;
+  scrollStatus: boolean = false;
+  isHeaderOpen: boolean = false;
+  headerLinks = [
+    { label: 'Home', id: 'banner' },
+    { label: 'About', id: 'about' },
+    { label: 'Products', id: 'products' },
+  ];
+  constructor(private headerScrollService: HeaderScrollService) {}
 
-  userInfo = {
-    img: './../../assets/userImg.png',
-    imgAlt: 'User',
-  };
+  ngOnInit() {}
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
-
-  getUserInfo(): void {}
-
-  toggleHamburger() {
-    const hamburger = document.getElementById('hamburger-9');
-    if (hamburger?.classList.contains('is-active')) {
-      hamburger.classList.remove('is-active');
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const number =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    if (number > 750) {
+      this.scrollStatus = true;
+      this.header.nativeElement.classList.add('sticky');
     } else {
-      hamburger?.classList.add('is-active');
+      this.scrollStatus = false;
+      this.header.nativeElement.classList.remove('sticky');
     }
   }
 
-  detectMobile(): boolean {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    return /(android|webos|iphone|ipod|blackberry|windows phone)/.test(
-      userAgent
-    );
+  // this function is to open and close the scrollPage in mobile and i-pad view
+  navToggle() {
+    if (this.isHeaderOpen) {
+      setTimeout(() => {
+        this.isHeaderOpen = !this.isHeaderOpen;
+      }, 190);
+    } else {
+      this.isHeaderOpen = !this.isHeaderOpen;
+    }
   }
 
-  navigateToPage(routePath: string): void {
-    if (this.detectMobile() && routePath) {
-      const headerContent = document.getElementById('navbarSupportedContent');
-      headerContent?.classList.remove('show');
-      this.toggleHamburger();
-    }
-    this.selectedRoute = routePath;
-    this.router.navigate([routePath]);
+  // this function is for scrollPage of pages
+  scrollPage(selectedPage: string) {
+    this.isHeaderOpen = false; // this close the scrollPage bar for i-pad and mobile view.
+    const toggleDataEmit = {
+      toggleStatus: false,
+      selectedPage: selectedPage,
+    };
+    this.headerScrollService.updateToggleData(toggleDataEmit);
   }
 }

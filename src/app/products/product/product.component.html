@@ -1,0 +1,74 @@
+<div class="container product-container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <img
+        class="img-fluid"
+        src="./../../../assets/products/product_1.jpeg"
+        alt=""
+      />
+    </div>
+    <div class="col-12 col-md-6">
+      <h3>Plastic paint</h3>
+      <div><span>-64%</span><span> ₹399</span></div>
+      <div><span>M.R.P.:</span><del>₹1,099</del></div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Select Shade
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Shades</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="shadeForm">
+          <ul>
+            <li *ngFor="let shade of shadeList">
+              <input
+                type="radio"
+                [value]="shade.colorCode"
+                [id]="shade.colorName"
+                formControlName="color"
+              />
+              <label
+                [for]="shade.colorName"
+                [style.backgroundColor]="shade.hexCode"
+              >
+              </label>
+              <label [for]="shade.colorName">{{ shade.colorName }}</label>
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
