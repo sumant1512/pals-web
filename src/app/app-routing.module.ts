@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: APP_ROUTES.PRODUCTS.PARENT,
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
+  },
+  {
     path: APP_ROUTES.LOGIN,
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
@@ -19,10 +24,19 @@ const routes: Routes = [
       import('./admin/admin.module').then((m) => m.AdminModule),
     // canActivate: [authGuard],
   },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

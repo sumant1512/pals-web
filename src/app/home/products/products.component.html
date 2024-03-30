@@ -1,6 +1,7 @@
 <div class="container mb-5">
-  <div class="text-center text-md-start mb-4">
+  <div class="products-heading mb-4 d-flex">
     <p class="products-title">Our Products</p>
+    <a [routerLink]="['/products']">View All</a>
   </div>
   <div class="row d-none d-md-block">
     <div
@@ -12,38 +13,48 @@
         <div class="carousel-item active">
           <div class="row">
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-              <app-product-card
-                [productImage]="'./../../../assets/products/product_1.jpeg'"
-                [productName]="'Wall Primer (Interior)'"
-              ></app-product-card>
+              <div (click)="this.navigateToProduct(1)">
+                <app-product-card
+                  [productImage]="'./../../../assets/products/product_1.jpeg'"
+                  [productName]="'Wall Primer (Interior)'"
+                ></app-product-card>
+              </div>
             </div>
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-              <app-product-card
-                [productImage]="'./../../../assets/products/product_2.jpeg'"
-                [productName]="'Wall Primer (Exterior)'"
-              ></app-product-card>
+              <div (click)="this.navigateToProduct(2)">
+                <app-product-card
+                  [productImage]="'./../../../assets/products/product_2.jpeg'"
+                  [productName]="'Wall Primer (Exterior)'"
+                ></app-product-card>
+              </div>
             </div>
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-              <app-product-card
-                [productImage]="'./../../../assets/products/product_3.jpeg'"
-                [productName]="'Acrylic Washable Distemper'"
-              ></app-product-card>
+              <div (click)="this.navigateToProduct(3)">
+                <app-product-card
+                  [productImage]="'./../../../assets/products/product_3.jpeg'"
+                  [productName]="'Acrylic Washable Distemper'"
+                ></app-product-card>
+              </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="row">
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-              <app-product-card
-                [productImage]="'./../../../assets/products/product_4.jpeg'"
-                [productName]="'Plastic Paint (Interior)'"
-              ></app-product-card>
+              <div (click)="this.navigateToProduct(4)">
+                <app-product-card
+                  [productImage]="'./../../../assets/products/product_4.jpeg'"
+                  [productName]="'Plastic Paint (Interior)'"
+                ></app-product-card>
+              </div>
             </div>
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-              <app-product-card
-                [productImage]="'./../../../assets/products/product_5.jpeg'"
-                [productName]="'Plastic Paint (Exterior)'"
-              ></app-product-card>
+              <div (click)="this.navigateToProduct(5)">
+                <app-product-card
+                  [productImage]="'./../../../assets/products/product_5.jpeg'"
+                  [productName]="'Plastic Paint (Exterior)'"
+                ></app-product-card>
+              </div>
             </div>
           </div>
         </div>

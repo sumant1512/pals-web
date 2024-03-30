@@ -1,6 +1,9 @@
 export const APP_ROUTES = {
   HOME: '',
   LOGIN: 'login',
+  PRODUCTS: {
+    PARENT: 'products',
+  },
   ADMIN: {
     PARENT: 'admin',
     CHILD_ROUTES: {
