@@ -32,7 +32,7 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Shades</h5>
@@ -45,8 +45,11 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="shadeForm">
-          <ul>
-            <li *ngFor="let shade of shadeList">
+          <div class="row mt-4">
+            <div
+              class="col-4 col-md-3 col-lg-2 text-center"
+              *ngFor="let shade of shadeList"
+            >
               <input
                 type="radio"
                 [value]="shade.colorCode"
@@ -56,11 +59,12 @@
               <label
                 [for]="shade.colorName"
                 [style.backgroundColor]="shade.hexCode"
+                class="mb-4 mx-auto"
               >
               </label>
               <label [for]="shade.colorName">{{ shade.colorName }}</label>
-            </li>
-          </ul>
+            </div>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
