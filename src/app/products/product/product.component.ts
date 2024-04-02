@@ -13,12 +13,12 @@ import {
 })
 export class ProductComponent implements OnInit {
   colorPallete = [
-    '#FF0000',
-    '#FFFF00',
-    '#41B3BC',
-    '#3c2e7f',
-    '#0000ff',
-    '#ff0073',
+    '#E2DED6',
+    '#4169E1',
+    '#9C5506',
+    '#ECE566',
+    '#9C41BB',
+    '#73AF00',
   ];
   colorFC = new FormControl<string>('#006BD8');
   shadeList: ColorShades[] = [];
