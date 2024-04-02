@@ -7,11 +7,26 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
+  productDetails = {
+    name: 'Plastic Paint',
+    type: 'Interior',
+    packetSize: [
+      { size: '1L', mrp: '319', discount: '30' },
+      { size: '4L', mrp: '999', discount: '30' },
+      { size: '10L', mrp: '1859', discount: '35' },
+      { size: '20L', mrp: '3199', discount: '30' },
+    ],
+    redPrice: '5',
+    greenPrice: '5',
+    bluePrice: '5',
+  };
+
+  selectedPacket = this.productDetails.packetSize[0];
   shadeList = [
     {
       colorCode: '8108',
-      colorName: 'Button Rose',
-      hexCode: 'rgb(242, 228, 223)',
+      colorName: 'Pink',
+      hexCode: 'rgb(100%, 75.3%, 79.6%)',
     },
     {
       colorCode: '5182',
@@ -32,5 +47,16 @@ export class ProductComponent implements OnInit {
     this.shadeForm.valueChanges.subscribe((resp) => {
       console.log(resp);
     });
+  }
+
+  selectPacket(selectedPacket: any): void {
+    this.selectedPacket = selectedPacket;
+  }
+
+  getDiscountedPrice(selectedPacket: any): string {
+    const mrp = parseFloat(selectedPacket.mrp);
+    const discountPercentage = parseFloat(selectedPacket.discount) / 100;
+    const discountedPrice = mrp - mrp * discountPercentage;
+    return discountedPrice.toString();
   }
 }
