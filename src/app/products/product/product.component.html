@@ -8,9 +8,23 @@
       />
     </div>
     <div class="col-12 col-md-6">
-      <h3>Plastic paint</h3>
-      <div><span>-64%</span><span> ₹399</span></div>
-      <div><span>M.R.P.:</span><del>₹1,099</del></div>
+      <h3>{{ productDetails.name }} ({{ productDetails.type }} )</h3>
+      <div>
+        <span>-{{ selectedPacket.discount }}%</span
+        ><span> ₹{{ getDiscountedPrice(selectedPacket) }}</span>
+      </div>
+      <div>
+        <span>M.R.P.:</span><del>₹{{ selectedPacket.mrp }}</del>
+      </div>
+
+      <button
+        type="button"
+        *ngFor="let packet of productDetails.packetSize"
+        (click)="selectPacket(packet)"
+      >
+        {{ packet.size }}
+      </button>
+
       <div>
         <button
           type="button"
