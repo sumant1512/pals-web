@@ -58,25 +58,34 @@
         ></button>
       </div>
       <div class="modal-body">
+        <div class="row">
+          <div
+            class="col-4 col-md-3 col-lg-2 color-pallete cursor-pointer"
+            *ngFor="let color of colorPallete"
+            (click)="selectColorPallete(color)"
+            [style.backgroundColor]="color"
+          ></div>
+        </div>
+
         <form [formGroup]="shadeForm">
           <div class="row mt-4">
             <div
               class="col-4 col-md-3 col-lg-2 text-center"
-              *ngFor="let shade of shadeList"
+              *ngFor="let shade of shadeList.slice(1, 10); let index = index"
             >
               <input
                 type="radio"
-                [value]="shade.colorCode"
-                [id]="shade.colorName"
+                [value]="shade.hex"
+                [id]="shade.shade"
                 formControlName="color"
               />
               <label
-                [for]="shade.colorName"
-                [style.backgroundColor]="shade.hexCode"
+                [for]="shade.shade"
+                [style.backgroundColor]="shade.hex"
                 class="mb-4 mx-auto"
               >
               </label>
-              <label [for]="shade.colorName">{{ shade.colorName }}</label>
+              <label [for]="shade.shade">{{ shade.shade }}</label>
             </div>
           </div>
         </form>

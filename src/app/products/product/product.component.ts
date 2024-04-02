@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import {
+  ColorShades,
+  getShadesFormHex,
+  getThemeColorShades,
+} from './shade.helper';
 
 @Component({
   selector: 'app-product',
@@ -7,6 +12,18 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
+  colorPallete = [
+    '#FF0000',
+    '#FFFF00',
+    '#41B3BC',
+    '#3c2e7f',
+    '#0000ff',
+    '#ff0073',
+  ];
+  colorFC = new FormControl<string>('#006BD8');
+  shadeList: ColorShades[] = [];
+  themeColors: any;
+
   productDetails = {
     name: 'Plastic Paint',
     type: 'Interior',
@@ -22,31 +39,21 @@ export class ProductComponent implements OnInit {
   };
 
   selectedPacket = this.productDetails.packetSize[0];
-  shadeList = [
-    {
-      colorCode: '8108',
-      colorName: 'Pink',
-      hexCode: 'rgb(100%, 75.3%, 79.6%)',
-    },
-    {
-      colorCode: '5182',
-      colorName: 'Lucid Dream',
-      hexCode: '#E7D3D3',
-    },
-    {
-      colorCode: '9607',
-      colorName: 'Purple Galaxy-N',
-      hexCode: 'rgb(101, 71, 99)',
-    },
-  ];
+
   shadeForm = new FormGroup({
     color: new FormControl(''),
   });
 
   ngOnInit(): void {
+    this.createShade();
     this.shadeForm.valueChanges.subscribe((resp) => {
       console.log(resp);
     });
+  }
+
+  selectColorPallete(color: string): void {
+    this.colorFC.setValue(color);
+    this.createShade();
   }
 
   selectPacket(selectedPacket: any): void {
@@ -58,5 +65,10 @@ export class ProductComponent implements OnInit {
     const discountPercentage = parseFloat(selectedPacket.discount) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
     return discountedPrice.toString();
+  }
+
+  createShade(): void {
+    this.shadeList = getShadesFormHex(this.colorFC.value as string);
+    this.themeColors = getThemeColorShades(this.shadeList);
   }
 }
