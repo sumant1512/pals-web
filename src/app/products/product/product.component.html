@@ -35,6 +35,11 @@
           Select Shade
         </button>
       </div>
+
+      <div *ngFor="let packet of selectedPacketList">
+        <span>Size: {{ packet.size }} </span>
+        <span>Color: {{ packet.color }}</span>
+      </div>
     </div>
   </div>
 </div>
@@ -49,7 +54,10 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Shades</h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          Select shade for
+          <span class="fw-bold">{{ selectedPacket.size }}</span>
+        </h5>
         <button
           type="button"
           class="btn-close"
@@ -70,7 +78,7 @@
         <form [formGroup]="shadeForm">
           <div class="row mt-4">
             <div
-              class="col-4 col-md-3 col-lg-2 text-center"
+              class="col-4 col-md-3 col-lg-2 text-center mb-5"
               *ngFor="let shade of shadeList.slice(1, 10); let index = index"
             >
               <input
@@ -82,7 +90,7 @@
               <label
                 [for]="shade.shade"
                 [style.backgroundColor]="shade.hex"
-                class="mb-4 mx-auto"
+                class="mb-3 mx-auto"
               >
               </label>
               <label [for]="shade.shade">{{ shade.shade }}</label>
@@ -92,9 +100,16 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
+          Cancel
         </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="add()"
+        >
+          Add
+        </button>
       </div>
     </div>
   </div>

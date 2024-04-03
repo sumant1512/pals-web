@@ -39,6 +39,7 @@ export class ProductComponent implements OnInit {
   };
 
   selectedPacket = this.productDetails.packetSize[0];
+  selectedPacketList: Array<any> = [];
 
   shadeForm = new FormGroup({
     color: new FormControl(''),
@@ -48,6 +49,13 @@ export class ProductComponent implements OnInit {
     this.createShade();
     this.shadeForm.valueChanges.subscribe((resp) => {
       console.log(resp);
+    });
+  }
+
+  add(): void {
+    this.selectedPacketList.push({
+      ...this.selectedPacket,
+      color: this.shadeForm.value.color || '#FFFFFF',
     });
   }
 
