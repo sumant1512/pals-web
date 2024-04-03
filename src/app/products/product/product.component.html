@@ -39,13 +39,14 @@
 
       <div class="center mt-4" *ngFor="let packet of selectedPacketList">
         <span class="me-3">Size: {{ packet.size }} </span>
-        <span class="center"
+        <span class="center me-3"
           >Color:
           <span
             class="selected-color-box ms-2"
             [style.backgroundColor]="packet.color"
           ></span>
         </span>
+        <span>Price: ₹{{ getDiscountedPrice(packet) }}</span>
       </div>
     </div>
   </div>
