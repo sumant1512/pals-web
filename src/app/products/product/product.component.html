@@ -18,6 +18,7 @@
       </div>
 
       <button
+        class="mt-3"
         type="button"
         *ngFor="let packet of productDetails.packetSize"
         (click)="selectPacket(packet)"
@@ -25,7 +26,7 @@
         {{ packet.size }}
       </button>
 
-      <div>
+      <div class="mt-3">
         <button
           type="button"
           class="btn btn-primary"
@@ -36,9 +37,15 @@
         </button>
       </div>
 
-      <div *ngFor="let packet of selectedPacketList">
-        <span>Size: {{ packet.size }} </span>
-        <span>Color: {{ packet.color }}</span>
+      <div class="center mt-4" *ngFor="let packet of selectedPacketList">
+        <span class="me-3">Size: {{ packet.size }} </span>
+        <span class="center"
+          >Color:
+          <span
+            class="selected-color-box ms-2"
+            [style.backgroundColor]="packet.color"
+          ></span>
+        </span>
       </div>
     </div>
   </div>
