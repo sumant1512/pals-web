@@ -38,6 +38,6 @@ export class ProductsComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   navigateToProduct(id: number): void {
-    this.router.navigate([1], { relativeTo: this.activatedRoute });
+    this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
 }

@@ -5,6 +5,10 @@ import {
   getShadesFormHex,
   getThemeColorShades,
 } from './shade.helper';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../products.service';
+import { IPacket, IProduct } from '../products.interface';
+import { COLOIR_PALLETE } from '../products.const';
 
 @Component({
   selector: 'app-product',
@@ -12,44 +16,39 @@ import {
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  colorPallete = [
-    '#E2DED6',
-    '#4169E1',
-    '#9C5506',
-    '#ECE566',
-    '#9C41BB',
-    '#73AF00',
-  ];
+  colorPallete = COLOIR_PALLETE;
   colorFC = new FormControl<string>('#006BD8');
   shadeList: ColorShades[] = [];
   themeColors: any;
 
-  productDetails = {
-    name: 'Plastic Paint',
-    type: 'Interior',
-    packetSize: [
-      { size: '1L', mrp: '319', discount: '30' },
-      { size: '4L', mrp: '999', discount: '30' },
-      { size: '10L', mrp: '1859', discount: '35' },
-      { size: '20L', mrp: '3199', discount: '30' },
-    ],
-    redPrice: '5',
-    greenPrice: '5',
-    bluePrice: '5',
-  };
-
-  selectedPacket = this.productDetails.packetSize[0];
+  productDetails!: IProduct;
+  selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
 
   shadeForm = new FormGroup({
     color: new FormControl(''),
   });
 
+  constructor(
+    private route: ActivatedRoute,
+    private productsService: ProductsService
+  ) {}
+
   ngOnInit(): void {
-    this.createShade();
-    this.shadeForm.valueChanges.subscribe((resp) => {
-      console.log(resp);
+    this.getProduct(parseInt(this.route.snapshot.params['id']));
+  }
+
+  getProduct(id: number): void {
+    this.productsService.fetchProduct(id).subscribe((response) => {
+      if (response?.id) {
+        this.productDetails = response;
+        this.selectPacket(this.productDetails.packetSize[0]);
+      }
     });
+  }
+
+  getImagePath(imageName: string): string {
+    return `./../../../assets/products/${imageName}`;
   }
 
   add(): void {
@@ -64,7 +63,7 @@ export class ProductComponent implements OnInit {
     this.createShade();
   }
 
-  selectPacket(selectedPacket: any): void {
+  selectPacket(selectedPacket: IPacket): void {
     this.selectedPacket = selectedPacket;
   }
 
@@ -72,7 +71,7 @@ export class ProductComponent implements OnInit {
     const mrp = parseFloat(selectedPacket.mrp);
     const discountPercentage = parseFloat(selectedPacket.discount) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
-    return discountedPrice.toString();
+    return discountedPrice.toFixed(2).toString();
   }
 
   createShade(): void {
