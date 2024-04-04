@@ -54,8 +54,15 @@ export class ProductComponent implements OnInit {
   add(): void {
     this.selectedPacketList.push({
       ...this.selectedPacket,
+      productId: this.productDetails.id,
+      soldPrice: this.getDiscountedPrice(this.selectedPacket),
       color: this.shadeForm.value.color || '#FFFFFF',
     });
+  }
+
+  addToCart(): void {
+    console.log(this.selectedPacketList);
+    this.selectedPacketList.length = 0;
   }
 
   selectColorPallete(color: string): void {
@@ -67,7 +74,7 @@ export class ProductComponent implements OnInit {
     this.selectedPacket = selectedPacket;
   }
 
-  getDiscountedPrice(selectedPacket: any): string {
+  getDiscountedPrice(selectedPacket: IPacket): string {
     const mrp = parseFloat(selectedPacket.mrp);
     const discountPercentage = parseFloat(selectedPacket.discount) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
