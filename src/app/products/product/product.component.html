@@ -1,14 +1,14 @@
-<div class="container product-container">
+<div *ngIf="productDetails?.id" class="container product-container">
   <div class="row">
     <div class="col-12 col-md-6">
       <img
         class="img-fluid"
-        src="./../../../assets/products/product_1.jpeg"
+        [src]="getImagePath(productDetails.imgName)"
         alt=""
       />
     </div>
     <div class="col-12 col-md-6">
-      <h3>{{ productDetails.name }} ({{ productDetails.type }} )</h3>
+      <h3>{{ productDetails.name }} ({{ productDetails.type }})</h3>
       <div>
         <span>-{{ selectedPacket.discount }}%</span
         ><span> ₹{{ getDiscountedPrice(selectedPacket) }}</span>
@@ -32,6 +32,7 @@
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
+          (click)="createShade()"
         >
           Select Shade
         </button>
