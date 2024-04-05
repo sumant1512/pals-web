@@ -11,4 +11,5 @@ export interface IProduct {
   imgName: string;
   packetSize: Array<IPacket>;
   pigmentPrice: string;
+  isShadeEnabled: boolean;
 }

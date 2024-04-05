@@ -17,6 +17,7 @@ export class ProductsService {
         { size: '10L', mrp: '1259', discount: '35' },
         { size: '20L', mrp: '2199', discount: '30' },
       ],
+      isShadeEnabled: false,
     },
     {
       id: 2,
@@ -29,6 +30,7 @@ export class ProductsService {
         { size: '10L', mrp: '2459', discount: '35' },
         { size: '20L', mrp: '4299', discount: '30' },
       ],
+      isShadeEnabled: false,
     },
     {
       id: 3,
@@ -42,6 +44,7 @@ export class ProductsService {
         { size: '20L', mrp: '899', discount: '30' },
       ],
       pigmentPrice: '5',
+      isShadeEnabled: true,
     },
     {
       id: 4,
@@ -55,6 +58,7 @@ export class ProductsService {
         { size: '20L', mrp: '3199', discount: '30' },
       ],
       pigmentPrice: '5',
+      isShadeEnabled: true,
     },
     {
       id: 5,
@@ -68,6 +72,7 @@ export class ProductsService {
         { size: '20L', mrp: '6299', discount: '30' },
       ],
       pigmentPrice: '5',
+      isShadeEnabled: true,
     },
   ];
 
