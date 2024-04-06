@@ -38,7 +38,7 @@ export class TryOnDialogComponent implements AfterViewInit {
     canvasEl.height = this.height;
 
     this.cx.lineCap = 'round';
-    this.cx.lineWidth = 50;
+    this.cx.lineWidth = 30;
     this.cx.strokeStyle = 'red';
 
     this.captureEvents(canvasEl);
