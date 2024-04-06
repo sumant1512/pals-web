@@ -1,5 +1,10 @@
-<div *ngIf="productDetails?.id" class="container product-container">
-  <div class="row">
+<div class="container product-container">
+  <div class="mb-4">
+    <span><a [routerLink]="['']">Home</a> / </span>
+    <span><a [routerLink]="'../'">Products</a> / </span>
+    <span>{{ productDetails.name }}</span>
+  </div>
+  <div *ngIf="productDetails?.id" class="row">
     <div class="col-12 col-md-6">
       <img
         class="img-fluid"
