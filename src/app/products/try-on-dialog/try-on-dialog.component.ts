@@ -18,11 +18,21 @@ export class TryOnDialogComponent implements AfterViewInit {
   @Input() public width = 400;
   @Input() public height = 400;
 
+  image = new Image();
+
   private cx!: CanvasRenderingContext2D;
 
   public ngAfterViewInit() {
+    this.image.src = './../../../assets/house.jpeg';
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
     this.cx = canvasEl.getContext('2d') as any;
+
+    this.cx.fillRect(20, 20, 150, 100);
+
+    this.image.onload = () => {
+      console.log('image has loaded!');
+      this.cx.drawImage(this.image, 0, 0);
+    };
 
     canvasEl.width = this.width;
     canvasEl.height = this.height;
