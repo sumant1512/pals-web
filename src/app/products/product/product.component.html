@@ -37,11 +37,19 @@
       <div *ngIf="productDetails.isShadeEnabled" class="mt-3">
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary me-3"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          data-bs-target="#shadeModal"
         >
           Select Shade
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#tryOnModal"
+        >
+          Try On
         </button>
       </div>
 
@@ -75,3 +83,5 @@
   [selectedPacket]="selectedPacket"
   (addShade)="add($event)"
 ></app-shade-dialog>
+
+<app-try-on-dialog></app-try-on-dialog>

@@ -6,9 +6,10 @@ import { ProductsComponent } from './products.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './product/product.component';
 import { ShadeDialogComponent } from './shade-dialog/shade-dialog.component';
+import { TryOnDialogComponent } from './try-on-dialog/try-on-dialog.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductComponent, ShadeDialogComponent],
+  declarations: [ProductsComponent, ProductComponent, ShadeDialogComponent, TryOnDialogComponent],
   imports: [CommonModule, ProductsRoutingModule, SharedModule],
 })
 export class ProductsModule {}
