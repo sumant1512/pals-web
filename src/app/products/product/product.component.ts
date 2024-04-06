@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import {
-  ColorShades,
-  getShadesFormHex,
-  getThemeColorShades,
-} from './shade.helper';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
 import { IPacket, IProduct } from '../products.interface';
-import { COLOIR_PALLETE } from '../products.const';
 
 @Component({
   selector: 'app-product',
@@ -16,18 +9,9 @@ import { COLOIR_PALLETE } from '../products.const';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  colorPallete = COLOIR_PALLETE;
-  colorFC = new FormControl<string>('#006BD8');
-  shadeList: ColorShades[] = [];
-  themeColors: any;
-
   productDetails!: IProduct;
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
-
-  shadeForm = new FormGroup({
-    color: new FormControl(''),
-  });
 
   constructor(
     private route: ActivatedRoute,
@@ -51,23 +35,18 @@ export class ProductComponent implements OnInit {
     return `./../../../assets/products/${imageName}`;
   }
 
-  add(): void {
+  add(shade: string): void {
     this.selectedPacketList.push({
       ...this.selectedPacket,
       productId: this.productDetails.id,
       soldPrice: this.getDiscountedPrice(this.selectedPacket),
-      color: this.shadeForm.value.color || '#FFFFFF',
+      color: shade,
     });
   }
 
   addToCart(): void {
     console.log(this.selectedPacketList);
     this.selectedPacketList.length = 0;
-  }
-
-  selectColorPallete(color: string): void {
-    this.colorFC.setValue(color);
-    this.createShade();
   }
 
   selectPacket(selectedPacket: IPacket): void {
@@ -79,10 +58,5 @@ export class ProductComponent implements OnInit {
     const discountPercentage = parseFloat(selectedPacket.discount) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
     return discountedPrice.toFixed(2).toString();
-  }
-
-  createShade(): void {
-    this.shadeList = getShadesFormHex(this.colorFC.value as string);
-    this.themeColors = getThemeColorShades(this.shadeList);
   }
 }

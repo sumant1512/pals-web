@@ -40,7 +40,6 @@
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
-          (click)="createShade()"
         >
           Select Shade
         </button>
@@ -72,73 +71,7 @@
   </div>
 </div>
 
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          Select shade for
-          <span class="fw-bold">{{ selectedPacket.size }}</span>
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div
-            class="col-4 col-md-3 col-lg-2 color-pallete cursor-pointer"
-            *ngFor="let color of colorPallete"
-            (click)="selectColorPallete(color)"
-            [style.backgroundColor]="color"
-          ></div>
-        </div>
-
-        <form [formGroup]="shadeForm">
-          <div class="row mt-4">
-            <div
-              class="col-4 col-md-3 col-lg-2 text-center mb-5"
-              *ngFor="let shade of shadeList.slice(1, 10); let index = index"
-            >
-              <input
-                type="radio"
-                [value]="shade.hex"
-                [id]="shade.shade"
-                formControlName="color"
-              />
-              <label
-                [for]="shade.shade"
-                [style.backgroundColor]="shade.hex"
-                class="mb-3 mx-auto"
-              >
-              </label>
-              <label [for]="shade.shade">{{ shade.shade }}</label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cancel
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-dismiss="modal"
-          (click)="add()"
-        >
-          Add
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-shade-dialog
+  [selectedPacket]="selectedPacket"
+  (addShade)="add($event)"
+></app-shade-dialog>
