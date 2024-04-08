@@ -19,7 +19,12 @@
         ></button>
       </div>
       <div class="modal-body text-center">
-        <canvas #canvas></canvas>
+        <canvas
+          (mousedown)="onMouseDown($event)"
+          (mousemove)="onMouseMove($event)"
+          (mouseup)="onMouseUp($event)"
+          #canvas
+        ></canvas>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="clearCanvas()">

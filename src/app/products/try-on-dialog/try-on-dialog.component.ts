@@ -1,11 +1,13 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { fromEvent, pairwise, switchMap, takeUntil } from 'rxjs';
+
+export interface Shape {
+  type: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
 
 @Component({
   selector: 'app-try-on-dialog',
@@ -13,39 +15,102 @@ import { fromEvent, pairwise, switchMap, takeUntil } from 'rxjs';
   styleUrls: ['./try-on-dialog.component.scss'],
 })
 export class TryOnDialogComponent implements AfterViewInit {
+  constructor() {}
+
   @ViewChild('canvas') public canvas!: ElementRef;
 
-  @Input() public width = 400;
-  @Input() public height = 400;
+  width = 400;
+  height = 400;
+  backgroundImage = new Image();
+  isDrawing: boolean = false;
 
-  image = new Image();
-
-  private cx!: CanvasRenderingContext2D;
+  context!: CanvasRenderingContext2D;
+  startX!: number;
+  startY!: number;
+  lines: { startX: number; startY: number; endX: number; endY: number }[] = [];
 
   public ngAfterViewInit() {
-    this.image.src = './../../../assets/house.jpeg';
+    this.backgroundImage.src = './../../../assets/house.jpeg';
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
-    this.cx = canvasEl.getContext('2d') as any;
+    this.context = canvasEl.getContext('2d') as any;
 
-    this.cx.fillRect(20, 20, 150, 100);
+    this.context.fillRect(20, 20, 150, 100);
 
-    this.image.onload = () => {
-      console.log('image has loaded!');
-      this.cx.drawImage(this.image, 0, 0);
+    this.backgroundImage.onload = () => {
+      this.drawBackgroundImage();
+      this.redrawLines();
     };
 
     canvasEl.width = this.width;
     canvasEl.height = this.height;
 
-    this.cx.lineCap = 'round';
-    this.cx.lineWidth = 30;
-    this.cx.strokeStyle = 'red';
+    // this.cx.lineCap = 'round';
+    // this.cx.lineWidth = 30;
+    // this.cx.strokeStyle = 'red';
 
-    this.captureEvents(canvasEl);
+    // this.captureEvents(canvasEl);
+  }
+
+  redrawLines(): void {
+    this.context.clearRect(
+      0,
+      0,
+      this.canvas.nativeElement.width,
+      this.canvas.nativeElement.height
+    );
+    this.drawBackgroundImage();
+    this.lines.forEach((line) => {
+      this.context.beginPath();
+      this.context.moveTo(line.startX, line.startY);
+      this.context.lineTo(line.endX, line.endY);
+      this.context.stroke();
+    });
+  }
+
+  onMouseDown(event: MouseEvent): void {
+    this.isDrawing = true;
+    this.startX = event.offsetX;
+    this.startY = event.offsetY;
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    if (!this.isDrawing) return;
+    const endX = event.offsetX;
+    const endY = event.offsetY;
+    this.redrawLines();
+    this.context.beginPath();
+    this.context.moveTo(this.startX, this.startY);
+    this.context.lineTo(endX, endY);
+    this.context.stroke();
+  }
+
+  onMouseUp(event: MouseEvent): void {
+    if (this.isDrawing) {
+      const endX = event.offsetX;
+      const endY = event.offsetY;
+      this.lines.push({
+        startX: this.startX,
+        startY: this.startY,
+        endX: endX,
+        endY: endY,
+      });
+      this.isDrawing = false;
+    }
   }
 
   clearCanvas(): void {
-    this.cx.clearRect(0, 0, this.width, this.height);
+    this.context.clearRect(0, 0, this.width, this.height);
+    this.drawBackgroundImage();
+  }
+
+  drawBackgroundImage(): void {
+    this.context.drawImage(
+      this.backgroundImage,
+      0,
+      0,
+      this.canvas.nativeElement.width,
+      this.canvas.nativeElement.height
+    );
   }
 
   private captureEvents(canvasEl: HTMLCanvasElement) {
@@ -55,7 +120,7 @@ export class TryOnDialogComponent implements AfterViewInit {
           return fromEvent(canvasEl, 'mousemove').pipe(
             takeUntil(fromEvent(canvasEl, 'mouseup')),
             takeUntil(fromEvent(canvasEl, 'mouseleave')),
-            pairwise() /* Return the previous and last values as array */
+            pairwise()
           );
         })
       )
@@ -80,16 +145,16 @@ export class TryOnDialogComponent implements AfterViewInit {
     prevPos: { x: number; y: number },
     currentPos: { x: number; y: number }
   ) {
-    if (!this.cx) {
+    if (!this.context) {
       return;
     }
 
-    this.cx.beginPath();
+    this.context.beginPath();
 
     if (prevPos) {
-      this.cx.moveTo(prevPos.x, prevPos.y); // from
-      this.cx.lineTo(currentPos.x, currentPos.y);
-      this.cx.stroke();
+      this.context.moveTo(prevPos.x, prevPos.y);
+      this.context.lineTo(currentPos.x, currentPos.y);
+      this.context.stroke();
     }
   }
 }
