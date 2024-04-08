@@ -23,10 +23,18 @@
           (mousedown)="onMouseDown($event)"
           (mousemove)="onMouseMove($event)"
           (mouseup)="onMouseUp($event)"
+          (click)="fillSelectedShape($event)"
           #canvas
         ></canvas>
       </div>
       <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="activateFillColor()"
+        >
+          Fill Color
+        </button>
         <button type="button" class="btn btn-secondary" (click)="clearCanvas()">
           Reset
         </button>
