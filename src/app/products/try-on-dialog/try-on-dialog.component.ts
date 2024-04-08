@@ -57,8 +57,7 @@ export class TryOnDialogComponent implements AfterViewInit {
   }
 
   onMouseMove(event: MouseEvent): void {
-    if (this.isFillColorActive) return;
-    if (!this.isDrawing) return;
+    if (!this.isDrawing || this.isFillColorActive) return;
     const endX = event.offsetX;
     const endY = event.offsetY;
     this.redrawLines();
@@ -83,7 +82,6 @@ export class TryOnDialogComponent implements AfterViewInit {
     }
     if (this.lines.length === 4) {
       this.shapes.push({ shape: this.lines });
-      this.context.clearRect(0, 0, this.width, this.height);
       this.drawBackgroundImage();
       this.drawShape(this.shapes);
       this.lines = [];
@@ -91,13 +89,8 @@ export class TryOnDialogComponent implements AfterViewInit {
   }
 
   redrawLines(): void {
-    this.context.clearRect(
-      0,
-      0,
-      this.canvas.nativeElement.width,
-      this.canvas.nativeElement.height
-    );
     this.drawBackgroundImage();
+    this.drawShape(this.shapes);
     this.lines.forEach((line) => {
       this.context.beginPath();
       this.context.moveTo(line.startX, line.startY);
@@ -107,13 +100,8 @@ export class TryOnDialogComponent implements AfterViewInit {
   }
 
   drawBackgroundImage(): void {
-    this.context.drawImage(
-      this.backgroundImage,
-      0,
-      0,
-      this.canvas.nativeElement.width,
-      this.canvas.nativeElement.height
-    );
+    this.context.clearRect(0, 0, this.width, this.height);
+    this.context.drawImage(this.backgroundImage, 0, 0, this.width, this.height);
   }
 
   drawShape(shapes: Array<Shape>): void {
