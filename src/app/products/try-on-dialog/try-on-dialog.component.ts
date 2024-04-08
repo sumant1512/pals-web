@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { fromEvent, pairwise, switchMap, takeUntil } from 'rxjs';
 
+export interface Lines {
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+}
 export interface Shape {
-  type: string;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
+  shape: Array<Lines>;
 }
 
 @Component({
@@ -27,7 +29,8 @@ export class TryOnDialogComponent implements AfterViewInit {
   context!: CanvasRenderingContext2D;
   startX!: number;
   startY!: number;
-  lines: { startX: number; startY: number; endX: number; endY: number }[] = [];
+  lines: Array<Lines> = [];
+  shapes: Array<Shape> = [];
 
   public ngAfterViewInit() {
     this.backgroundImage.src = './../../../assets/house.jpeg';
@@ -43,28 +46,6 @@ export class TryOnDialogComponent implements AfterViewInit {
 
     canvasEl.width = this.width;
     canvasEl.height = this.height;
-
-    // this.cx.lineCap = 'round';
-    // this.cx.lineWidth = 30;
-    // this.cx.strokeStyle = 'red';
-
-    // this.captureEvents(canvasEl);
-  }
-
-  redrawLines(): void {
-    this.context.clearRect(
-      0,
-      0,
-      this.canvas.nativeElement.width,
-      this.canvas.nativeElement.height
-    );
-    this.drawBackgroundImage();
-    this.lines.forEach((line) => {
-      this.context.beginPath();
-      this.context.moveTo(line.startX, line.startY);
-      this.context.lineTo(line.endX, line.endY);
-      this.context.stroke();
-    });
   }
 
   onMouseDown(event: MouseEvent): void {
@@ -96,11 +77,29 @@ export class TryOnDialogComponent implements AfterViewInit {
       });
       this.isDrawing = false;
     }
+    if (this.lines.length === 4) {
+      this.shapes.push({ shape: this.lines });
+      this.context.clearRect(0, 0, this.width, this.height);
+      this.drawBackgroundImage();
+      this.drawShape(this.shapes);
+      this.lines = [];
+    }
   }
 
-  clearCanvas(): void {
-    this.context.clearRect(0, 0, this.width, this.height);
+  redrawLines(): void {
+    this.context.clearRect(
+      0,
+      0,
+      this.canvas.nativeElement.width,
+      this.canvas.nativeElement.height
+    );
     this.drawBackgroundImage();
+    this.lines.forEach((line) => {
+      this.context.beginPath();
+      this.context.moveTo(line.startX, line.startY);
+      this.context.lineTo(line.endX, line.endY);
+      this.context.stroke();
+    });
   }
 
   drawBackgroundImage(): void {
@@ -113,48 +112,73 @@ export class TryOnDialogComponent implements AfterViewInit {
     );
   }
 
-  private captureEvents(canvasEl: HTMLCanvasElement) {
-    fromEvent(canvasEl, 'mousedown')
-      .pipe(
-        switchMap((e) => {
-          return fromEvent(canvasEl, 'mousemove').pipe(
-            takeUntil(fromEvent(canvasEl, 'mouseup')),
-            takeUntil(fromEvent(canvasEl, 'mouseleave')),
-            pairwise()
-          );
-        })
-      )
-      .subscribe(([mouseEvent, mouseEvent1]) => {
-        const rect = canvasEl.getBoundingClientRect();
-
-        const prevPos = {
-          x: (mouseEvent as MouseEvent).clientX - rect.left,
-          y: (mouseEvent as MouseEvent).clientY - rect.top,
-        };
-
-        const currentPos = {
-          x: (mouseEvent1 as MouseEvent).clientX - rect.left,
-          y: (mouseEvent1 as MouseEvent).clientY - rect.top,
-        };
-
-        this.drawOnCanvas(prevPos, currentPos);
+  drawShape(shapes: Array<Shape>): void {
+    this.context.beginPath();
+    shapes.forEach((element) => {
+      element.shape.forEach((line, i) => {
+        if (i > 0) {
+          element.shape[i].startX = element.shape[i - 1].endX;
+          element.shape[i].startY = element.shape[i - 1].endY;
+        }
+        if (i === element.shape.length - 1) {
+          element.shape[element.shape.length - 1].endX =
+            element.shape[0].startX;
+          element.shape[element.shape.length - 1].endY =
+            element.shape[0].startY;
+        }
+        this.context.moveTo(line.startX, line.startY);
+        this.context.lineTo(line.endX, line.endY);
       });
+    });
+    this.context.closePath();
+    this.context.stroke();
   }
 
-  private drawOnCanvas(
-    prevPos: { x: number; y: number },
-    currentPos: { x: number; y: number }
-  ) {
-    if (!this.context) {
-      return;
-    }
+  fillSelectedShape(event: MouseEvent): void {
+    const x = event.offsetX;
+    const y = event.offsetY;
+    const color = 'blue'; // Set the fill color
 
-    this.context.beginPath();
+    // this.shapes.forEach((shape) => {
+    //   if (
+    //     shape.type === 'rectangle' &&
+    //     x >= shape.x &&
+    //     x <= shape.x + (shape.width as number) &&
+    //     y >= shape.y &&
+    //     y <= shape.y + (shape.height as number)
+    //   ) {
+    //     this.context.fillStyle = color;
+    //     this.context.fillRect(
+    //       shape.x,
+    //       shape.y,
+    //       shape.width as number,
+    //       shape.height as number
+    //     );
+    //   } else if (shape.type === 'circle') {
+    //     const dx = x - shape.x;
+    //     const dy = y - shape.y;
+    //     const distance = Math.sqrt(dx * dx + dy * dy);
+    //     if (distance <= (shape.radius as number)) {
+    //       this.context.fillStyle = color;
+    //       this.context.beginPath();
+    //       this.context.arc(
+    //         shape.x,
+    //         shape.y,
+    //         shape.radius as number,
+    //         0,
+    //         Math.PI * 2
+    //       );
+    //       this.context.closePath();
+    //       this.context.fill();
+    //     }
+    //   }
+    // });
+  }
 
-    if (prevPos) {
-      this.context.moveTo(prevPos.x, prevPos.y);
-      this.context.lineTo(currentPos.x, currentPos.y);
-      this.context.stroke();
-    }
+  clearCanvas(): void {
+    this.context.clearRect(0, 0, this.width, this.height);
+    this.shapes = [];
+    this.lines = [];
+    this.drawBackgroundImage();
   }
 }
