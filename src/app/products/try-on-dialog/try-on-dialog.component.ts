@@ -25,6 +25,7 @@ export class TryOnDialogComponent implements AfterViewInit {
   height = 400;
   backgroundImage = new Image();
   isDrawing: boolean = false;
+  isFillColorActive = false;
 
   context!: CanvasRenderingContext2D;
   startX!: number;
@@ -49,12 +50,14 @@ export class TryOnDialogComponent implements AfterViewInit {
   }
 
   onMouseDown(event: MouseEvent): void {
+    if (this.isFillColorActive) return;
     this.isDrawing = true;
     this.startX = event.offsetX;
     this.startY = event.offsetY;
   }
 
   onMouseMove(event: MouseEvent): void {
+    if (this.isFillColorActive) return;
     if (!this.isDrawing) return;
     const endX = event.offsetX;
     const endY = event.offsetY;
@@ -66,6 +69,7 @@ export class TryOnDialogComponent implements AfterViewInit {
   }
 
   onMouseUp(event: MouseEvent): void {
+    if (this.isFillColorActive) return;
     if (this.isDrawing) {
       const endX = event.offsetX;
       const endY = event.offsetY;
@@ -134,45 +138,40 @@ export class TryOnDialogComponent implements AfterViewInit {
     this.context.stroke();
   }
 
-  fillSelectedShape(event: MouseEvent): void {
-    const x = event.offsetX;
-    const y = event.offsetY;
-    const color = 'blue'; // Set the fill color
+  fillShape(x: number, y: number): void {
+    this.shapes.forEach((item) => {
+      item.shape.forEach((shape) => {
+        if (
+          x >= shape.startX &&
+          x <= shape.endX &&
+          y >= shape.startY &&
+          y <= shape.endY
+        ) {
+          console.log(x, y);
+          this.context.fillStyle = 'blue';
+          this.context.beginPath();
+          this.context.moveTo(shape.startX, shape.startY);
+          this.context.lineTo(shape.endX, shape.endY);
+          this.context.lineTo(shape.endX, shape.startY);
+          this.context.lineTo(shape.startX, shape.endY);
+          this.context.closePath();
+          this.context.fill();
+        }
+      });
+    });
+  }
 
-    // this.shapes.forEach((shape) => {
-    //   if (
-    //     shape.type === 'rectangle' &&
-    //     x >= shape.x &&
-    //     x <= shape.x + (shape.width as number) &&
-    //     y >= shape.y &&
-    //     y <= shape.y + (shape.height as number)
-    //   ) {
-    //     this.context.fillStyle = color;
-    //     this.context.fillRect(
-    //       shape.x,
-    //       shape.y,
-    //       shape.width as number,
-    //       shape.height as number
-    //     );
-    //   } else if (shape.type === 'circle') {
-    //     const dx = x - shape.x;
-    //     const dy = y - shape.y;
-    //     const distance = Math.sqrt(dx * dx + dy * dy);
-    //     if (distance <= (shape.radius as number)) {
-    //       this.context.fillStyle = color;
-    //       this.context.beginPath();
-    //       this.context.arc(
-    //         shape.x,
-    //         shape.y,
-    //         shape.radius as number,
-    //         0,
-    //         Math.PI * 2
-    //       );
-    //       this.context.closePath();
-    //       this.context.fill();
-    //     }
-    //   }
-    // });
+  fillSelectedShape(event: MouseEvent): void {
+    if (!this.isFillColorActive) return;
+
+    const rect = this.canvas.nativeElement.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    this.fillShape(x, y);
+  }
+
+  activateFillColor(): void {
+    this.isFillColorActive = !this.isFillColorActive;
   }
 
   clearCanvas(): void {
