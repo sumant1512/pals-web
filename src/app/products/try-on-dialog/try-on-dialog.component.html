@@ -26,6 +26,10 @@
           (click)="fillSelectedShape($event)"
           #canvas
         ></canvas>
+        <div class="upload-btn-wrapper" (change)="handleImageUpload($event)">
+          <button class="button">Upload a file</button>
+          <input type="file" name="myfile" />
+        </div>
       </div>
       <div class="modal-footer">
         <button

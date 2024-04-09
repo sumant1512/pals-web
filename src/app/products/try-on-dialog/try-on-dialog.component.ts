@@ -99,6 +99,16 @@ export class TryOnDialogComponent implements AfterViewInit {
     });
   }
 
+  handleImageUpload(event: Event) {
+    const file = (event.target as any).files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.drawBackgroundImage();
+      this.backgroundImage.src = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
+
   drawBackgroundImage(): void {
     this.context.clearRect(0, 0, this.width, this.height);
     this.context.drawImage(this.backgroundImage, 0, 0, this.width, this.height);
