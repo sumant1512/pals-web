@@ -30,6 +30,8 @@ export class TryOnDialogComponent implements AfterViewInit {
   context!: CanvasRenderingContext2D;
   startX!: number;
   startY!: number;
+  endX!: number;
+  endY!: number;
   lines: Array<Lines> = [];
   shapes: Array<Shape> = [];
 
@@ -49,6 +51,43 @@ export class TryOnDialogComponent implements AfterViewInit {
     canvasEl.height = this.height;
   }
 
+  onTouchStart(event: TouchEvent) {
+    if (this.isFillColorActive) return;
+    this.isDrawing = true;
+    this.startX = event.targetTouches[0].clientX;
+    this.startY = event.targetTouches[0].clientY;
+  }
+
+  onTouchMove(event: TouchEvent) {
+    if (!this.isDrawing || this.isFillColorActive) return;
+    this.endX = event.targetTouches[0].clientX;
+    this.endY = event.targetTouches[0].clientY;
+    this.redrawLines();
+    this.context.beginPath();
+    this.context.moveTo(this.startX, this.startY);
+    this.context.lineTo(this.endX, this.endY);
+    this.context.stroke();
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    if (this.isFillColorActive) return;
+    if (this.isDrawing) {
+      this.lines.push({
+        startX: this.startX,
+        startY: this.startY,
+        endX: this.endX,
+        endY: this.endY,
+      });
+      this.isDrawing = false;
+    }
+    if (this.lines.length === 4) {
+      this.shapes.push({ shape: this.lines });
+      this.drawBackgroundImage();
+      this.drawShape(this.shapes);
+      this.lines = [];
+    }
+  }
+
   onMouseDown(event: MouseEvent): void {
     if (this.isFillColorActive) return;
     this.isDrawing = true;
@@ -58,25 +97,23 @@ export class TryOnDialogComponent implements AfterViewInit {
 
   onMouseMove(event: MouseEvent): void {
     if (!this.isDrawing || this.isFillColorActive) return;
-    const endX = event.offsetX;
-    const endY = event.offsetY;
+    this.endX = event.offsetX;
+    this.endY = event.offsetY;
     this.redrawLines();
     this.context.beginPath();
     this.context.moveTo(this.startX, this.startY);
-    this.context.lineTo(endX, endY);
+    this.context.lineTo(this.endX, this.endY);
     this.context.stroke();
   }
 
   onMouseUp(event: MouseEvent): void {
     if (this.isFillColorActive) return;
     if (this.isDrawing) {
-      const endX = event.offsetX;
-      const endY = event.offsetY;
       this.lines.push({
         startX: this.startX,
         startY: this.startY,
-        endX: endX,
-        endY: endY,
+        endX: this.endX,
+        endY: this.endY,
       });
       this.isDrawing = false;
     }
