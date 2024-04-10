@@ -23,6 +23,7 @@ export class TryOnDialogComponent implements AfterViewInit {
 
   width = 400;
   height = 400;
+  fillingColor = '#f3f2ef';
   backgroundImage = new Image();
   isDrawing: boolean = false;
   isFillColorActive = false;
@@ -49,6 +50,10 @@ export class TryOnDialogComponent implements AfterViewInit {
 
     canvasEl.width = this.width;
     canvasEl.height = this.height;
+  }
+
+  onShadeSelect(selectedShade: string): void {
+    this.fillingColor = selectedShade;
   }
 
   onTouchStart(event: TouchEvent) {
@@ -183,7 +188,7 @@ export class TryOnDialogComponent implements AfterViewInit {
           y <= shape.endY
         ) {
           console.log(x, y);
-          this.context.fillStyle = 'blue';
+          this.context.fillStyle = this.fillingColor;
           this.context.beginPath();
           this.context.moveTo(shape.startX, shape.startY);
           this.context.lineTo(shape.endX, shape.endY);

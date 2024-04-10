@@ -36,12 +36,6 @@ export class ShadeDialogComponent implements OnInit {
   }
 
   add(): void {
-    // this.selectedPacketList.push({
-    //   ...this.selectedPacket,
-    //   productId: this.productDetails.id,
-    //   soldPrice: this.getDiscountedPrice(this.selectedPacket),
-    //   color: this.shadeForm.value.color || '#FFFFFF',
-    // });
     this.addShade.emit(this.shadeForm.value.color || '#FFFFFF');
   }
 

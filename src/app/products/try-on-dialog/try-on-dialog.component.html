@@ -19,19 +19,58 @@
         ></button>
       </div>
       <div class="modal-body text-center">
-        <canvas
-          (touchstart)="onTouchStart($event)"
-          (touchmove)="onTouchMove($event)"
-          (touchend)="onTouchEnd($event)"
-          (mousedown)="onMouseDown($event)"
-          (mousemove)="onMouseMove($event)"
-          (mouseup)="onMouseUp($event)"
-          (click)="fillSelectedShape($event)"
-          #canvas
-        ></canvas>
-        <div class="upload-btn-wrapper" (change)="handleImageUpload($event)">
-          <button class="button">Upload a file</button>
-          <input type="file" name="myfile" />
+        <div class="row">
+          <div class="col-12 col-md-10">
+            <canvas
+              (touchstart)="onTouchStart($event)"
+              (touchmove)="onTouchMove($event)"
+              (touchend)="onTouchEnd($event)"
+              (mousedown)="onMouseDown($event)"
+              (mousemove)="onMouseMove($event)"
+              (mouseup)="onMouseUp($event)"
+              (click)="fillSelectedShape($event)"
+              #canvas
+            ></canvas>
+            <div
+              class="upload-btn-wrapper"
+              (change)="handleImageUpload($event)"
+            >
+              <button class="button">Upload a file</button>
+              <input type="file" name="myfile" />
+            </div>
+          </div>
+          <div class="col-12 col-md-2">
+            <button
+              type="button"
+              class="btn btn-secondary mb-3 w-100"
+              (click)="activateFillColor()"
+            >
+              Fill Color
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary mb-3 w-100"
+              (click)="clearCanvas()"
+            >
+              Reset
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary mb-3 w-100"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary mb-3 w-100">
+              Add
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <app-shade-selector
+            (onShadeSelect)="onShadeSelect($event)"
+          ></app-shade-selector>
         </div>
       </div>
       <div class="modal-footer">
