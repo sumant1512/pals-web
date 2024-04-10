@@ -1,0 +1,27 @@
+<div class="row">
+  <div
+    class="col-4 col-md-3 col-lg-2 color-pallete cursor-pointer"
+    *ngFor="let color of colorPallete"
+    (click)="selectColorPallete(color)"
+    [style.backgroundColor]="color"
+  ></div>
+</div>
+
+<div class="row mt-4">
+  <div
+    class="col-4 col-md-3 col-lg-2 text-center mb-5"
+    *ngFor="let shade of shadeList; let index = index"
+  >
+    <div>
+      <button
+        class="shade-card mx-auto"
+        [ngClass]="{ expanded: selectedShade === shade.hex }"
+        [style.backgroundColor]="shade.hex"
+        type="button"
+        (click)="selectColor(shade.hex)"
+      ></button>
+
+      <div class="mt-3">{{ shade.shade }}</div>
+    </div>
+  </div>
+</div>
