@@ -103,6 +103,12 @@ export class TryOnDialogSvgComponent {
     this.fillingColor = selectedShade;
   }
 
+  fillColor(id: string): void {
+    if (this.isFillColorActive) {
+      this.shapes[parseInt(id)].fill = this.fillingColor;
+    }
+  }
+
   createShapeSvg(): void {
     const [line1, line2, line3, line4] = this.lines;
 
@@ -115,6 +121,7 @@ export class TryOnDialogSvgComponent {
       fill: 'blue',
       stroke: 'yellow',
       strokeWidth: '2',
+      id: this.shapes.length,
     });
     this.lines = [];
   }
