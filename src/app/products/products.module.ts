@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { ShadeDialogComponent } from './shade-dialog/shade-dialog.component';
 import { TryOnDialogComponent } from './try-on-dialog/try-on-dialog.component';
 import { ShadeSelectorComponent } from './shade-selector/shade-selector.component';
+import { TryOnDialogSvgComponent } from './try-on-dialog-svg/try-on-dialog-svg.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ShadeSelectorComponent } from './shade-selector/shade-selector.componen
     ShadeDialogComponent,
     TryOnDialogComponent,
     ShadeSelectorComponent,
+    TryOnDialogSvgComponent,
   ],
   imports: [CommonModule, ProductsRoutingModule, SharedModule],
 })
