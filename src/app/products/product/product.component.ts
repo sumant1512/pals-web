@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../products.service';
 import { IPacket, IProduct } from '../products.interface';
 
@@ -14,12 +14,13 @@ export class ProductComponent implements OnInit {
   selectedPacketList: Array<any> = [];
 
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
     private productsService: ProductsService
   ) {}
 
   ngOnInit(): void {
-    this.getProduct(parseInt(this.route.snapshot.params['id']));
+    this.getProduct(parseInt(this.activatedRoute.snapshot.params['id']));
   }
 
   getProduct(id: number): void {
@@ -58,5 +59,9 @@ export class ProductComponent implements OnInit {
     const discountPercentage = parseFloat(selectedPacket.discount) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
     return discountedPrice.toFixed(2).toString();
+  }
+
+  navigateToTryOn(): void {
+    this.router.navigateByUrl('try-on');
   }
 }
