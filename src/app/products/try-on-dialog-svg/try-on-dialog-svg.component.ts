@@ -113,6 +113,8 @@ export class TryOnDialogSvgComponent {
         (line4 as any).y1
       }`,
       fill: 'blue',
+      stroke: 'yellow',
+      strokeWidth: '2',
     });
     this.lines = [];
   }
