@@ -1,6 +1,7 @@
 export const APP_ROUTES = {
   HOME: '',
   LOGIN: 'login',
+  TRY_ON: 'try-on',
   PRODUCTS: {
     PARENT: 'products',
   },

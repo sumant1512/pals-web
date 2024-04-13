@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="products-heading">
+    <p class="products-title">Our Products</p>
+  </div>
+
+  <div class="row mb-5">
+    <div *ngFor="let product of productList" class="col-12 col-md-4 mb-4">
+      <div (click)="this.navigateToProduct(product.productId)">
+        <app-product-card
+          [productImage]="product.productImage"
+          [productName]="product.productName"
+        ></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>

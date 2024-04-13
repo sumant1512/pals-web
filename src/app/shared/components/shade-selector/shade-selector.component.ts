@@ -3,8 +3,8 @@ import {
   ColorShades,
   getShadesFormHex,
   getThemeColorShades,
-} from '../product/shade.helper';
-import { COLOIR_PALLETE } from '../products.const';
+} from '../../../products/product/shade.helper';
+import { COLOIR_PALLETE } from '../../../products/products.const';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({

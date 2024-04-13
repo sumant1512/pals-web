@@ -10,6 +10,7 @@ export class ProductsComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   navigateToProduct(id: number): void {
+    console.log('called here', id);
     this.router.navigate(['products', id], { relativeTo: this.activatedRoute });
   }
 }

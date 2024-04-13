@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-try-on-dialog-svg',
-  templateUrl: './try-on-dialog-svg.component.html',
-  styleUrls: ['./try-on-dialog-svg.component.scss'],
+  selector: 'app-try-on',
+  templateUrl: './try-on.component.html',
+  styleUrls: ['./try-on.component.scss'],
 })
-export class TryOnDialogSvgComponent {
+export class TryOnComponent {
   isFillColorActive = false;
   fillingColor = '#f3f2ef';
   lines: any[] = [];
@@ -17,8 +17,10 @@ export class TryOnDialogSvgComponent {
 
   onTouchStart(event: TouchEvent): void {
     if (this.isFillColorActive) return;
-    const x1 = event.targetTouches[0].clientX;
-    const y1 = event.targetTouches[0].clientY;
+    const x1 = event.targetTouches[0].clientX - 20;
+    const y1 = event.targetTouches[0].clientY - 85;
+    console.log(x1, y1);
+    console.log(event);
 
     this.lineInProgress = {
       x1: x1,
@@ -31,8 +33,8 @@ export class TryOnDialogSvgComponent {
   onTouchMove(event: TouchEvent): void {
     if (this.isFillColorActive) return;
     if (this.lineInProgress) {
-      this.lineInProgress.x2 = event.targetTouches[0].clientX;
-      this.lineInProgress.y2 = event.targetTouches[0].clientY;
+      this.lineInProgress.x2 = event.targetTouches[0].clientX - 20;
+      this.lineInProgress.y2 = event.targetTouches[0].clientY - 85;
     }
   }
 
@@ -82,6 +84,7 @@ export class TryOnDialogSvgComponent {
   }
 
   handleImageUpload(event: Event): void {
+    console.log(event);
     const file = (event.target as any).files[0];
     const reader = new FileReader();
     reader.onload = () => {
@@ -106,6 +109,7 @@ export class TryOnDialogSvgComponent {
   fillColor(id: string): void {
     if (this.isFillColorActive) {
       this.shapes[parseInt(id)].fill = this.fillingColor;
+      this.shapes[parseInt(id)].stroke = this.fillingColor;
     }
   }
 

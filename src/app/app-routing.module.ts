@@ -19,6 +19,11 @@ const routes: Routes = [
       import('./login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: APP_ROUTES.TRY_ON,
+    loadChildren: () =>
+      import('./try-on/try-on.module').then((m) => m.TryOnModule),
+  },
+  {
     path: APP_ROUTES.ADMIN.PARENT,
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
