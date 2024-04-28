@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { IPacket, IProduct } from '../products.interface';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -9,6 +11,7 @@ import { IPacket, IProduct } from '../products.interface';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
+  subscription = new Subscription();
   productDetails!: IProduct;
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
@@ -16,7 +19,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -24,12 +28,14 @@ export class ProductComponent implements OnInit {
   }
 
   getProduct(id: number): void {
-    this.productsService.fetchProduct(id).subscribe((response) => {
-      if (response?.id) {
-        this.productDetails = response;
-        this.selectPacket(this.productDetails.packetSize[0]);
-      }
-    });
+    this.subscription.add(
+      this.productsService.fetchProduct(id).subscribe((response) => {
+        if (response?.data?.productId) {
+          this.productDetails = response.data;
+          this.selectPacket(this.productDetails.packSize[0]);
+        }
+      })
+    );
   }
 
   getImagePath(imageName: string): string {
@@ -39,32 +45,64 @@ export class ProductComponent implements OnInit {
   add(shade?: string): void {
     const seletcedColor = {
       ...this.selectedPacket,
-      productId: this.productDetails.id,
+      productId: this.productDetails.productId,
       soldPrice: this.getDiscountedPrice(this.selectedPacket),
+      quantity: 1,
+      color: shade ? shade : '#ffffff',
     };
-    const colorToAdd = {
-      ...seletcedColor,
-      color: shade,
-    };
-    this.selectedPacketList.push(shade ? colorToAdd : seletcedColor);
+    this.selectedPacketList.push(seletcedColor);
+  }
+
+  onChangeQuantity(productToUpdate: any, action: string): void {
+    this.selectedPacketList.forEach((item) => {
+      if (
+        item.productId === productToUpdate.productId &&
+        item.color === productToUpdate.color &&
+        item.packId === productToUpdate.packId
+      ) {
+        if (action === 'add') {
+          item.quantity = item.quantity + 1;
+        } else {
+          item.quantity = item.quantity - 1;
+        }
+      }
+    });
   }
 
   addNonColor(): void {}
 
   addToCart(): void {
-    console.log(this.selectedPacketList);
-    this.selectedPacketList.length = 0;
+    const transformedItems = this.selectedPacketList.map((item) => ({
+      packId: item.packId,
+      shade: item.color,
+      quantity: item.quantity,
+    }));
+    const body = {
+      userId: sessionStorage.getItem('userId'),
+      cartItems: transformedItems,
+    };
+    this.cartService.addItemsToCart(body).subscribe((resp) => {
+      this.selectedPacketList.length = 0;
+    });
+  }
+
+  buyNow(): void {
+    this.addToCart();
   }
 
   selectPacket(selectedPacket: IPacket): void {
     this.selectedPacket = selectedPacket;
   }
 
+  getProductTotalPrice(selectedPacket: IPacket, packetCount: number): any {
+    return parseFloat(this.getDiscountedPrice(selectedPacket)) * packetCount;
+  }
+
   getDiscountedPrice(selectedPacket: IPacket): string {
     const mrp = parseFloat(selectedPacket.mrp);
     const discountPercentage = parseFloat(selectedPacket.discount) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
-    return discountedPrice.toFixed(2).toString();
+    return discountedPrice.toFixed(2);
   }
 
   navigateToTryOn(): void {

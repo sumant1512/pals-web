@@ -19,6 +19,11 @@ const routes: Routes = [
       import('./try-on/try-on.module').then((m) => m.TryOnModule),
   },
   {
+    path: APP_ROUTES.CART.PARENT,
+    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
+    canActivate: [authGuard],
+  },
+  {
     path: APP_ROUTES.ADMIN.PARENT,
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),

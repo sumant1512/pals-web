@@ -64,8 +64,15 @@
           >
         </li>
         <li class="nav-item me-0 me-md-3 me-lg-4 d-none d-lg-block">
-          <a class="nav-link contact-link" (click)="openLoginModal()">
-            <button type="button" class="contact">Login</button></a
+          <a class="nav-link contact-link" (click)="authClick()">
+            <button type="button" class="contact">
+              {{ isUserLoggedIn ? "Logout" : "Login" }}
+            </button></a
+          >
+        </li>
+        <li class="nav-item me-0 me-md-3 me-lg-4 d-none d-lg-block">
+          <a class="nav-link contact-link" [routerLink]="'/cart'">
+            <button type="button">Cart</button></a
           >
         </li>
       </ul>

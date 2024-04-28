@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class ProductCardComponent {
   @Input() productImage!: string;
   @Input() productName!: string;
+  @Input() productType!: string;
 }

@@ -1,12 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { COLOIR_PALLETE } from '../products.const';
 import { FormControl, FormGroup } from '@angular/forms';
-import {
-  ColorShades,
-  getShadesFormHex,
-  getThemeColorShades,
-} from '../product/shade.helper';
+import { ColorShades } from '../product/shade.helper';
 import { IPacket } from '../products.interface';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-shade-dialog',
@@ -14,8 +10,7 @@ import { IPacket } from '../products.interface';
   styleUrls: ['./shade-dialog.component.scss'],
 })
 export class ShadeDialogComponent implements OnInit {
-  colorPallete = COLOIR_PALLETE;
-  colorFC = new FormControl<string>('#006BD8');
+  colorShadesList!: any;
   shadeForm = new FormGroup({
     color: new FormControl(''),
   });
@@ -26,21 +21,19 @@ export class ShadeDialogComponent implements OnInit {
   shadeList: ColorShades[] = [];
   themeColors: any;
 
+  constructor(private productsService: ProductsService) {}
+
   ngOnInit(): void {
-    this.createShade();
+    this.getShades();
   }
 
-  selectColorPallete(color: string): void {
-    this.colorFC.setValue(color);
-    this.createShade();
+  getShades(): void {
+    this.productsService.fetchShades().subscribe((resp) => {
+      this.colorShadesList = resp;
+    });
   }
 
   add(): void {
     this.addShade.emit(this.shadeForm.value.color || '#FFFFFF');
-  }
-
-  private createShade(): void {
-    this.shadeList = getShadesFormHex(this.colorFC.value as string);
-    this.themeColors = getThemeColorShades(this.shadeList);
   }
 }
