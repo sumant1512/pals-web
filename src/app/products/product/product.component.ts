@@ -36,14 +36,20 @@ export class ProductComponent implements OnInit {
     return `./../../../assets/products/${imageName}`;
   }
 
-  add(shade: string): void {
-    this.selectedPacketList.push({
+  add(shade?: string): void {
+    const seletcedColor = {
       ...this.selectedPacket,
       productId: this.productDetails.id,
       soldPrice: this.getDiscountedPrice(this.selectedPacket),
+    };
+    const colorToAdd = {
+      ...seletcedColor,
       color: shade,
-    });
+    };
+    this.selectedPacketList.push(shade ? colorToAdd : seletcedColor);
   }
+
+  addNonColor(): void {}
 
   addToCart(): void {
     console.log(this.selectedPacketList);
