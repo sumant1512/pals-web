@@ -1,12 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { HeaderScrollService } from '../../services/header-scroll.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -22,9 +16,15 @@ export class HeaderComponent {
     { label: 'About', id: 'about' },
     { label: 'Products', id: 'products' },
   ];
-  constructor(private headerScrollService: HeaderScrollService) {}
+  constructor(
+    private headerScrollService: HeaderScrollService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  openLoginModal(): void {
+    console.log('Navigate to login');
+    this.router.navigate(['login']);
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

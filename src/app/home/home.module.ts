@@ -11,6 +11,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BannerComponent } from './banner/banner.component';
 import { TestimonialCardComponent } from './testimonials/testimonial-card/testimonial-card.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TestimonialCardComponent } from './testimonials/testimonial-card/testim
     ContactUsComponent,
     BannerComponent,
     TestimonialCardComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
