@@ -14,11 +14,6 @@ const routes: Routes = [
       import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
-    path: APP_ROUTES.LOGIN,
-    loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginModule),
-  },
-  {
     path: APP_ROUTES.TRY_ON,
     loadChildren: () =>
       import('./try-on/try-on.module').then((m) => m.TryOnModule),
