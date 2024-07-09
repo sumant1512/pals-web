@@ -1,10 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  ColorShades,
-  getShadesFormHex,
-  getThemeColorShades,
-} from '../../../products/product/shade.helper';
-import { COLOIR_PALLETE } from '../../../products/products.const';
+import { ColorShades } from '../../../products/product/shade.helper';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -14,27 +9,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ShadeSelectorComponent implements OnInit {
   @Output() onShadeSelect = new EventEmitter<string>();
-  protected colorPallete = COLOIR_PALLETE;
   selectedShade!: string;
 
-  protected shadeList: ColorShades[] = [];
-  protected themeColors: any;
+  colorShadesList = [] as any;
 
-  ngOnInit(): void {
-    this.createShade(this.colorPallete[0]);
-  }
-
-  selectColorPallete(color: string): void {
-    this.createShade(color);
-  }
+  ngOnInit(): void {}
 
   selectColor(color: string): void {
     this.selectedShade = color;
     this.onShadeSelect.emit(this.selectedShade);
-  }
-
-  private createShade(palleteColor: string): void {
-    this.shadeList = getShadesFormHex(palleteColor);
-    this.themeColors = getThemeColorShades(this.shadeList);
   }
 }

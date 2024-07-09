@@ -1,43 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent {
-  productList = [
-    {
-      productId: 1,
-      productName: 'Wall Primer (Interior)',
-      productImage: './../../assets/products/product_1.jpeg',
-    },
-    {
-      productId: 2,
-      productName: 'Wall Primer (Exterior)',
-      productImage: './../../assets/products/product_2.jpeg',
-    },
-    {
-      productId: 3,
-      productName: 'Acrylic Washable Distemper',
-      productImage: './../../assets/products/product_3.jpeg',
-    },
-    {
-      productId: 4,
-      productName: 'Plastic Paint (Interior)',
-      productImage: './../../assets/products/product_4.jpeg',
-    },
-    {
-      productId: 5,
-      productName: 'Plastic Paint (Exterior)',
-      productImage: './../../assets/products/product_5.jpeg',
-    },
-  ];
+export class ProductListComponent implements OnInit, OnDestroy {
+  private subscription = new Subscription();
+  productList!: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private productsService: ProductsService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.getProductList();
+  }
+
+  getProductList(): void {
+    this.subscription.add(
+      this.productsService.getProductList().subscribe((productList) => {
+        this.productList = productList.data;
+      })
+    );
+  }
 
   navigateToProduct(id: number): void {
     this.router.navigate([id], { relativeTo: this.activatedRoute });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

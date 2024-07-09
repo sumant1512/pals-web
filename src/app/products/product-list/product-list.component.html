@@ -1,14 +1,19 @@
-<div class="container">
-  <div class="products-heading">
+<div class="container products-heading">
+  <div class="mb-4">
+    <span><a [routerLink]="['']">Home</a> / </span>
+    <span>Products</span>
+  </div>
+
+  <div>
     <p class="products-title">Our Products</p>
   </div>
 
   <div class="row mb-5">
-    <div *ngFor="let product of productList" class="col-12 col-md-4 mb-4">
-      <div (click)="this.navigateToProduct(product.productId)">
+    <div *ngFor="let p of productList" class="col-12 col-md-4 mb-4">
+      <div (click)="this.navigateToProduct(p.productId)">
         <app-product-card
-          [productImage]="product.productImage"
-          [productName]="product.productName"
+          [productImage]="p.img"
+          [productName]="p.productName"
         ></app-product-card>
       </div>
     </div>

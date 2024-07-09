@@ -5,6 +5,9 @@ export const APP_ROUTES = {
   PRODUCTS: {
     PARENT: 'products',
   },
+  CART: {
+    PARENT: 'cart',
+  },
   ADMIN: {
     PARENT: 'admin',
     CHILD_ROUTES: {

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { ACTIVE_BE } from '../shared/constants/config';
 
 @Injectable({
   providedIn: 'root',
@@ -76,12 +78,17 @@ export class ProductsService {
     },
   ];
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
+
+  getProductList(): Observable<any> {
+    return this.httpClient.get(`${ACTIVE_BE}/product-list.json`);
+  }
 
   fetchProduct(id: number): Observable<any> {
-    const product = this.PRODUCT_LIST.find((obj) => {
-      return obj.id === id;
-    });
-    return of(product);
+    return this.httpClient.get(`${ACTIVE_BE}/${id}.json`);
+  }
+
+  fetchShades(): Observable<any> {
+    return this.httpClient.get(`./../../assets/shades.json`);
   }
 }

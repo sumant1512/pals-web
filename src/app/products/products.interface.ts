@@ -5,11 +5,11 @@ export interface IPacket {
 }
 
 export interface IProduct {
-  id: number;
-  name: string;
-  type: string;
-  imgName: string;
-  packetSize: Array<IPacket>;
+  productId: number;
+  productName: string;
+  productType: string;
+  img: string;
+  packSize: Array<IPacket>;
   pigmentPrice: string;
   isShadeEnabled: boolean;
 }

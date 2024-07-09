@@ -1,6 +1,12 @@
 <div class="card cursor-pointer">
   <div class="card-body">
-    <img [src]="productImage" class="img-fluid w-100" alt="Image" />
-    <p class="product-name mt-3 mb-0">{{ productName }}</p>
+    <img
+      [src]="'./../../assets/products/' + productImage"
+      class="img-fluid w-100"
+      alt="Image"
+    />
+    <p class="product-name mt-3 mb-0">
+      {{ productName }} <span *ngIf="productType">({{ productType }})</span>
+    </p>
   </div>
 </div>

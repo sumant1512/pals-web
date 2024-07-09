@@ -5,7 +5,7 @@
   aria-labelledby="shadeModal"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="shadeModal">
@@ -20,34 +20,36 @@
         ></button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div
-            class="col-4 col-md-3 col-lg-2 color-pallete cursor-pointer"
-            *ngFor="let color of colorPallete"
-            (click)="selectColorPallete(color)"
-            [style.backgroundColor]="color"
-          ></div>
-        </div>
-
         <form [formGroup]="shadeForm">
-          <div class="row mt-4">
+          <div *ngIf="colorShadesList?.length" class="card-container">
             <div
-              class="col-4 col-md-3 col-lg-2 text-center mb-5"
-              *ngFor="let shade of shadeList.slice(1, 10); let index = index"
+              class="m-3"
+              *ngFor="let group of colorShadesList | groupBy : 8"
             >
-              <input
-                type="radio"
-                [value]="shade.hex"
-                [id]="shade.shade"
-                formControlName="color"
-              />
-              <label
-                [for]="shade.shade"
-                [style.backgroundColor]="shade.hex"
-                class="mb-3 mx-auto"
+              <div
+                [style.backgroundColor]="item.shadeHexCode"
+                *ngFor="let item of group"
               >
-              </label>
-              <label [for]="shade.shade">{{ shade.shade }}</label>
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <input
+                      type="radio"
+                      formControlName="color"
+                      [value]="item.shadeHexCode"
+                      id="{{ item.entityCode }}"
+                    />
+                    <label [for]="item.entityCode"
+                      >{{ item.entityCode }}
+                    </label>
+                    <label
+                      [for]="item.entityCode"
+                      class="cursor-pointer text-end w-100"
+                    >
+                      {{ item.entityName }}
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </form>

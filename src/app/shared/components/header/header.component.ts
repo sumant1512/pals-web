@@ -1,16 +1,26 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { HeaderScrollService } from '../../services/header-scroll.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  subcription = new Subscription();
   @ViewChild('header', { static: false }) header!: ElementRef;
   scrollStatus: boolean = false;
   isHeaderOpen: boolean = false;
+  isUserLoggedIn: boolean = false;
   headerLinks = [
     { label: 'Home', id: 'banner' },
     { label: 'About', id: 'about' },
@@ -18,11 +28,32 @@ export class HeaderComponent {
   ];
   constructor(
     private headerScrollService: HeaderScrollService,
+    private authenticationService: AuthenticationService,
     private router: Router
   ) {}
 
-  openLoginModal(): void {
-    console.log('Navigate to login');
+  ngOnInit(): void {
+    this.checkLogin();
+  }
+
+  checkLogin(): void {
+    this.subcription.add(
+      this.authenticationService.isUserLoggedIn().subscribe((resp) => {
+        this.isUserLoggedIn = resp;
+      })
+    );
+  }
+
+  authClick(): void {
+    if (this.isUserLoggedIn) {
+      this.subcription.add(
+        this.authenticationService
+          .logout(sessionStorage.getItem('userId') as string)
+          .subscribe((response) => {
+            sessionStorage.clear();
+          })
+      );
+    }
     this.router.navigate(['login']);
   }
 

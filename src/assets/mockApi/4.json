@@ -1,0 +1,37 @@
+{
+  "status": true,
+  "data": {
+    "productId": 4,
+    "productName": "Plastic Paint",
+    "productType": "Exterior",
+    "img": "product_4.jpeg",
+    "pigmentPrice": "5",
+    "isShadeEnabled": 1,
+    "packSize": [
+      {
+        "mrp": "319",
+        "size": "1L",
+        "packId": 13,
+        "discount": "30"
+      },
+      {
+        "mrp": "999",
+        "size": "4L",
+        "packId": 14,
+        "discount": "30"
+      },
+      {
+        "mrp": "1859",
+        "size": "10L",
+        "packId": 15,
+        "discount": "35"
+      },
+      {
+        "mrp": "3199",
+        "size": "20L",
+        "packId": 16,
+        "discount": "30"
+      }
+    ]
+  }
+}
