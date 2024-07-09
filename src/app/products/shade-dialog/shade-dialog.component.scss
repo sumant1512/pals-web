@@ -30,6 +30,11 @@ input[type="radio"] + label {
   height: 80px;
   transition: transform 0.2s ease;
   cursor: pointer;
+  padding-top: 55px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 input[type="radio"] {

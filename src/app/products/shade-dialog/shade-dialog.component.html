@@ -38,14 +38,12 @@
                       [value]="item.shadeHexCode"
                       id="{{ item.entityCode }}"
                     />
-                    <label [for]="item.entityCode"
-                      >{{ item.entityCode }}
-                    </label>
                     <label
                       [for]="item.entityCode"
-                      class="cursor-pointer text-end w-100"
+                      [style.backgroundColor]="item.shadeHexCode"
                     >
-                      {{ item.entityName }}
+                      <span> {{ item.entityCode }} </span>
+                      <span>{{ item.entityName }}</span>
                     </label>
                   </div>
                 </div>
