@@ -1,0 +1,104 @@
+[
+  {
+    "featureTag": "Recommended",
+    "entityCode": "9436",
+    "pageNumber": "1",
+    "filterTitle": {
+      "color temperature": ["cool"],
+      "tonality": ["light"],
+      "room": ["all rooms"]
+    },
+    "entityName": "air breeze",
+    "popularity": "1",
+    "shadeFamily": "off whites",
+    "pageUrl": "https://www.asianpaints.com/catalogue/colour-catalogue/off-white-wall-colours/air-breeze.html",
+    "shadeHexCode": "#F3EDE8",
+    "positionNumber": "1",
+    "latest": "2200"
+  },
+  {
+    "featureTag": "",
+    "entityCode": "8108",
+    "pageNumber": "1",
+    "filterTitle": {
+      "color temperature": ["cool"],
+      "tonality": ["light"],
+      "room": ["all rooms"]
+    },
+    "entityName": "button rose",
+    "popularity": "2",
+    "shadeFamily": "off whites",
+    "pageUrl": "https://www.asianpaints.com/catalogue/colour-catalogue/off-white-wall-colours/button-rose.html",
+    "shadeHexCode": "#F2E4DF",
+    "positionNumber": "2",
+    "latest": "2199"
+  },
+  {
+    "featureTag": "Colour of the year",
+    "entityCode": "8116",
+    "pageNumber": "1",
+    "filterTitle": {
+      "color temperature": ["cool"],
+      "tonality": ["light"],
+      "room": ["all rooms"]
+    },
+    "entityName": "soft breeze",
+    "popularity": "3",
+    "shadeFamily": "off whites",
+    "pageUrl": "https://www.asianpaints.com/catalogue/colour-catalogue/off-white-wall-colours/soft-breeze.html",
+    "shadeHexCode": "#F7EAE5",
+    "positionNumber": "3",
+    "latest": "2198"
+  },
+  {
+    "featureTag": "",
+    "entityCode": "8716",
+    "pageNumber": "1",
+    "filterTitle": {
+      "color temperature": ["cool"],
+      "tonality": ["light"],
+      "room": ["all rooms"]
+    },
+    "entityName": "zinnia bloom",
+    "popularity": "4",
+    "shadeFamily": "off whites",
+    "pageUrl": "https://www.asianpaints.com/catalogue/colour-catalogue/off-white-wall-colours/zinnia-bloom.html",
+    "shadeHexCode": "#EFE3DF",
+    "positionNumber": "4",
+    "latest": "2197"
+  },
+  {
+    "featureTag": "",
+    "entityCode": "8099",
+    "pageNumber": "1",
+    "filterTitle": {
+      "color temperature": ["cool"],
+      "tonality": ["light"],
+      "room": ["all rooms"]
+    },
+    "entityName": "essence",
+    "popularity": "5",
+    "shadeFamily": "pinks",
+    "pageUrl": "https://www.asianpaints.com/catalogue/colour-catalogue/pink-wall-colours/essence.html",
+    "shadeHexCode": "#F7E2E2",
+    "positionNumber": "5",
+    "latest": "2196"
+  },
+  {
+    "featureTag": "Recommended",
+    "entityCode": "8092",
+    "pageNumber": "1",
+    "filterTitle": {
+      "color temperature": ["cool"],
+      "tonality": ["light"],
+      "room": ["all rooms"]
+    },
+    "entityName": "pink mist",
+    "popularity": "6",
+    "shadeFamily": "pinks",
+    "pageUrl": "https://www.asianpaints.com/catalogue/colour-catalogue/pink-wall-colours/pink-mist.html",
+    "shadeHexCode": "#F7E2E0",
+    "positionNumber": "6",
+    "latest": "2195"
+  }
+]

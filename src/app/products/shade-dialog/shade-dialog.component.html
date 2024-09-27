@@ -23,7 +23,7 @@
         <form [formGroup]="shadeForm">
           <div *ngIf="colorShadesList?.length" class="card-container">
             <div
-              class="m-3"
+              class="m-3 color-card"
               *ngFor="let group of colorShadesList | groupBy : 8"
             >
               <div
@@ -42,7 +42,9 @@
                       [for]="item.entityCode"
                       [style.backgroundColor]="item.shadeHexCode"
                     >
-                      <span> {{ item.entityCode }} </span>
+                      <span>
+                        {{ item.entityCode }} {{ item.shadeHexCode }}
+                      </span>
                       <span>{{ item.entityName }}</span>
                     </label>
                   </div>
@@ -64,6 +66,20 @@
         >
           Add
         </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="generateShadeCard()"
+        >
+          Generate Fan Deck
+        </button>
+        <a
+          *ngIf="false"
+          href="http://localhost:8080/fan-decks/shade-card.psd
+        "
+          >Download Shade Card</a
+        >
       </div>
     </div>
   </div>
