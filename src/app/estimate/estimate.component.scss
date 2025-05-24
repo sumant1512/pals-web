@@ -1,12 +1,15 @@
 .estimate-container {
   padding: 20px;
 
-  table {
+  .invoice-header {
     margin-top: 150px;
+  }
+
+  table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    margin: 150px 0 20px 0px;
+    margin: 20px 0 20px 0px;
   }
   th,
   td {
