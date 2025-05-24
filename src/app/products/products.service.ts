@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { ACTIVE_BE } from '../shared/constants/config';
+import { ACTIVE_BE, IS_JSON } from '../shared/constants/config';
 
 @Injectable({
   providedIn: 'root',
@@ -81,11 +81,11 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {}
 
   getProductList(): Observable<any> {
-    return this.httpClient.get(`${ACTIVE_BE}/product-list`);
+    return this.httpClient.get(this.getApiPath('product-list'));
   }
 
   fetchProduct(id: number): Observable<any> {
-    return this.httpClient.get(`${ACTIVE_BE}/product-details/${id}`);
+    return this.httpClient.get(this.getApiPath(`product-details/${id}`));
   }
 
   fetchShades(): Observable<any> {
@@ -93,6 +93,10 @@ export class ProductsService {
   }
 
   generateFanDeck(colors: any): Observable<any> {
-    return this.httpClient.post(`${ACTIVE_BE}/generate-fan-decks`, colors);
+    return this.httpClient.post(this.getApiPath('generate-fan-decks'), colors);
+  }
+
+  getApiPath(apiName: string): string {
+    return `${ACTIVE_BE}${apiName}${IS_JSON ? '.json' : ''}`;
   }
 }
