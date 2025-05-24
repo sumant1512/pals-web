@@ -1,5 +1,6 @@
 export const APP_ROUTES = {
   HOME: '',
+  ESTIMATE: 'estimate',
   LOGIN: 'login',
   TRY_ON: 'try-on',
   PRODUCTS: {
