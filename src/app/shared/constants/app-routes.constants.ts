@@ -16,4 +16,10 @@ export const APP_ROUTES = {
       PAYMENT_REQUEST: 'payment-request',
     },
   },
+  ESTIMATE: {
+    PARENT: 'estimate',
+    CHILD_ROUTES: {
+      PREVIEW: 'preview',
+    },
+  },
 };

@@ -1,0 +1,69 @@
+<div class="estimate-container">
+  <table
+    border="1"
+    cellspacing="0"
+    cellpadding="5"
+    style="width: 100%; border-collapse: collapse"
+  >
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Pack Size</th>
+        <th>Rate</th>
+        <th>Quantity</th>
+        <th>Weight</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.description }}</td>
+        <td>{{ p.size }}</td>
+        <td>₹ {{ p.rate }}</td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="p.qty"
+            min="0"
+            style="width: 60px"
+          />
+        </td>
+        <td>{{ getWeight(p) }}</td>
+        <td>₹ {{ getTotal(p) | number : "1.2-2" }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" style="text-align: right; font-weight: bold">
+          Subtotal
+        </td>
+        <td>₹ {{ getSubtotal() | number : "1.2-2" }}</td>
+      </tr>
+      <tr>
+        <td colspan="5" style="text-align: right; font-weight: bold">
+          Discount %
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="discountPercent"
+            (ngModelChange)="getGrandTotal()"
+            min="0"
+            max="100"
+            style="width: 60px"
+          />%
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" style="text-align: right; font-weight: bold">
+          Discount
+        </td>
+        <td>₹ {{ discountAmount | number : "1.2-2" }}</td>
+      </tr>
+      <tr>
+        <td colspan="5" style="text-align: right; font-weight: bold">Total</td>
+        <td>₹ {{ grandTotal | number : "1.2-2" }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

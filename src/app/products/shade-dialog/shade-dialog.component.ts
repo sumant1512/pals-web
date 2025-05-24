@@ -1,15 +1,24 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ColorShades } from '../product/shade.helper';
 import { IPacket } from '../products.interface';
 import { ProductsService } from '../products.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shade-dialog',
   templateUrl: './shade-dialog.component.html',
   styleUrls: ['./shade-dialog.component.scss'],
 })
-export class ShadeDialogComponent implements OnInit {
+export class ShadeDialogComponent implements OnInit, OnDestroy {
+  subscription = new Subscription();
   colorShadesList!: any;
   shadeForm = new FormGroup({
     color: new FormControl(''),
@@ -28,12 +37,28 @@ export class ShadeDialogComponent implements OnInit {
   }
 
   getShades(): void {
-    this.productsService.fetchShades().subscribe((resp) => {
-      this.colorShadesList = resp;
-    });
+    this.subscription.add(
+      this.productsService.fetchShades().subscribe((resp) => {
+        this.colorShadesList = resp;
+      })
+    );
   }
 
   add(): void {
     this.addShade.emit(this.shadeForm.value.color || '#FFFFFF');
+  }
+
+  generateShadeCard(): void {
+    this.subscription.add(
+      this.productsService
+        .generateFanDeck(this.colorShadesList)
+        .subscribe((resp) => {
+          console.log(resp);
+        })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

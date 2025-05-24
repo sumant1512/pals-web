@@ -81,14 +81,18 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {}
 
   getProductList(): Observable<any> {
-    return this.httpClient.get(`${ACTIVE_BE}/product-list.json`);
+    return this.httpClient.get(`${ACTIVE_BE}/product-list`);
   }
 
   fetchProduct(id: number): Observable<any> {
-    return this.httpClient.get(`${ACTIVE_BE}/${id}.json`);
+    return this.httpClient.get(`${ACTIVE_BE}/product-details/${id}`);
   }
 
   fetchShades(): Observable<any> {
-    return this.httpClient.get(`./../../assets/shades.json`);
+    return this.httpClient.get(`./../../assets/shades1.json`);
+  }
+
+  generateFanDeck(colors: any): Observable<any> {
+    return this.httpClient.post(`${ACTIVE_BE}/generate-fan-decks`, colors);
   }
 }
