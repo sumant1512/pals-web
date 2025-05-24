@@ -1,6 +1,5 @@
 export const APP_ROUTES = {
   HOME: '',
-  ESTIMATE: 'estimate',
   LOGIN: 'login',
   TRY_ON: 'try-on',
   PRODUCTS: {
@@ -15,6 +14,12 @@ export const APP_ROUTES = {
       CREATE_QR: 'create-qr',
       LIST_QR: 'list-qr',
       PAYMENT_REQUEST: 'payment-request',
+    },
+  },
+  ESTIMATE: {
+    PARENT: 'estimate',
+    CHILD_ROUTES: {
+      PREVIEW: 'preview',
     },
   },
 };

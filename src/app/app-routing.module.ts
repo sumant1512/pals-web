@@ -30,7 +30,7 @@ const routes: Routes = [
     // canActivate: [authGuard],
   },
   {
-    path: APP_ROUTES.ESTIMATE,
+    path: APP_ROUTES.ESTIMATE.PARENT,
     loadChildren: () =>
       import('./estimate/estimate.module').then((m) => m.EstimateModule),
   },
