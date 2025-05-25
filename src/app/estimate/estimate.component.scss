@@ -1,6 +1,22 @@
 .estimate-container {
   padding: 20px;
 
+  .estimate-info {
+    padding: 10px 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+
+  .estimate-info .form-label {
+    margin-bottom: 4px;
+  }
+
+  .estimate-info .form-control {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
   .invoice-header {
     margin-top: 150px;
   }

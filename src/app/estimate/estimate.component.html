@@ -1,25 +1,44 @@
 <div class="estimate-container">
   <div class="invoice-header" style="margin-bottom: 20px">
-    <div>
-      <div>
-        <strong>Estimate for:</strong>
-        <input [(ngModel)]="estimateInfo.name" style="width: 160px" />
-      </div>
-      <div>
-        <strong>Address:</strong>
-        <input [(ngModel)]="estimateInfo.address" style="width: 160px" />
-      </div>
-      <div>
-        <strong>Date:</strong>
+    <div class="row estimate-info mb-3">
+      <div class="col-md-6 mb-2">
+        <label for="estimateName" class="form-label fw-bold"
+          >Estimate for:</label
+        >
         <input
-          type="date"
-          [(ngModel)]="estimateInfo.date"
-          style="width: 160px"
+          id="estimateName"
+          type="text"
+          [(ngModel)]="estimateInfo.name"
+          class="form-control"
         />
       </div>
-      <div>
-        <strong>Est. No.:</strong>
-        <input [(ngModel)]="estimateInfo.number" style="width: 160px" />
+      <div class="col-md-6 mb-2">
+        <label for="estimateAddress" class="form-label fw-bold">Address:</label>
+        <input
+          id="estimateAddress"
+          type="text"
+          [(ngModel)]="estimateInfo.address"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label for="estimateDate" class="form-label fw-bold">Date:</label>
+        <input
+          id="estimateDate"
+          type="date"
+          [(ngModel)]="estimateInfo.date"
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="estimateNumber" class="form-label fw-bold">Est. No.:</label>
+        <input
+          id="estimateNumber"
+          type="text"
+          [(ngModel)]="estimateInfo.number"
+          class="form-control"
+        />
       </div>
     </div>
   </div>
