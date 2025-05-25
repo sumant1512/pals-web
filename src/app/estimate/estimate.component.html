@@ -1,6 +1,30 @@
 <div class="estimate-container">
+  <div class="invoice-header" style="margin-bottom: 20px">
+    <div>
+      <div>
+        <strong>Estimate for:</strong>
+        <input [(ngModel)]="estimateInfo.name" style="width: 160px" />
+      </div>
+      <div>
+        <strong>Address:</strong>
+        <input [(ngModel)]="estimateInfo.address" style="width: 160px" />
+      </div>
+      <div>
+        <strong>Date:</strong>
+        <input
+          type="date"
+          [(ngModel)]="estimateInfo.date"
+          style="width: 160px"
+        />
+      </div>
+      <div>
+        <strong>Est. No.:</strong>
+        <input [(ngModel)]="estimateInfo.number" style="width: 160px" />
+      </div>
+    </div>
+  </div>
+
   <table
-    border="1"
     cellspacing="0"
     cellpadding="5"
     style="width: 100%; border-collapse: collapse"
@@ -66,4 +90,10 @@
       </tr>
     </tfoot>
   </table>
+
+  <div class="no-print" style="margin-top: 30px; text-align: right">
+    <button (click)="openPreview()" style="padding: 10px 20px; font-size: 16px">
+      Preview
+    </button>
+  </div>
 </div>
