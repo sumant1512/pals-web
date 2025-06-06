@@ -22,6 +22,15 @@
         />
       </div>
       <div class="col-md-6 mb-3">
+        <label for="estimateContact" class="form-label fw-bold">Contact:</label>
+        <input
+          id="estimateContact"
+          type="text"
+          [(ngModel)]="estimateInfo.contact"
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-6 mb-3">
         <label for="estimateDate" class="form-label fw-bold">Date:</label>
         <input
           id="estimateDate"
@@ -30,7 +39,7 @@
           class="form-control"
         />
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label for="estimateNumber" class="form-label fw-bold">Est. No.:</label>
         <input
           id="estimateNumber"
@@ -38,6 +47,30 @@
           [(ngModel)]="estimateInfo.number"
           class="form-control"
         />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="estimateType" class="form-label fw-bold">Type:</label>
+        <select
+          id="estimateType"
+          [(ngModel)]="estimateInfo.estimateType"
+          class="form-select"
+        >
+          <option value="Estimate">Estimate</option>
+          <option value="Invoice">Invoice</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="estimateType" class="form-label fw-bold"
+          >Transport Charges:</label
+        >
+        <select
+          id="estimateType"
+          [(ngModel)]="estimateInfo.isTransportIncluded"
+          class="form-select"
+        >
+          <option value="true">Include</option>
+          <option value="false">Exclude</option>
+        </select>
       </div>
     </div>
   </div>
@@ -93,17 +126,41 @@
         </tr>
         <tr>
           <td colspan="5" class="text-end fw-bold">Discount</td>
-          <td>₹ {{ discountAmount | number : "1.2-2" }}</td>
+          <td>₹ {{ getDiscountAmount() | number : "1.2-2" }}</td>
+        </tr>
+        <tr *ngIf="estimateInfo.isTransportIncluded === 'true'">
+          <td colspan="5" class="text-end fw-bold">Freight Charges</td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="transportCharges"
+              (ngModelChange)="getGrandTotal()"
+              min="0"
+              max="100"
+              class="form-control form-control-sm d-inline-block"
+              style="width: 70px"
+            />
+          </td>
         </tr>
         <tr>
           <td colspan="5" class="text-end fw-bold">Total</td>
-          <td>₹ {{ grandTotal | number : "1.2-2" }}</td>
+          <td>₹ {{ getGrandTotal() | number : "1.2-2" }}</td>
         </tr>
       </tfoot>
     </table>
   </div>
 
-  <!-- Preview Button (Optional) -->
+  <div class="text-danger">
+    <h4><strong>Note</strong></h4>
+    <ol>
+      <li>
+        Weight can be varied as the weight shown here is calculated as per pack
+        size.
+      </li>
+      <li>Rates are valid for estimate day only and can be varied.</li>
+    </ol>
+  </div>
+
   <div class="no-print text-end mt-4">
     <button (click)="openPreview()" class="btn btn-primary">Preview</button>
   </div>
