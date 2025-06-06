@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 export interface Product {
   description: string;
@@ -12,138 +12,141 @@ export interface Product {
   templateUrl: './estimate.component.html',
   styleUrls: ['./estimate.component.scss'],
 })
-export class EstimateComponent {
+export class EstimateComponent implements OnInit {
   qrCodeUrl = './../../assets/qr-code.png';
   discountPercent: number = 0;
-  grandTotal = 0;
   discountAmount = 0;
+  transportCharges = 0;
   estimateInfo = {
-    name: '',
-    address: '',
+    name: 'Sumant Mishra',
+    address: '122/1 SR Compound',
     date: new Date().toISOString().substring(0, 10), // default today
-    number: '',
+    number: '1123',
+    contact: '',
+    estimateType: 'Estimate',
+    isTransportIncluded: 'false',
   };
 
   products: Product[] = [
     {
       description: 'Sourya Cem White Lime Wash',
       size: '25 KG.',
-      rate: 350,
+      rate: 280,
       qty: 0,
     },
     {
       description: 'Sourya Cem Blue Lime Wash',
       size: '25 KG.',
-      rate: 370,
-      qty: 1,
+      rate: 300,
+      qty: 0,
     },
-    { description: 'Pals Distemper Bag', size: '20 KG.', rate: 400, qty: 10 },
-    { description: 'Pals Distemper Bag', size: '10 KG.', rate: 240, qty: 3 },
-    { description: 'Pals Distemper Bag', size: '5 KG.', rate: 145, qty: 1 },
-    { description: 'Pals Distemper Bucket', size: '20 KG.', rate: 950, qty: 1 },
-    { description: 'Pals Distemper Bucket', size: '10 KG.', rate: 570, qty: 1 },
-    { description: 'Pals Distemper Bucket', size: '5 KG.', rate: 345, qty: 1 },
+    { description: 'Pals Distemper Bag', size: '20 KG.', rate: 295, qty: 0 },
+    { description: 'Pals Distemper Bag', size: '10 KG.', rate: 190, qty: 0 },
+    { description: 'Pals Distemper Bag', size: '5 KG.', rate: 95, qty: 0 },
+    { description: 'Pals Distemper Bucket', size: '20 KG.', rate: 660, qty: 0 },
+    { description: 'Pals Distemper Bucket', size: '10 KG.', rate: 360, qty: 0 },
+    { description: 'Pals Distemper Bucket', size: '5 KG.', rate: 215, qty: 0 },
     {
       description: 'Pals Wall Primer Interior',
       size: '20 LTR.',
-      rate: 1650,
-      qty: 10,
+      rate: 910,
+      qty: 0,
     },
     {
       description: 'Pals Wall Primer Interior',
       size: '10 LTR.',
-      rate: 1000,
-      qty: 1,
+      rate: 490,
+      qty: 0,
     },
     {
       description: 'Pals Wall Primer Interior',
       size: '4 LTR.',
-      rate: 480,
-      qty: 1,
-    },
-    {
-      description: 'Pals Wall Primer Interior',
-      size: '1 LTR.',
-      rate: 170,
-      qty: 1,
-    },
-    {
-      description: 'Pals Wall Primer Exterior',
-      size: '20 LTR.',
-      rate: 1940,
-      qty: 1,
-    },
-    {
-      description: 'Pals Wall Primer Exterior',
-      size: '10 LTR.',
-      rate: 1150,
-      qty: 1,
-    },
-    {
-      description: 'Pals Wall Primer Exterior',
-      size: '4 LTR.',
-      rate: 615,
-      qty: 1,
-    },
-    {
-      description: 'Pals Wall Primer Exterior',
-      size: '1 LTR.',
-      rate: 210,
-      qty: 1,
-    },
-    {
-      description: 'Pals Plastic Paint Interior',
-      size: '20 LTR.',
-      rate: 2140,
-      qty: 10,
-    },
-    {
-      description: 'Pals Plastic Paint Interior',
-      size: '10 LTR.',
-      rate: 1300,
-      qty: 1,
-    },
-    {
-      description: 'Pals Plastic Paint Interior',
-      size: '4 LTR.',
-      rate: 645,
-      qty: 1,
-    },
-    {
-      description: 'Pals Plastic Paint Interior',
-      size: '1 LTR.',
       rate: 255,
-      qty: 1,
+      qty: 0,
+    },
+    {
+      description: 'Pals Wall Primer Interior',
+      size: '1 LTR.',
+      rate: 100,
+      qty: 0,
+    },
+    {
+      description: 'Pals Wall Primer Exterior',
+      size: '20 LTR.',
+      rate: 1145,
+      qty: 0,
+    },
+    {
+      description: 'Pals Wall Primer Exterior',
+      size: '10 LTR.',
+      rate: 640,
+      qty: 0,
+    },
+    {
+      description: 'Pals Wall Primer Exterior',
+      size: '4 LTR.',
+      rate: 345,
+      qty: 0,
+    },
+    {
+      description: 'Pals Wall Primer Exterior',
+      size: '1 LTR.',
+      rate: 135,
+      qty: 0,
+    },
+    {
+      description: 'Pals Plastic Paint Interior',
+      size: '20 LTR.',
+      rate: 1475,
+      qty: 0,
+    },
+    {
+      description: 'Pals Plastic Paint Interior',
+      size: '10 LTR.',
+      rate: 780,
+      qty: 0,
+    },
+    {
+      description: 'Pals Plastic Paint Interior',
+      size: '4 LTR.',
+      rate: 400,
+      qty: 0,
+    },
+    {
+      description: 'Pals Plastic Paint Interior',
+      size: '1 LTR.',
+      rate: 130,
+      qty: 0,
     },
     {
       description: 'Pals Plastic Paint Exterior',
       size: '20 LTR.',
-      rate: 2570,
-      qty: 1,
+      rate: 1710,
+      qty: 0,
     },
     {
       description: 'Pals Plastic Paint Exterior',
       size: '10 LTR.',
-      rate: 1410,
-      qty: 1,
+      rate: 955,
+      qty: 0,
     },
     {
       description: 'Pals Plastic Paint Exterior',
       size: '4 LTR.',
-      rate: 695,
-      qty: 2,
+      rate: 485,
+      qty: 0,
     },
     {
       description: 'Pals Plastic Paint Exterior',
       size: '1 LTR.',
-      rate: 295,
-      qty: 1,
+      rate: 190,
+      qty: 0,
     },
     {
       description: 'Pals Wall Putty (Powder)',
       size: '40 KG.',
-      rate: 700,
-      qty: 3,
+      rate: 580,
+      qty: 0,
     },
   ];
 
@@ -169,8 +172,8 @@ export class EstimateComponent {
     return this.discountAmount;
   }
 
-  getGrandTotal(): void {
-    this.grandTotal = this.getSubtotal() - this.getDiscountAmount();
+  getGrandTotal(): number {
+    return this.getSubtotal() - this.getDiscountAmount();
   }
 
   openPreview() {
@@ -224,27 +227,36 @@ export class EstimateComponent {
               box-sizing: border-box;
               height: 100vh;
             }
+            .estimate{
+              text-align: center;
+            }
             .header {
               display: flex;
               justify-content: space-between;
-              align-items: flex-start;
-              margin-bottom: 10px;
+              align-items: end;
+              margin-bottom: 20px;
             }
             .header .left {
               flex: 1;
+              div {
+                font-size: 14px;
+              }
             }
             .header .right {
               flex-shrink: 0;
               text-align: right;
+              .estimate {
+                font-size: 14px;
+                padding-right: 7px;
+              }
             }
-            .header h2 {
-              margin: 0 0 4px 0;
-              font-size: 16px;
+            .header h1 {
+              font-size: 24px;
             }
             table {
               width: 100%;
               border-collapse: collapse;
-              font-size: 10px;
+              font-size: 12px;
             }
             th, td {
               border: 1px solid #000;
@@ -276,21 +288,22 @@ export class EstimateComponent {
           <div class="wrapper">
             <div class="header">
               <div class="left">
-                <h2>Pals Paint</h2>
-                <div>GSTIN: 23AAOCP1744R1ZT</div>
-                <div>Address: 122/1 SR Compound Lasudiya More, Dewas Naka, Indore, 453771</div>
-                <div>Contact: +91 - 9131410942</div>
+                <h1>Pals Paint</h1>
+                <div><strong>GSTIN:</strong> 23AAOCP1744R1ZT</div>
+                <div><strong>Address:</strong> 122/1, SR Compound Rd, near Dewas Naka, Lasudia Mori, <br>Indore, Madhya Pradesh 453771</div>
+                <div><strong>Contact:</strong> +91 - 9131410942</div>
                 <br>
                 <div><strong>Estimate for:</strong> ${this.estimateInfo.name}</div>
+                <div><strong>Contact:</strong> ${this.estimateInfo.contact}</div>
                 <div><strong>Address:</strong> ${this.estimateInfo.address}</div>
                 <div><strong>Date:</strong> ${this.estimateInfo.date}</div>
-                <div><strong>Est. No.:</strong> ${this.estimateInfo.number}</div>
               </div>
               <div class="right">
-                <img src="${this.qrCodeUrl}" alt="QR Code" style="width: 100px; height: 100px;" />
+                <img src="${this.qrCodeUrl}" alt="QR Code" style="width: 134px; height: 134px;" />
+                <div class="estimate"><strong>${this.estimateInfo.estimateType} No.:</strong> ${this.estimateInfo.number}</div>
               </div>
             </div>
-  
+            <div class="estimate"><h2>${this.estimateInfo.estimateType}</h2></div>
             ${printContents}
           </div>
   
@@ -309,7 +322,5 @@ export class EstimateComponent {
     popupWin!.document.close();
   }
 
-  ngOnInit() {
-    this.getGrandTotal();
-  }
+  ngOnInit() {}
 }
