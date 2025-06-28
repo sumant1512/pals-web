@@ -3,12 +3,18 @@
   <div class="d-flex justify-content-between align-items-centerm mt-3 mb-4">
     <div><h2>Explore our Products</h2></div>
     <div>
-      <button type="submit" (click)="navigateToProductsPage()">View All</button>
+      <button
+        type="submit"
+        (click)="navigateToProductsPage()"
+        class="btn view-btn"
+      >
+        View All
+      </button>
     </div>
   </div>
   <div class="row">
     <div
-      *ngFor="let product of productList.slice(0, 3)"
+      *ngFor="let product of productList?.slice(0, 3)"
       class="col-md-4 col-lg-4 mb-4"
     >
       <app-product-card [product]="product"></app-product-card>
