@@ -1,20 +1,50 @@
 <div class="container products-heading">
-  <div class="mb-4">
-    <span><a [routerLink]="['']">Home</a> / </span>
-    <span>Products</span>
-  </div>
-
-  <div>
-    <p class="products-title">Our Products</p>
-  </div>
-
-  <div class="row mb-5">
-    <div *ngFor="let p of productList" class="col-12 col-md-4 mb-4">
-      <div (click)="this.navigateToProduct(p.productId)">
-        <app-product-card
-          [productImage]="p.img"
-          [productName]="p.productName"
-        ></app-product-card>
+  <div class="container my-4">
+    <div class="row">
+      <h1 class="page-heading">Explore our Products</h1>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-2">
+        <p class="filter-label">FILTER</p>
+      </div>
+      <div class="col-md-10"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-check mb-4">
+          <input class="form-check-input me-4" type="checkbox" id="filter1" />
+          <label class="form-check-label" for="filter1">Exterior Paints</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input me-4" type="checkbox" id="filter1" />
+          <label class="form-check-label" for="filter1">Interior Paints</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input me-4" type="checkbox" id="filter1" />
+          <label class="form-check-label" for="filter1">Distemper</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input me-4" type="checkbox" id="filter1" />
+          <label class="form-check-label" for="filter1">Wall Primer</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input me-4" type="checkbox" id="filter1" />
+          <label class="form-check-label" for="filter1">Pals Putty</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input me-4" type="checkbox" id="filter1" />
+          <label class="form-check-label" for="filter1">Lime Wash</label>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div
+            *ngFor="let product of productList"
+            class="col-md-4 col-lg-3 mb-4"
+          >
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        </div>
       </div>
     </div>
   </div>

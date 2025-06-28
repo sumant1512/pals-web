@@ -1,12 +1,15 @@
-.title {
-  font-size: 32px;
-  font-weight: bold;
-  font-family: sans-serif;
-  color: #005192;
-}
+.about-section {
+  margin-top: 80px;
 
-.sub-title {
-  font-size: 16px;
-  font-family: sans-serif;
-  color: #4d4d4d;
+  .title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .sub-title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
 }

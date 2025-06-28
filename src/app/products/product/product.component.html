@@ -1,111 +1,57 @@
 <div class="container product-container">
-  <div class="mb-4">
-    <span><a [routerLink]="['']">Home</a> / </span>
-    <span><a [routerLink]="'../'">Products</a> / </span>
-    <span *ngIf="productDetails?.productId">{{
-      productDetails.productName
-    }}</span>
-  </div>
-  <div *ngIf="productDetails?.productId" class="row">
-    <div class="col-12 col-md-6">
-      <img class="img-fluid" [src]="getImagePath(productDetails.img)" alt="" />
-    </div>
-    <div class="col-12 col-md-6">
-      <h3>
-        {{ productDetails.productName }}
-        <span *ngIf="productDetails.productType">
-          ({{ productDetails.productType }})</span
-        >
-      </h3>
-      <div>
-        <span>-{{ selectedPacket.discount }}%</span
-        ><span> ₹{{ getDiscountedPrice(selectedPacket) }}</span>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-4 fw-semibold fs-3 mh-4">
+        Exterior Plastic Paint Emulsion
       </div>
-      <div>
-        <span>M.R.P.:</span><del>₹{{ selectedPacket.mrp }}</del>
+      <div class="col-sm-8 mt-3">
+        Product Starting from
+        <span class="fw-semibold">$450</span>
       </div>
 
-      <button
-        class="mt-3"
-        type="button"
-        *ngFor="let packet of productDetails.packSize"
-        (click)="selectPacket(packet)"
-      >
-        {{ packet.size }}
-      </button>
-
-      <div *ngIf="productDetails.isShadeEnabled" class="mt-3">
-        <button
-          type="button"
-          class="btn btn-primary me-3"
-          data-bs-toggle="modal"
-          data-bs-target="#shadeModal"
-        >
-          Select Shade
-        </button>
-        <button
-          *ngIf="false"
-          type="button"
-          class="btn btn-primary"
-          (click)="navigateToTryOn()"
-        >
-          Try On
-        </button>
+      <div class="image-section col-md-5 mb-6 mt-4 ms-4 mb-md-0">
+        <img
+          src="./../../../assets/bucket-image.png"
+          class="rounded float-start img-fluid"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-2 mh-4 mt-2">
+        <div class="fw-semibold d-block mb-2">Select Colour</div>
+        <div
+          class="color-box d-inline-block rounded border border-dark me-2 ms-2"
+        ></div>
+        <div
+          class="color-box d-inline-block rounded border border-dark me-2"
+        ></div>
       </div>
 
-      <div class="center mt-4" *ngFor="let packet of selectedPacketList">
-        <span class="me-3">Size: {{ packet.size }} </span>
-        <span *ngIf="packet.color" class="center me-3"
-          >Color:
-          <span
-            class="selected-color-box ms-2"
-            [style.backgroundColor]="packet.color"
-          ></span>
-        </span>
-        <button
-          class="btn btn-primary btn-sm"
-          (click)="onChangeQuantity(packet, 'sub')"
-        >
-          -
-        </button>
-        {{ packet.quantity }}
-        <button
-          class="btn btn-primary btn-sm"
-          (click)="onChangeQuantity(packet, 'add')"
-        >
-          +
-        </button>
-        <span>Price: ₹{{ getProductTotalPrice(packet, packet.quantity) }}</span>
-      </div>
+      <div class="select-quantity-section mb-4">
+        <label class="fw-semibold d-block mb-2">Select Quantity</label>
 
-      <div class="mt-3">
-        <button
-          type="button"
-          *ngIf="!productDetails.isShadeEnabled"
-          class="btn btn-primary me-3"
-          (click)="add()"
-        >
-          Add
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary me-3"
-          [disabled]="!selectedPacketList.length"
-          (click)="addToCart()"
-        >
-          Add to Cart
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          [disabled]="!selectedPacketList.length"
-          (click)="buyNow()"
-        >
-          Buy Now
-        </button>
+        <!--Pack 1-->
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span>! Ltr. Pack</span>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-secondary btn-sm">-</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- <div class="product-section">
+    color-selection select-color-section 
+    <div class="product-details">
+      <h1>Exterior Plastic Paint Emulsion</h1>
+      <p class="price">Product Starting from $450</p>
+      <div class="color-selector">
+        <label>Selected Color :</label>
+        <div class="color-box" style="background-color: #a52a2a"></div>
+        <button class="more-colors">+ Add more</button>
+      </div>
+    </div>
+  </div> -->
 </div>
 
 <div *ngIf="productDetails?.productId">

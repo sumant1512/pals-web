@@ -1,12 +1,13 @@
-<div class="card cursor-pointer">
-  <div class="card-body">
-    <img
-      [src]="'./../../assets/products/' + productImage"
-      class="img-fluid w-100"
-      alt="Image"
-    />
-    <p class="product-name mt-3 mb-0">
-      {{ productName }} <span *ngIf="productType">({{ productType }})</span>
+<div>
+  <img class="w-100" [src]="product.img" [alt]="product.productName" />
+  <div>
+    <h6 class="products-title mt-3" [title]="product.productName">
+      {{ product.productName }} ({{ product.productType }})
+    </h6>
+
+    <p class="products-description mt-3">
+      Enhance your outdoors with paints and textures for every style.
     </p>
+    <h6 class="products-price mt-3">$ {{ product.price }}</h6>
   </div>
 </div>

@@ -6,7 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent {
-  @Input() productImage!: string;
-  @Input() productName!: string;
-  @Input() productType!: string;
+  @Input() product!: any;
 }

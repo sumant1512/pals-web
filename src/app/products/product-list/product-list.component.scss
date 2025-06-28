@@ -1,10 +1,18 @@
 .products-heading {
   margin-top: 120px;
+  font-family: "Manrope", sans-serif;
 
-  .products-title {
-    font-size: 32px;
+  .page-heading {
+    font-size: 40px;
+    font-weight: 400;
+    color: #282828;
+    margin-bottom: 48px;
+  }
+
+  .filter-label {
+    font-size: 16px;
     font-weight: bold;
-    font-family: sans-serif;
-    color: #005192;
+    color: #282828;
+    letter-spacing: 1px;
   }
 }
