@@ -5,12 +5,14 @@ import { ProductCardComponent } from '../shared/components/product-card/product-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShadeSelectorComponent } from './components/shade-selector/shade-selector.component';
 import { HeadingChipsComponent } from './components/heading-chips/heading-chips.component';
+import { NavButtonComponent } from './components/nav-button/nav-button.component';
 
 @NgModule({
   declarations: [
     ProductCardComponent,
     ShadeSelectorComponent,
     HeadingChipsComponent,
+    NavButtonComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -19,6 +21,7 @@ import { HeadingChipsComponent } from './components/heading-chips/heading-chips.
     HeadingChipsComponent,
     FormsModule,
     ReactiveFormsModule,
+    NavButtonComponent,
   ],
 })
 export class SharedModule {}
