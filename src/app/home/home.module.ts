@@ -12,6 +12,7 @@ import { BannerComponent } from './banner/banner.component';
 import { TestimonialCardComponent } from './testimonials/testimonial-card/testimonial-card.component';
 import { LoginComponent } from './login/login.component';
 import { ProductCarouselComponent } from './product-carousel/product-carousel.component';
+import { CategorySectionComponent } from './category-section/category-section.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductCarouselComponent } from './product-carousel/product-carousel.co
     TestimonialCardComponent,
     LoginComponent,
     ProductCarouselComponent,
+    CategorySectionComponent,
   ],
   imports: [
     CommonModule,

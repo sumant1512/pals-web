@@ -1,113 +1,17 @@
-<div class="container mb-5">
-  <div class="products-heading mb-4 d-flex">
-    <p class="products-title">Our Products</p>
-    <a [routerLink]="['/products']">View All</a>
-  </div>
-  <div class="row d-none d-md-block">
-    <div
-      id="carouselExampleRide"
-      class="carousel slide carousel-fade"
-      data-bs-ride="carousel"
-    >
-      <div
-        id="carouselDesktopRide"
-        class="carousel slide carousel-fade"
-        data-bs-ride="carousel"
-        data-bs-interval="5000"
-      >
-        <div class="carousel-inner">
-          <div
-            *ngFor="
-              let productChunk of chunkArray(productList, 3);
-              let i = index
-            "
-            class="carousel-item"
-            [class.active]="i === 0"
-          >
-            <div class="row">
-              <div
-                *ngFor="let product of productChunk"
-                class="col-12 col-md-4 mb-3"
-              >
-                <div (click)="navigateToProduct(product.productId)">
-                  <app-product-card
-                    [productImage]="product.img"
-                    [productName]="product.productName"
-                    [productType]="product.productType"
-                  ></app-product-card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselDesktopRide"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselDesktopRide"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+<div class="container products-section">
+  <app-heading-chips [label]="'Products'"></app-heading-chips>
+  <div class="d-flex justify-content-between align-items-centerm mt-3 mb-4">
+    <div><h2>Explore our Products</h2></div>
+    <div>
+      <button type="submit" (click)="navigateToProductsPage()">View All</button>
     </div>
   </div>
-
-  <div class="row d-block d-md-none">
+  <div class="row">
     <div
-      id="carouselMobileRide"
-      class="carousel slide carousel-fade"
-      data-bs-ride="carousel"
-      data-bs-interval="2000"
+      *ngFor="let product of productList.slice(0, 3)"
+      class="col-md-4 col-lg-4 mb-4"
     >
-      <div class="carousel-inner">
-        <div
-          *ngFor="let p of productList; let i = index"
-          class="carousel-item"
-          [ngClass]="{ active: i === 0 }"
-        >
-          <div class="row">
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-              <div (click)="this.navigateToProduct(1)">
-                <app-product-card
-                  [productImage]="p.img"
-                  [productName]="p.productName"
-                  [productType]="p.productType"
-                ></app-product-card>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselMobileRide"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselMobileRide"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <app-product-card [product]="product"></app-product-card>
     </div>
   </div>
 </div>

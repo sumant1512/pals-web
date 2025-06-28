@@ -5,31 +5,36 @@
       "productId": 1,
       "productName": "Wall Primer",
       "productType": "Interior",
-      "img": "product_1.jpeg"
+      "img": "./../../../assets/bucket1.png",
+      "price": "500"
     },
     {
       "productId": 2,
       "productName": "Wall Primer",
       "productType": "Exterior",
-      "img": "product_2.jpeg"
+      "img": "./../../../assets/bucket1.png",
+      "price": "500"
     },
     {
       "productId": 3,
       "productName": "Acrylic Washable Distemper",
       "productType": "Interior/Exterior",
-      "img": "product_3.jpeg"
+      "img": "./../../../assets/bucket1.png",
+      "price": "500"
     },
     {
       "productId": 4,
       "productName": "Plastic Paint",
       "productType": "Exterior",
-      "img": "product_4.jpeg"
+      "img": "./../../../assets/bucket1.png",
+      "price": "500"
     },
     {
       "productId": 5,
       "productName": "Plastic Paint",
       "productType": "Exterior",
-      "img": "product_5.jpeg"
+      "img": "./../../../assets/bucket1.png",
+      "price": "500"
     }
   ]
 }

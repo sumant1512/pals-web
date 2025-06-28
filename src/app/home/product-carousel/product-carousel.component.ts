@@ -30,6 +30,10 @@ export class ProductCarouselComponent implements OnInit, OnDestroy {
     );
   }
 
+  navigateToProductsPage(): void {
+    this.router.navigate(['products']);
+  }
+
   chunkArray(array: any[], chunkSize: number): any[] {
     const chunks = [];
     for (let i = 0; i < array?.length; i += chunkSize) {
