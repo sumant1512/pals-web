@@ -34,14 +34,6 @@ export class ProductCarouselComponent implements OnInit, OnDestroy {
     this.router.navigate(['products']);
   }
 
-  chunkArray(array: any[], chunkSize: number): any[] {
-    const chunks = [];
-    for (let i = 0; i < array?.length; i += chunkSize) {
-      chunks.push(array.slice(i, i + chunkSize));
-    }
-    return chunks;
-  }
-
   navigateToProduct(id: number): void {
     console.log('called here', id);
     this.router.navigate(['products', id], { relativeTo: this.activatedRoute });
