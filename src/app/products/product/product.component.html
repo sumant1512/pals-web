@@ -1,22 +1,34 @@
 <div class="container product-container">
-  <div class="container text-center">
+  <div class="container">
     <div class="row">
-      <div class="col-sm-4 fw-semibold fs-3 mh-4">
-        Exterior Plastic Paint Emulsion
-      </div>
-      <div class="col-sm-8 mt-3">
-        Product Starting from
-        <span class="fw-semibold">$450</span>
-      </div>
-
-      <div class="image-section col-md-5 mb-6 mt-4 ms-4 mb-md-0">
+      <p>
+        <a [routerLink]="'/'">Home</a> <span> > </span>
+        <a [routerLink]="'/products'">Products</a><span> > </span>
+        <a
+          *ngIf="productDetails?.productId"
+          [routerLink]="'/products/' + productDetails.productId"
+          >{{ productDetails.productName }} ({{
+            productDetails.productType
+          }})</a
+        >
+      </p>
+    </div>
+    <div *ngIf="productDetails?.productId" class="row">
+      <div class="col-sm-5">
+        <div class="product-name-heading">
+          {{ productDetails.productName }} ({{ productDetails.productType }})
+        </div>
         <img
           src="./../../../assets/bucket-image.png"
           class="rounded float-start img-fluid"
           alt="..."
         />
       </div>
-      <div class="col-md-2 mh-4 mt-2">
+      <div class="col-sm-7">
+        <div>
+          Product Starting from
+          <span class="fw-semibold">$450</span>
+        </div>
         <div class="fw-semibold d-block mb-2">Select Colour</div>
         <div
           class="color-box d-inline-block rounded border border-dark me-2 ms-2"
@@ -24,34 +36,19 @@
         <div
           class="color-box d-inline-block rounded border border-dark me-2"
         ></div>
-      </div>
-
-      <div class="select-quantity-section mb-4">
         <label class="fw-semibold d-block mb-2">Select Quantity</label>
-
-        <!--Pack 1-->
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <span>! Ltr. Pack</span>
-          <div class="d-flex align-items-center">
-            <button class="btn btn-outline-secondary btn-sm">-</button>
+        <div class="select-quantity-section mb-4">
+          <!--Pack 1-->
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span>! Ltr. Pack</span>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-outline-secondary btn-sm">-</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="product-section">
-    color-selection select-color-section 
-    <div class="product-details">
-      <h1>Exterior Plastic Paint Emulsion</h1>
-      <p class="price">Product Starting from $450</p>
-      <div class="color-selector">
-        <label>Selected Color :</label>
-        <div class="color-box" style="background-color: #a52a2a"></div>
-        <button class="more-colors">+ Add more</button>
-      </div>
-    </div>
-  </div> -->
 </div>
 
 <div *ngIf="productDetails?.productId">
