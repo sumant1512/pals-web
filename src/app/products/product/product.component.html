@@ -13,22 +13,28 @@
         >
       </p>
     </div>
-    <div *ngIf="productDetails?.productId" class="row">
-      <div class="col-sm-5">
+    <div class="row">
+      <div class="col-md-6">
         <div class="product-name-heading">
           {{ productDetails.productName }} ({{ productDetails.productType }})
         </div>
+      </div>
+      <div class="col-md-6 product-starting-align">
+        <div>
+          Product Starting from
+          <span class="fw-semibold">₹ 450</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="productDetails?.productId" class="row mt-4">
+      <div class="col-md-6">
         <img
           src="./../../../assets/bucket-image.png"
           class="rounded float-start img-fluid"
           alt="..."
         />
       </div>
-      <div class="col-sm-7">
-        <div>
-          Product Starting from
-          <span class="fw-semibold">$450</span>
-        </div>
+      <div class="col-md-6">
         <div class="fw-semibold d-block mb-2">Select Colour</div>
         <div
           class="color-box d-inline-block rounded border border-dark me-2 ms-2"
@@ -47,6 +53,36 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="product-name-heading">Instruction to use</div>
+      <p class="mt-1">
+        To achieve remarkable results with our Plastic Emulsion paint, begin by
+        preparing your walls properly. Make sure they are clean, dry, and devoid
+        of any peeling paint or dust. After that, give the paint a good stir to
+        ensure it's well-mixed before you start applying it. Use a high-quality
+        brush or roller to achieve a smooth finish, and don't forget to apply
+        two coats for the best coverage. Allow the first coat to dry completely
+        before moving on to the second one.For optimal results, it's best to
+        paint in a well-ventilated area and steer clear of extreme temperatures
+        during application. This will help the paint adhere better and dry
+        evenly. Once you're done, step back and admire your beautifully
+        transformed space, knowing that you've put in the effort to create a
+        stunning environment with our high-quality paint!
+      </p>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <app-heading-chips [label]="'FAQs'"></app-heading-chips>
+        <div class="faq-header mt-3">Answering your questions</div>
+        <div class="faq-description">
+          Got more questions? Send us your enquiry below
+        </div>
+        <button type="submit" class="btn view-btn mt-3">Get in Touch</button>
+      </div>
+      <div class="col-md-8"></div>
     </div>
   </div>
 </div>
