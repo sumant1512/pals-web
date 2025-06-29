@@ -35,13 +35,28 @@
         />
       </div>
       <div class="col-md-6">
-        <div class="fw-semibold d-block mb-2">Select Colour</div>
-        <div
-          class="color-box d-inline-block rounded border border-dark me-2 ms-2"
-        ></div>
-        <div
-          class="color-box d-inline-block rounded border border-dark me-2"
-        ></div>
+        <div class="fw-semibold d-block mb-3">Select Colour</div>
+        <div class="row mb-3">
+          <div class="col-2">
+            <div class="selected-color-box"></div>
+          </div>
+          <div class="col-2 text-center">
+            <div
+              class="add-more"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#shadeModal"
+            >
+              <img
+                class="img-fluid mb-1"
+                src="./../../../assets/select_color_icon.png"
+                alt=""
+              />
+              <p class="add-more-label">+ Add More</p>
+            </div>
+          </div>
+        </div>
+
         <label class="fw-semibold d-block mb-2">Select Quantity</label>
         <div class="select-quantity-section mb-4">
           <!--Pack 1-->
