@@ -7,6 +7,30 @@
     font-weight: 400;
   }
 
+  .product-starting-align {
+    justify-content: end;
+    align-items: center;
+    display: flex;
+  }
+
+  .faq-header {
+    font-size: 40px;
+    line-height: 38px;
+    margin-bottom: 16px;
+  }
+
+  .faq-description {
+    font-size: 14px;
+  }
+
+  .view-btn {
+    border: 2px solid #5076b7;
+    border-radius: 25px;
+    padding: 4px 30px 4px 30px;
+    color: #5076b7;
+    font-family: sans-serif;
+  }
+
   .selected-color-box {
     height: 25px;
     width: 25px;
