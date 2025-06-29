@@ -13,6 +13,19 @@
     display: flex;
   }
 
+  .add-more {
+    background-color: #f8f8f8;
+    padding: 8px;
+    border-radius: 8px;
+
+    .add-more-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #282828;
+      margin-bottom: 0px;
+    }
+  }
+
   .faq-header {
     font-size: 40px;
     line-height: 38px;
@@ -32,24 +45,10 @@
   }
 
   .selected-color-box {
-    height: 25px;
-    width: 25px;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
     display: inline-block;
-  }
-
-  .center {
-    display: flex;
-    align-items: center;
-  }
-
-  .color-box {
-    width: 80px;
-    height: 50px;
-    background-color: brown;
-  }
-
-  .select-color-button {
-    width: 80px;
-    height: 50px;
+    background-color: red;
   }
 }
