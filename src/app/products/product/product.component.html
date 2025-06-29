@@ -15,7 +15,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="product-name-heading">
+        <div *ngIf="productDetails?.productId" class="product-name-heading">
           {{ productDetails.productName }} ({{ productDetails.productType }})
         </div>
       </div>
