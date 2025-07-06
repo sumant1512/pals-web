@@ -37,16 +37,11 @@
       <div class="col-md-6">
         <div class="fw-semibold d-block mb-3">Select Colour</div>
         <div class="row mb-3">
-          <div class="col-2">
+          <div class="col-4 col-lg-3">
             <div class="selected-color-box"></div>
           </div>
-          <div class="col-2 text-center">
-            <div
-              class="add-more"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#shadeModal"
-            >
+          <div class="col-4 col-lg-3 text-center">
+            <div class="add-more" type="button" (click)="openModal()">
               <img
                 class="img-fluid mb-1"
                 src="./../../../assets/select_color_icon.png"
@@ -102,9 +97,4 @@
   </div>
 </div>
 
-<div *ngIf="productDetails?.productId">
-  <app-shade-dialog
-    [selectedPacket]="selectedPacket"
-    (addShade)="add($event)"
-  ></app-shade-dialog>
-</div>
+<app-shade-dialog *ngIf="showModal" (close)="closeModal()"></app-shade-dialog>

@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   productDetails!: IProduct;
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
+  showModal = false;
 
   constructor(
     private router: Router,
@@ -25,6 +26,14 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct(parseInt(this.activatedRoute.snapshot.params['id']));
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 
   getProduct(id: number): void {
