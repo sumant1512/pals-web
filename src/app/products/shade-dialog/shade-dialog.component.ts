@@ -20,6 +20,13 @@ import { Subscription } from 'rxjs';
 export class ShadeDialogComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   colorShadesList!: any;
+  chipsList = [
+    { name: 'Blues' },
+    { name: 'Whites' },
+    { name: 'Pinks' },
+    { name: 'Reds' },
+    { name: 'Yellows' },
+  ];
   shadeForm = new FormGroup({
     color: new FormControl(''),
   });
