@@ -1,85 +1,27 @@
-<div
-  class="modal fade"
-  id="shadeModal"
-  tabindex="-1"
-  aria-labelledby="shadeModal"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+<div class="dialog-section">
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+  <div class="modal-container px-3">
+    <div class="modal-header">
+      <p class="heading">Select Color</p>
+      <p class="cursor-pointer" (click)="closeModal()">✖</p>
+    </div>
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="shadeModal">
-          Select shade for
-          <span class="fw-bold">{{ selectedPacket.size }}</span>
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="shadeForm">
-          <div *ngIf="colorShadesList?.length" class="card-container">
+      <div class="row">
+        <div
+          class="col-4 col-md-3"
+          *ngFor="let group of colorShadesList | groupBy : 8"
+        >
+          <div class="mb-3" *ngFor="let item of group">
             <div
-              class="m-3 color-card"
-              *ngFor="let group of colorShadesList | groupBy : 8"
-            >
-              <div
-                [style.backgroundColor]="item.shadeHexCode"
-                *ngFor="let item of group"
-              >
-                <div class="row align-items-center">
-                  <div class="col-12">
-                    <input
-                      type="radio"
-                      formControlName="color"
-                      [value]="item.shadeHexCode"
-                      id="{{ item.entityCode }}"
-                    />
-                    <label
-                      [for]="item.entityCode"
-                      [style.backgroundColor]="item.shadeHexCode"
-                    >
-                      <span>
-                        {{ item.entityCode }} {{ item.shadeHexCode }}
-                      </span>
-                      <span>{{ item.entityName }}</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
+              [style.backgroundColor]="item.shadeHexCode"
+              class="color-card cursor-pointer"
+            ></div>
+            <div class="color-name">
+              <span>{{ item.entityCode }}</span
+              ><span>{{ item.entityName }}</span>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cancel
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-dismiss="modal"
-          (click)="add()"
-        >
-          Add
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-dismiss="modal"
-          (click)="generateShadeCard()"
-        >
-          Generate Fan Deck
-        </button>
-        <a
-          *ngIf="false"
-          href="http://localhost:8080/fan-decks/shade-card.psd
-        "
-          >Download Shade Card</a
-        >
+        </div>
       </div>
     </div>
   </div>

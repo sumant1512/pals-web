@@ -26,6 +26,7 @@ export class ShadeDialogComponent implements OnInit, OnDestroy {
 
   @Input() selectedPacket!: IPacket;
   @Output() addShade = new EventEmitter<string>();
+  @Output() close = new EventEmitter<void>();
 
   shadeList: ColorShades[] = [];
   themeColors: any;
@@ -56,6 +57,10 @@ export class ShadeDialogComponent implements OnInit, OnDestroy {
           console.log(resp);
         })
     );
+  }
+
+  closeModal() {
+    this.close.emit();
   }
 
   ngOnDestroy(): void {
