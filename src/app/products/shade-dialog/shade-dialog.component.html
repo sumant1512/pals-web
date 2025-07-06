@@ -1,9 +1,14 @@
 <div class="dialog-section">
   <div class="modal-backdrop" (click)="closeModal()"></div>
-  <div class="modal-container px-3">
+  <div class="modal-container p-4">
     <div class="modal-header">
       <p class="heading">Select Color</p>
       <p class="cursor-pointer" (click)="closeModal()">✖</p>
+    </div>
+    <div class="mb-3">
+      <button *ngFor="let chip of chipsList" class="color-chip me-3">
+        {{ chip.name }}
+      </button>
     </div>
     <div class="modal-content">
       <div class="row">
