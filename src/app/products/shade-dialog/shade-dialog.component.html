@@ -5,6 +5,9 @@
       <p class="heading">Select Color</p>
       <p class="cursor-pointer" (click)="closeModal()">✖</p>
     </div>
+    <div class="search-color">
+      <input class="search-input" type="search" placeholder="Search..." />
+    </div>
     <div class="mb-3">
       <button *ngFor="let chip of chipsList" class="color-chip me-3">
         {{ chip.name }}
