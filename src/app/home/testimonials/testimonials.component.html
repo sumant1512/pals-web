@@ -15,11 +15,33 @@
       <div class="row d-none d-md-block">
         <div
           id="testimonialCarouselRide"
-          class="carousel slide carousel-fade"
-          data-bs-ride="true"
+          class="carousel slide"
+          data-bs-ride="carousel"
         >
+          <div class="carousel-indicators carousel-indicators-position">
+            <button
+              type="button"
+              data-bs-target="#testimonialCarouselRide"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarouselRide"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarouselRide"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" data-bs-interval="5000">
               <div class="row">
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
                   <app-testimonial-card
@@ -50,26 +72,38 @@
                 </div>
               </div>
             </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <div class="row">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-testimonial-card
+                    [userName]="'Mr. Jayesh Bajajss'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints exceeded my expectations with their exceptional exterior quality! Their paint not only transformed my home but also stood strong against the elements.'
+                    "
+                  ></app-testimonial-card>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-testimonial-card
+                    [userName]="'Mr. Rohit Birlass'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints sets the gold standard for exterior quality! Their paint not only enhances the aesthetics of my property but also provides unmatched durability. Highly recommend their top-notch products.'
+                    "
+                  ></app-testimonial-card>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <app-testimonial-card
+                    [userName]="'Mr. Roshan Rajss'"
+                    [userImg]="'./../../../assets/user.png'"
+                    [userMessage]="
+                      'Pal\'s Paints deliver unmatched exterior quality! Their vibrant colors and long-lasting finish transformed my home into a masterpiece.'
+                    "
+                  ></app-testimonial-card>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#testimonialCarouselRide"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#testimonialCarouselRide"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
 
