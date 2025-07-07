@@ -13,6 +13,7 @@ import { TestimonialCardComponent } from './testimonials/testimonial-card/testim
 import { LoginComponent } from './login/login.component';
 import { ProductCarouselComponent } from './product-carousel/product-carousel.component';
 import { CategorySectionComponent } from './category-section/category-section.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CategorySectionComponent } from './category-section/category-section.co
     LoginComponent,
     ProductCarouselComponent,
     CategorySectionComponent,
+    FaqComponent,
   ],
   imports: [
     CommonModule,

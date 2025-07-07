@@ -1,30 +1,6 @@
-.product-container {
-  margin-top: 120px;
+.faq-container {
   font-family: "Manrope", sans-serif;
-
-  .product-name-heading {
-    font-size: 32px;
-    font-weight: 400;
-  }
-
-  .product-starting-align {
-    justify-content: flex-end;
-    align-items: center;
-    display: flex;
-  }
-
-  .add-more {
-    background-color: #f8f8f8;
-    padding: 8px;
-    border-radius: 8px;
-
-    .add-more-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #282828;
-      margin-bottom: 0px;
-    }
-  }
+  margin-top: 5rem;
 
   .faq-header {
     font-size: 40px;
@@ -41,6 +17,7 @@
     border-radius: 25px;
     padding: 4px 30px 4px 30px;
     color: #5076b7;
+    font-family: sans-serif;
   }
 
   .selected-color-box {
