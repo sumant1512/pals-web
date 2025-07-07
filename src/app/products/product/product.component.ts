@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { IPacket, IProduct } from '../products.interface';
 import { CartService } from 'src/app/cart/cart.service';
+import { faqs } from './faq.contants';
 
 @Component({
   selector: 'app-product',
@@ -16,6 +17,8 @@ export class ProductComponent implements OnInit {
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
   showModal = false;
+
+  faqQuestions = faqs;
 
   constructor(
     private router: Router,

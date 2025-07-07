@@ -84,7 +84,7 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-md-4">
+      <div class="col-12 col-md-4">
         <app-heading-chips [label]="'FAQs'"></app-heading-chips>
         <div class="faq-header mt-3">Answering your questions</div>
         <div class="faq-description">
@@ -92,7 +92,36 @@
         </div>
         <button type="submit" class="btn view-btn mt-3">Get in Touch</button>
       </div>
-      <div class="col-md-8"></div>
+      <div class="col-12 col-md-8">
+        <div class="accordion accordion-flush" id="faqAacordion">
+          <div
+            class="question-card"
+            *ngFor="let faq of faqQuestions; let i = index"
+          >
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button pb-0"
+                [class.collapsed]="!faq.isOpen"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#' + faq.id"
+                [attr.aria-expanded]="faq.isOpen"
+                [attr.aria-controls]="faq.id"
+              >
+                <p class="question">{{ faq.question }}</p>
+              </button>
+            </h2>
+            <div
+              [id]="faq.id"
+              class="accordion-collapse collapse answer"
+              [class.show]="faq.isOpen"
+              data-bs-parent="#faqAacordion"
+            >
+              <div class="accordion-body pt-0" [innerHTML]="faq.answer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

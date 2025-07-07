@@ -52,3 +52,63 @@
     background-color: red;
   }
 }
+
+.question-card {
+  margin-bottom: 12px;
+
+  .question {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Manrope", sans-serif;
+  }
+
+  .answer {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Manrope", sans-serif;
+  }
+
+  .accordion-button {
+    background-color: #f0f0f0;
+    border-radius: 8px 8px 0px 0px;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+
+  .accordion-button:not(.collapsed) {
+    box-shadow: none;
+    color: #282828;
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    transform: none;
+  }
+
+  .accordion-button.collapsed:after {
+    content: "";
+    position: absolute;
+    right: 1.1875rem;
+    top: 0.8125rem;
+    height: 1.0625rem;
+    width: 0.125rem;
+    border-style: none;
+    background-color: var(--primary-text);
+  }
+
+  .accordion-body {
+    background-color: #f0f0f0;
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  .collapsed {
+    border-radius: 8px 8px 8px 8px;
+  }
+
+  .accordion-collapse {
+    background-color: #f0f0f0;
+    border-radius: 0px 0px 8px 8px;
+  }
+}
