@@ -1,99 +1,81 @@
 <div class="container">
-  <div class="row contact-container text-center text-md-start">
-    <div class="col-12 col-md-6 ps-3 ps-md-4 ps-lg-5 pe-3">
-      <p class="title mt-4">Write to us</p>
-      <form [formGroup]="contactForm">
-        <div class="row">
-          <div class="col-12 mb-3 col-md-6">
-            <input
-              class="w-100"
-              type="text"
-              name="firstName"
-              formControlName="firstName"
-              placeholder="First Name*"
-            />
-          </div>
-          <div class="col-12 mb-3 col-md-6">
-            <input
-              class="w-100"
-              type="text"
-              name="lastName"
-              formControlName="lastName"
-              placeholder="Last Name"
-            />
-          </div>
-          <div class="col-12 mb-3 col-md-6">
-            <input
-              class="w-100"
-              type="text"
-              name="phone"
-              formControlName="phone"
-              placeholder="Phone*"
-            />
-          </div>
-          <div class="col-12 mb-3 col-md-6">
-            <input
-              class="w-100"
-              type="text"
-              name="email"
-              formControlName="email"
-              placeholder="Email"
-            />
-          </div>
-          <div class="col-12 mb-3">
-            <textarea
-              class="w-100"
-              name="message"
-              formControlName="message"
-              placeholder="Write your message..."
-              rows="6"
-            ></textarea>
-          </div>
-          <div class="col-12 mb-3">
-            <button
-              class="pals-btn"
-              type="submit"
-              [disabled]="contactForm.invalid"
-              (click)="contact()"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="d-none d-md-block col-md-6">
-      <img
-        class="img-fluid contact-image"
-        src="./../../../assets/contact.png"
-        alt=""
-      />
-    </div>
-  </div>
-</div>
-
-<div
-  [ngClass]="{ 'show d-block': isModalOpen }"
-  class="modal fade modal-index"
-  tabindex="-1"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title title">Pals Paint</h5>
-        <button
-          type="button"
-          class="btn-close"
-          (click)="closeModal()"
-          aria-label="Close"
-        ></button>
+  <div class="row contact-container">
+    <div class="col-6 contact-info">
+      <div class="mb-3">
+        <span class="contact-heading">Contact</span>
       </div>
-      <div class="modal-body">{{ modalMessage }}</div>
-      <div class="modal-footer">
-        <button type="button" class="pals-btn" (click)="closeModal()">
-          Close
-        </button>
+      <h1>Get in touch</h1>
+      <p class="mb-5">
+        For any inquiries or to explore your vision further, we invite you to
+        contact our professional team using the details provided below.
+      </p>
+      <p class="mb-3">Follow us on</p>
+      <img
+        class="instagram"
+        src="./../../../assets/instagram.png"
+        alt="instagram"
+      />
+      <img src="./../../../assets/facebook.png" alt="facebook" />
+      <img src="./../../../assets/twitter.png" alt="twitter" />
+    </div>
+    <div class="col-6 contact-form">
+      <div>
+        <form [formGroup]="contactForm">
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input
+                  formControlName="name"
+                  type="text"
+                  class="form-control"
+                  id="nameInput"
+                  placeholder="Name"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="phoneInput" class="form-label">Phone</label>
+                <input
+                  formControlName="phone"
+                  type="text"
+                  class="form-control"
+                  id="phoneInput"
+                  placeholder="+XX XXXXXXXXXX"
+                />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="messageInput" class="form-label">Message</label>
+                <textarea
+                  formControlName="message"
+                  type="text"
+                  class="form-control"
+                  id="messageInput"
+                  rows="6"
+                  placeholder="Write here..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn submit-btn w-100">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
