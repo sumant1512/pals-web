@@ -24,8 +24,7 @@ export class ContactUsComponent {
           'service_5vbppd5',
           'template_q1tnor7',
           {
-            firstName: this.contactForm.value.firstName,
-            lastName: this.contactForm.value.lastName,
+            name: this.contactForm.value.name,
             email: this.contactForm.value.email,
             phone: this.contactForm.value.phone,
             message: this.contactForm.value.message,
