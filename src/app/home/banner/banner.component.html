@@ -5,10 +5,13 @@
         class="col-12 col-md-8 col-lg-6 text-light text-center text-md-start ps-md-5 ms-md-5"
       >
         <p class="title">Transform Your Spaces with Colors that Speak</p>
-        <h5 class="sub-title mt-2">
+        <h5 class="sub-title mt-2 mb-4">
           Premium, Eco-friendly paints for Beauty and life.
         </h5>
-        <app-nav-button [label]="'Shop Now'"></app-nav-button>
+        <app-nav-button
+          [label]="'Shop Now'"
+          (click)="navigateToProductsPage()"
+        ></app-nav-button>
       </div>
     </div>
   </div>
@@ -20,5 +23,3 @@
     alt="Bucket"
   />
 </div>
-
-<!-- 6670 -> 500 -> 6170 -> 838 -> 5332 -> 500 -> 4832 -> 1000 -> 3832 -> 1500 -> 2332 -> 2332 -> 0  -->
