@@ -120,4 +120,8 @@ export class ProductComponent implements OnInit {
   navigateToTryOn(): void {
     this.router.navigateByUrl('try-on');
   }
+
+  navigateToContactsPage(): void {
+    this.router.navigate(['/']);
+  }
 }

@@ -87,10 +87,13 @@
       <div class="col-12 col-md-4">
         <app-heading-chips [label]="'FAQs'"></app-heading-chips>
         <div class="faq-header mt-3">Answering your questions</div>
-        <div class="faq-description">
+        <div class="faq-description mb-3">
           Got more questions? Send us your enquiry below
         </div>
-        <button type="submit" class="btn view-btn mt-3">Get in Touch</button>
+        <app-nav-button
+          [label]="'Get in Touch'"
+          (click)="navigateToContactsPage()"
+        ></app-nav-button>
       </div>
       <div class="col-12 col-md-8">
         <div class="accordion accordion-flush" id="faqAacordion">
