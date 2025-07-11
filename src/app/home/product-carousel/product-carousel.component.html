@@ -1,8 +1,10 @@
 <div class="container products-section">
   <app-heading-chips [label]="'Products'"></app-heading-chips>
-  <div class="d-flex justify-content-between align-items-centerm mt-3 mb-4">
-    <div><h2>Explore our Products</h2></div>
-    <div>
+  <div class="row mt-3">
+    <div class="col-6">
+      <div><h2>Explore our Products</h2></div>
+    </div>
+    <div class="col-6">
       <app-nav-button
         [label]="'View All'"
         (click)="navigateToProductsPage()"
