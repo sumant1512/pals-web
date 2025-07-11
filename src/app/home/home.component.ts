@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   smoothScrollToElementWithOffset(elementId: string, offset: number) {
+    console.log(elementId);
     const element = document.getElementById(elementId);
     if (element) {
       const elementTop = element.getBoundingClientRect().top + window.scrollY;
