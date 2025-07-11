@@ -47,11 +47,14 @@
       background-size: 100% 100%;
     }
   }
+}
 
-  @media only screen and (min-width: 300px) and (max-width: 767px) {
-    .bucket-img {
-      left: 0%;
-      bottom: -4%;
-    }
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+  .banner-container {
+    justify-content: center;
+  }
+  .bucket-img {
+    left: auto !important;
+    max-width: 135px;
   }
 }
