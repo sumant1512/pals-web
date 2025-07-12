@@ -2,15 +2,18 @@
   <div class="row contact-container p-3 p-md-4 mx-0">
     <div class="col-12 col-md-6 contact-info text-center text-md-start">
       <div class="mb-3">
-        <span class="contact-heading">Contact</span>
+        <span class="contact-heading">{{
+          "HOME.CONTACT_US.HEADING" | translate
+        }}</span>
       </div>
-      <h1>Get in touch</h1>
+      <h1>{{ "HOME.CONTACT_US.SUB_HEADING" | translate }}</h1>
       <p class="mb-- mb-md-5">
-        For any inquiries or to explore your vision further, we invite you to
-        contact our professional team using the details provided below.
+        {{ "HOME.CONTACT_US.CONTACT_MESSAGE" | translate }}
       </p>
       <div class="d-none d-md-block">
-        <p class="mb-3">Follow us on</p>
+        <p class="mb-3">
+          {{ "HOME.CONTACT_US.FOLLOW_LBL" | translate }}
+        </p>
         <img class="instagram" src="instagram.png" alt="instagram" />
         <img src="facebook.png" alt="facebook" />
         <img src="twitter.png" alt="twitter" />
@@ -22,55 +25,73 @@
           <div class="row">
             <div class="col-12">
               <div class="mb-3">
-                <label for="nameInput" class="form-label">Name</label>
+                <label for="nameInput" class="form-label">
+                  {{ "HOME.CONTACT_US.NAME_LBL" | translate }}</label
+                >
                 <input
                   formControlName="name"
                   type="text"
                   class="form-control"
                   id="nameInput"
-                  placeholder="Name"
+                  placeholder="{{
+                    'HOME.CONTACT_US.NAME_PLACEHOLDER' | translate
+                  }}"
                 />
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3">
-                <label for="emailInput" class="form-label">Email</label>
+                <label for="emailInput" class="form-label">
+                  {{ "HOME.CONTACT_US.EMAIL_LBL" | translate }}</label
+                >
                 <input
                   formControlName="email"
                   type="email"
                   class="form-control"
                   id="emailInput"
-                  placeholder="Email"
+                  placeholder="{{
+                    'HOME.CONTACT_US.EMAIL_PLACEHOLDER' | translate
+                  }}"
                 />
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3">
-                <label for="phoneInput" class="form-label">Phone</label>
+                <label for="phoneInput" class="form-label">
+                  {{ "HOME.CONTACT_US.PHONE_LBL" | translate }}</label
+                >
                 <input
                   formControlName="phone"
                   type="text"
                   class="form-control"
                   id="phoneInput"
-                  placeholder="+XX XXXXXXXXXX"
+                  placeholder="{{
+                    'HOME.CONTACT_US.PHONE_PLACEHOLDER' | translate
+                  }}"
                 />
               </div>
             </div>
             <div class="col-12">
               <div class="mb-3">
-                <label for="messageInput" class="form-label">Message</label>
+                <label for="messageInput" class="form-label">
+                  {{ "HOME.CONTACT_US.MSG_LBL" | translate }}</label
+                >
                 <textarea
                   formControlName="message"
                   type="text"
                   class="form-control"
                   id="messageInput"
                   rows="6"
-                  placeholder="Write here..."
+                  placeholder="{{
+                    'HOME.CONTACT_US.MSG_PLACEHOLDER' | translate
+                  }}"
                 ></textarea>
               </div>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn submit-btn w-100">Submit</button>
+              <button type="submit" class="btn submit-btn w-100">
+                {{ "HOME.CONTACT_US.SUBMIT_BTN_LBL" | translate }}
+              </button>
             </div>
           </div>
         </form>

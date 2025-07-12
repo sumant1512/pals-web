@@ -1,13 +1,17 @@
 <div class="container">
   <div class="row faq-container">
     <div class="col-12 col-md-4 mb-4 mb-md-0 text-center text-md-start">
-      <app-heading-chips [label]="'FAQs'"></app-heading-chips>
-      <div class="faq-header mt-3">Answering your questions</div>
+      <app-heading-chips
+        [label]="'HOME.FAQ.HEADING' | translate"
+      ></app-heading-chips>
+      <div class="faq-header mt-3">
+        {{ "HOME.FAQ.SUB_HEADING" | translate }}
+      </div>
       <div class="faq-description mb-3">
-        Got more questions? Send us your enquiry below
+        {{ "HOME.FAQ.CONTENT" | translate }}
       </div>
       <app-nav-button
-        [label]="'Get in Touch'"
+        [label]="'HOME.FAQ.TOUCH_BTN_LBL' | translate"
         (click)="navigateToContactsPage()"
       ></app-nav-button>
     </div>

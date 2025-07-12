@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ProductCarouselComponent } from './product-carousel/product-carousel.component';
 import { CategorySectionComponent } from './category-section/category-section.component';
 import { FaqComponent } from './faq/faq.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FaqComponent } from './faq/faq.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    TranslateModule,
   ],
 })
 export class HomeModule {}

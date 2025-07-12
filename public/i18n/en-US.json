@@ -1,0 +1,47 @@
+{
+  "SHARED": {
+    "HEADER": {},
+    "FOOTER": {}
+  },
+  "HOME": {
+    "BANNER": {
+      "HEADING": "Transform Your Spaces with Colors that Speak",
+      "SUB_HEADING": "Premium, Eco-friendly paints for Beauty and life.",
+      "SHOP_BTN_LBL": "Shop Now"
+    },
+    "ABOUT": {
+      "HEADING": "About Us",
+      "SUB_HEADING": "A Journey of Colors and Innovation",
+      "ABOUT_US_CONTENT": "At Pals Paints, we bring spaces to life with vibrant, long-lasting colors. With a commitment to quality, innovation, and eco-friendly solutions, we offer premium paints that enhance both beauty and durability. From homes to commercial spaces, we're here to help you create walls that truly inspire."
+    },
+    "PRODUCTS": {
+      "HEADING": "Products",
+      "SUB_HEADING": "Explore our Products",
+      "VIEW_BTN_LBL": "View All"
+    },
+    "TESTIMONIALS": {
+      "HEADING": "Our Happy Customers"
+    },
+    "CONTACT_US": {
+      "HEADING": "Contact",
+      "SUB_HEADING": "Get in touch",
+      "CONTACT_MESSAGE": "For any inquiries or to explore your vision further, we invite you to contact our professional team using the details provided below.",
+      "FOLLOW_LBL": "Follow us on",
+      "NAME_LBL": "Name",
+      "NAME_PLACEHOLDER": "Name",
+      "EMAIL_LBL": "Email",
+      "EMAIL_PLACEHOLDER": "Email",
+      "PHONE_LBL": "Phone",
+      "PHONE_PLACEHOLDER": "+XX XXXXXXXXXX",
+      "MSG_LBL": "Message",
+      "MSG_PLACEHOLDER": "Write here...",
+      "SUBMIT_BTN_LBL": "Submit"
+    },
+    "FAQ": {
+      "HEADING": "FAQs",
+      "SUB_HEADING": "Answering your questions",
+      "CONTENT": "Got more questions? Send us your enquiry below",
+      "TOUCH_BTN_LBL": "Get in touch"
+    }
+  }
+}
