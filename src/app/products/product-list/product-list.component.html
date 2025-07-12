@@ -2,21 +2,24 @@
   <div class="container my-4">
     <div class="row">
       <p>
-        <a [routerLink]="'/'">Home</a> <span> > </span>
-        <a [routerLink]="'/products'">Products</a>
+        <a [routerLink]="'/'">{{ "SHARED.PAGE_LINK.HOME" | translate }}</a>
+        <span> > </span>
+        <a [routerLink]="'/products'">{{
+          "SHARED.PAGE_LINK.PRODUCTS" | translate
+        }}</a>
       </p>
     </div>
     <div class="row">
       <h1 class="page-heading">Explore our Products</h1>
     </div>
-    <div class="row mb-4">
-      <div class="col-md-2">
+    <div class="row mb-4 d-none d-lg-block">
+      <div class="col-lg-2">
         <p class="filter-label">FILTER</p>
       </div>
-      <div class="col-md-10"></div>
+      <div class="col-lg-10"></div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-lg-2 d-none d-lg-block">
         <div class="form-check mb-4">
           <input class="form-check-input me-4" type="checkbox" id="filter1" />
           <label class="form-check-label" for="filter1">Exterior Paints</label>
@@ -42,7 +45,7 @@
           <label class="form-check-label" for="filter1">Lime Wash</label>
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-lg-10">
         <div class="row">
           <div
             *ngFor="let product of productList"

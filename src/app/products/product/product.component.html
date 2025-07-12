@@ -2,8 +2,12 @@
   <div class="container">
     <div class="row">
       <p>
-        <a [routerLink]="'/'">Home</a> <span> > </span>
-        <a [routerLink]="'/products'">Products</a><span> > </span>
+        <a [routerLink]="'/'">{{ "SHARED.PAGE_LINK.HOME" | translate }}</a>
+        <span> > </span>
+        <a [routerLink]="'/products'">{{
+          "SHARED.PAGE_LINK.PRODUCTS" | translate
+        }}</a
+        ><span> > </span>
         <a
           *ngIf="productDetails?.productId"
           [routerLink]="'/products/' + productDetails.productId"
@@ -81,13 +85,17 @@
 
     <div class="row mt-5">
       <div class="col-12 col-md-4 mb-4 mb-md-0 text-center text-md-start">
-        <app-heading-chips [label]="'FAQs'"></app-heading-chips>
-        <div class="faq-header mt-3">Answering your questions</div>
+        <app-heading-chips
+          [label]="'SHARED.FAQ.HEADING' | translate"
+        ></app-heading-chips>
+        <div class="faq-header mt-3">
+          {{ "SHARED.FAQ.SUB_HEADING" | translate }}
+        </div>
         <div class="faq-description mb-3">
-          Got more questions? Send us your enquiry below
+          {{ "SHARED.FAQ.CONTENT" | translate }}
         </div>
         <app-nav-button
-          [label]="'Get in Touch'"
+          [label]="'SHARED.FAQ.TOUCH_BTN_LBL' | translate"
           (click)="navigateToContactsPage()"
         ></app-nav-button>
       </div>

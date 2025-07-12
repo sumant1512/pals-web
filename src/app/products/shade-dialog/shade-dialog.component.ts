@@ -22,9 +22,9 @@ export class ShadeDialogComponent implements OnInit, OnDestroy {
   colorShadesList!: any;
   chipsList = [
     { name: 'Blues' },
-    { name: 'Whites' },
     { name: 'Pinks' },
     { name: 'Reds' },
+    { name: 'Whites' },
     { name: 'Yellows' },
   ];
   shadeForm = new FormGroup({

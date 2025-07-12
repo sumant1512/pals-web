@@ -1,7 +1,17 @@
 {
   "SHARED": {
     "HEADER": {},
-    "FOOTER": {}
+    "FOOTER": {},
+    "PAGE_LINK": {
+      "HOME": "Home",
+      "PRODUCTS": "Products"
+    },
+    "FAQ": {
+      "HEADING": "FAQs",
+      "SUB_HEADING": "Answering your questions",
+      "CONTENT": "Got more questions? Send us your enquiry below",
+      "TOUCH_BTN_LBL": "Get in touch"
+    }
   },
   "HOME": {
     "BANNER": {
@@ -36,12 +46,6 @@
       "MSG_LBL": "Message",
       "MSG_PLACEHOLDER": "Write here...",
       "SUBMIT_BTN_LBL": "Submit"
-    },
-    "FAQ": {
-      "HEADING": "FAQs",
-      "SUB_HEADING": "Answering your questions",
-      "CONTENT": "Got more questions? Send us your enquiry below",
-      "TOUCH_BTN_LBL": "Get in touch"
     }
   }
 }
