@@ -4,12 +4,12 @@
       <div
         class="col-12 col-md-8 col-lg-6 text-light text-center text-md-start ps-md-5 ms-md-5"
       >
-        <p class="title">Transform Your Spaces with Colors that Speak</p>
+        <p class="title">{{ "HOME.BANNER.HEADING" | translate }}</p>
         <h5 class="sub-title mt-2 mb-4">
-          Premium, Eco-friendly paints for Beauty and life.
+          {{ "HOME.BANNER.SUB_HEADING" | translate }}
         </h5>
         <app-nav-button
-          [label]="'Shop Now'"
+          [label]="'HOME.BANNER.SHOP_BTN_LBL' | translate"
           (click)="navigateToProductsPage()"
         ></app-nav-button>
       </div>

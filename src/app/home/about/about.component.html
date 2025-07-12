@@ -1,20 +1,18 @@
 <div class="container about-section">
   <div class="row">
     <div class="col-12">
-      <app-heading-chips [label]="'About Us'"></app-heading-chips>
+      <app-heading-chips
+        [label]="'HOME.ABOUT.HEADING' | translate"
+      ></app-heading-chips>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-md-5">
-      <h1 class="title">A Journey of Colors and Innovation</h1>
+      <h1 class="title">{{ "HOME.ABOUT.SUB_HEADING" | translate }}</h1>
     </div>
     <div class="col-md-7">
       <p>
-        At Pals Paints, we bring spaces to life with vibrant, long-lasting
-        colors. With a commitment to quality, innovation, and eco-friendly
-        solutions, we offer premium paints that enhance both beauty and
-        durability. From homes to commercial spaces, we're here to help you
-        create walls that truly inspire.
+        {{ "HOME.ABOUT.ABOUT_US_CONTENT" | translate }}
       </p>
     </div>
   </div>
