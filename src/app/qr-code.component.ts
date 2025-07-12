@@ -10,7 +10,7 @@ export class QrCodeComponent implements AfterViewInit {
   @ViewChild('qrcodeCanvas', { static: true })
   canvas!: ElementRef<HTMLCanvasElement>;
   readonly websiteURL = 'https://www.palspaint.com/'; // Website URL for the QR code
-  readonly logoPath = './../assets/barcode_logo_large.png'; // Path to your local logo image
+  readonly logoPath = 'barcode_logo_large.png'; // Path to your local logo image
 
   ngAfterViewInit() {
     this.generateQRCode();

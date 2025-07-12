@@ -7,7 +7,7 @@ import { Product, SHOP_PRODUCT_LIST } from './shop-products.const';
   styleUrls: ['./estimate.component.scss'],
 })
 export class EstimateComponent implements OnInit {
-  qrCodeUrl = './../../assets/qr-code.png';
+  qrCodeUrl = 'qr-code.png';
   discountPercent: number = 0;
   discountAmount = 0;
   transportCharges = 0;

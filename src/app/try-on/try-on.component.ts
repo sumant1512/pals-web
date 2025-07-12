@@ -138,7 +138,7 @@ export class TryOnComponent {
       id: 17,
     },
   ];
-  backgroundImageUrl: string = './../../../assets/house1.jpg';
+  backgroundImageUrl: string = 'house1.jpg';
 
   constructor() {}
 

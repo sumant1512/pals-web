@@ -15,7 +15,7 @@ export class AdminHeaderComponent {
   selectedRoute = APP_ROUTES.ADMIN.PARENT;
 
   userInfo = {
-    img: './../../assets/userImg.png',
+    img: 'userImg.png',
     imgAlt: 'User',
   };
 

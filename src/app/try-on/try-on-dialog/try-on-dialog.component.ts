@@ -37,7 +37,7 @@ export class TryOnDialogComponent implements AfterViewInit {
   shapes: Array<Shape> = [];
 
   public ngAfterViewInit() {
-    this.backgroundImage.src = './../../../assets/house.jpeg';
+    this.backgroundImage.src = 'house.jpeg';
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
     this.context = canvasEl.getContext('2d') as any;
 
