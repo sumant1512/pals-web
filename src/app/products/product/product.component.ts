@@ -51,7 +51,7 @@ export class ProductComponent implements OnInit {
   }
 
   getImagePath(imageName: string): string {
-    return `./../../../assets/products/${imageName}`;
+    return `products/${imageName}`;
   }
 
   add(shade?: string): void {
