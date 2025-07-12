@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
   headerLinks = [
     { label: 'Home', id: 'banner' },
     { label: 'About', id: 'about' },
-    { label: 'Products', id: 'products' },
   ];
   constructor(
     private headerScrollService: HeaderScrollService,
