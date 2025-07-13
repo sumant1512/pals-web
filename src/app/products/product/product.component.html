@@ -55,13 +55,22 @@
         <label class="fw-semibold d-block mb-2">Select Quantity</label>
         <div class="mb-4">
           <div class="mb-3">
-            <app-product-quantity-card></app-product-quantity-card>
+            <app-product-quantity-card
+              [packSize]="'4'"
+              [price]="'1,299'"
+            ></app-product-quantity-card>
           </div>
           <div class="mb-3">
-            <app-product-quantity-card></app-product-quantity-card>
+            <app-product-quantity-card
+              [packSize]="'10'"
+              [price]="'2,599'"
+            ></app-product-quantity-card>
           </div>
           <div class="mb-3">
-            <app-product-quantity-card></app-product-quantity-card>
+            <app-product-quantity-card
+              [packSize]="'20'"
+              [price]="'4,399'"
+            ></app-product-quantity-card>
           </div>
         </div>
       </div>
