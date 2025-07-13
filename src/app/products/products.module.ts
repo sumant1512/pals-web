@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { ShadeDialogComponent } from './shade-dialog/shade-dialog.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { GroupByPipe } from './shade-dialog/group-by.pipe';
+import { ProductQuantityCardComponent } from './product/product-quantity-card/product-quantity-card.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GroupByPipe } from './shade-dialog/group-by.pipe';
     ShadeDialogComponent,
     ProductListComponent,
     GroupByPipe,
+    ProductQuantityCardComponent,
   ],
   imports: [CommonModule, ProductsRoutingModule, SharedModule],
 })

@@ -1,0 +1,51 @@
+.paint-card {
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  align-items: center;
+}
+
+.product-pack {
+  font-size: 14px;
+}
+
+.product-name {
+  font-size: 12px;
+}
+
+.bucket-img {
+  width: 60px;
+  height: auto;
+}
+
+.qty-section {
+  display: flex;
+  align-items: center;
+}
+
+.qty-btn {
+  width: 20px;
+  height: 32px;
+  padding: 0;
+  font-size: 20px;
+  border: 1px solid #bebebe;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.qty-label {
+  font-size: 12px;
+}
+
+.qty-count {
+  font-size: 24px;
+}
+
+.price-balel {
+  font-size: 12px;
+}
+
+.price-amt {
+  font-size: 14px;
+}
