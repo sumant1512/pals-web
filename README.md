@@ -5,7 +5,7 @@ Welcome to the official codebase of the **Pals Paint** website!
 This is the modern, responsive promotional website for **Pals Paint**, a brand committed to delivering high-quality wall paints.  
 It currently serves as a branding and information platform, and is planned to evolve into a full-fledged eCommerce website.
 
-🌐 **Live Site**: [www.palspaint.com](http://www.palspaint.com)
+🌐 **Live Site**: [www.palspaint.com](https://palspaint.netlify.app/)
 
 ---
 
