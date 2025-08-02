@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { QrService } from './qr.service';
+import { CouponService } from './coupon.service';
 
-describe('QrService', () => {
-  let service: QrService;
+describe('CouponService', () => {
+  let service: CouponService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(QrService);
+    service = TestBed.inject(CouponService);
   });
 
   it('should be created', () => {

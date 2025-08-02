@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QrListComponent } from './qr-list.component';
+import { AddDealerComponent } from './add-dealer.component';
 
-describe('QrListComponent', () => {
-  let component: QrListComponent;
-  let fixture: ComponentFixture<QrListComponent>;
+describe('AddDealerComponent', () => {
+  let component: AddDealerComponent;
+  let fixture: ComponentFixture<AddDealerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [QrListComponent]
+      declarations: [AddDealerComponent]
     });
-    fixture = TestBed.createComponent(QrListComponent);
+    fixture = TestBed.createComponent(AddDealerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

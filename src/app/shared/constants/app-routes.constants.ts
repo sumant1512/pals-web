@@ -11,8 +11,13 @@ export const APP_ROUTES = {
   ADMIN: {
     PARENT: 'admin',
     CHILD_ROUTES: {
-      CREATE_QR: 'create-qr',
-      LIST_QR: 'list-qr',
+      DASHBOARD: 'dashboard',
+      CREATE_COUPON: 'create-coupon',
+      VIEW_COUPON: 'view-coupon',
+      ADD_DEALER: 'add-dealer',
+      VIEW_DEALER: 'view-dealer',
+      DEALER_LEDGER: 'dealer-ledger',
+      DEALER_CREDIT_REQUEST: 'dealer-credit-request',
       PAYMENT_REQUEST: 'payment-request',
     },
   },

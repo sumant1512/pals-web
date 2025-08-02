@@ -1,9 +1,9 @@
-export interface IQrRequestBody {
+export interface ICouponRequestBody {
   amount: number;
   noOfCoupans: number;
 }
 
-export interface IQrList {
+export interface ICouponList {
   _id: string;
   amount: number;
   code: string;

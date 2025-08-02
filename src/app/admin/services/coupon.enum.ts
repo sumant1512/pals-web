@@ -1,9 +1,9 @@
-export enum EQr {
+export enum ECoupon {
   AMOUNT = 'amount',
   NO_OF_COUPANS = 'count',
 }
 
-export enum EQrStatus {
+export enum ECouponStatus {
   ACTIVE = 'active',
   REDEMMED = 'redemmed',
 }
