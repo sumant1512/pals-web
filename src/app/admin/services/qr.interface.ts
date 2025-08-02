@@ -4,11 +4,11 @@ export interface IQrRequestBody {
 }
 
 export interface IQrList {
+  _id: string;
   amount: number;
   code: string;
-  createdOn: string;
-  id: number;
-  redemmedOn?: string;
-  status: string;
-  userId?: number;
+  createdAt: string;
+  expiresAt?: string;
+  qr: string;
+  status?: string;
 }

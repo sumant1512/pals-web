@@ -16,8 +16,10 @@ export class QrListComponent implements OnInit {
   }
 
   getQrList(): void {
-    this.qrService.getQrList().subscribe((qrs) => {
-      this.qrList = qrs;
+    this.qrService.getQrList().subscribe((response) => {
+      if (response?.status) {
+        this.qrList = response.coupons;
+      }
     });
   }
 }

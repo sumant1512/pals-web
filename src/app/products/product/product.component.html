@@ -34,7 +34,7 @@
       <div class="col-md-6">
         <img
           src="bucket-image.png"
-          class="rounded float-start img-fluid"
+          class="rounded float-start img-fluid product-image"
           alt="..."
         />
       </div>
@@ -54,6 +54,12 @@
 
         <label class="fw-semibold d-block mb-2">Select Quantity</label>
         <div class="mb-4">
+          <div class="mb-3">
+            <app-product-quantity-card
+              [packSize]="'1'"
+              [price]="'4,399'"
+            ></app-product-quantity-card>
+          </div>
           <div class="mb-3">
             <app-product-quantity-card
               [packSize]="'4'"

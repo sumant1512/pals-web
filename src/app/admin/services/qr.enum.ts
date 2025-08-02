@@ -1,6 +1,6 @@
 export enum EQr {
   AMOUNT = 'amount',
-  NO_OF_COUPANS = 'noOfCoupans',
+  NO_OF_COUPANS = 'count',
 }
 
 export enum EQrStatus {

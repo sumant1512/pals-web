@@ -10,10 +10,11 @@ export class QrService {
   constructor(private http: HttpClient) {}
 
   createQr(body: IQrRequestBody): Observable<any> {
-    const createQr = 'http://localhost:8080/coupan';
+    const createQr = 'http://localhost:8080/api/coupon/generate';
     return this.http.post<any>(createQr, body).pipe(
       map((response) => {
         if (response) {
+          console.log(response);
           return response.message;
         }
       })
@@ -21,11 +22,11 @@ export class QrService {
   }
 
   getQrList(): Observable<any> {
-    const getQrs = 'http://localhost:8080/coupan';
+    const getQrs = 'http://localhost:8080/api/coupon/get';
     return this.http.get<any>(getQrs).pipe(
       map((response) => {
         if (response) {
-          return response.data;
+          return response;
         }
       })
     );
