@@ -6,7 +6,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { PaymentRequestComponent } from './payment-request/payment-request.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CreateCouponComponent } from './create-coupon/create-coupon.component';
 import { ViewCouponComponent } from './view-coupon/view-coupon.component';
@@ -19,7 +18,6 @@ import { AddDealerComponent } from './add-dealer/add-dealer.component';
   declarations: [
     AdminComponent,
     AdminHeaderComponent,
-    PaymentRequestComponent,
     AdminDashboardComponent,
     CreateCouponComponent,
     ViewCouponComponent,

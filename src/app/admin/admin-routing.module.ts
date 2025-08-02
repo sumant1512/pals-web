@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { APP_ROUTES } from '../shared/constants/app-routes.constants';
-import { PaymentRequestComponent } from './payment-request/payment-request.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CreateCouponComponent } from './create-coupon/create-coupon.component';
 import { ViewCouponComponent } from './view-coupon/view-coupon.component';
@@ -48,10 +47,6 @@ const routes: Routes = [
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.DEALER_CREDIT_REQUEST,
         component: DealerCreditRequestComponent,
-      },
-      {
-        path: APP_ROUTES.ADMIN.CHILD_ROUTES.PAYMENT_REQUEST,
-        component: PaymentRequestComponent,
       },
     ],
   },
