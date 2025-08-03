@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HomeService } from '../home.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private homeService: HomeService,
+    private authenticationService: AuthenticationService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -31,12 +31,12 @@ export class LoginComponent {
   sendOtp() {
     if (this.loginForm.controls['mobile'].valid) {
       this.subscription.add(
-        this.homeService
+        this.authenticationService
           .sentOtp({ mobile: this.loginForm.value.mobile })
           .subscribe((resp) => {
             if (resp?.status) {
               this.otpSent = true;
-              console.log(resp);
+              sessionStorage.setItem('userType', resp?.userType);
             }
           })
       );
@@ -46,12 +46,17 @@ export class LoginComponent {
   verifyOtp() {
     if (this.loginForm.valid) {
       this.subscription.add(
-        this.homeService.verifyOtp(this.loginForm.value).subscribe((resp) => {
-          if (resp?.status) {
-            sessionStorage.setItem('authToken', resp?.authToken);
-            this.router.navigate(['admin']);
-          }
-        })
+        this.authenticationService
+          .verifyOtp(this.loginForm.value)
+          .subscribe((resp) => {
+            if (resp?.status) {
+              sessionStorage.setItem('authToken', resp?.authToken);
+              this.router.navigate(['admin']);
+            }
+            if (resp?.userType) {
+              this.router.navigate(['admin']);
+            }
+          })
       );
     }
   }
