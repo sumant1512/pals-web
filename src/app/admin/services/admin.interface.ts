@@ -1,4 +1,3 @@
-import { count } from 'rxjs';
 import { EUserType } from './admin.enum';
 
 export interface IAddDealerRequestBody {
@@ -16,10 +15,10 @@ export interface IDealderListResponse {
   count: number;
   status: string;
   message: string;
-  dealers: IDealerList[];
+  dealers: IDealer[];
 }
 
-export interface IDealerList {
+export interface IDealer {
   _id: string;
   name: string;
   mobile: string;
@@ -34,4 +33,8 @@ export interface IDealerList {
   totalCredit: number;
   totalDebit: number;
   timestamp: string;
+}
+
+export interface IDealerTransactionByAdminRequestBody {
+  userId: string;
 }

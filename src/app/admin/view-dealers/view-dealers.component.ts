@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AdminService } from '../services/admin.service';
 import { Router } from '@angular/router';
-import { IDealerList } from '../services/admin.interface';
+import { IDealer } from '../services/admin.interface';
 
 @Component({
   selector: 'app-view-dealers',
@@ -11,7 +11,7 @@ import { IDealerList } from '../services/admin.interface';
 })
 export class ViewDealersComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
-  dealerList: IDealerList[] = [];
+  dealerList: IDealer[] = [];
 
   constructor(private adminService: AdminService, private router: Router) {}
 
