@@ -55,4 +55,13 @@ export class AdminService {
       })
     );
   }
+
+  getRedeemCreditRequest(): Observable<any> {
+    const getRedeemApi = `${ACTIVE_BE}/api/coupon/get-redeem-request`;
+    return this.http.get<any>(getRedeemApi).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
 }
