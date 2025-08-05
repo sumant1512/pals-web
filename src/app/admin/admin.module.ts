@@ -13,6 +13,7 @@ import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { DealerCreditRequestComponent } from './dealer-credit-request/dealer-credit-request.component';
 import { ViewDealersComponent } from './view-dealers/view-dealers.component';
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
+import { DealerTrasactionComponent } from './dealer-trasaction/dealer-trasaction.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AddDealerComponent } from './add-dealer/add-dealer.component';
     DealerCreditRequestComponent,
     ViewDealersComponent,
     AddDealerComponent,
+    DealerTrasactionComponent,
   ],
   imports: [
     CommonModule,

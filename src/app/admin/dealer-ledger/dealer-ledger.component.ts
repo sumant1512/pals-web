@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AdminService } from '../services/admin.service';
 import { IDealer } from '../services/admin.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dealer-ledger',
@@ -12,7 +13,7 @@ export class DealerLedgerComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   dealerList: IDealer[] = [];
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
     this.getDealersLedger();
@@ -30,15 +31,7 @@ export class DealerLedgerComponent implements OnInit, OnDestroy {
   }
 
   navigateToTransactions(userId: string): void {
-    this.subscription.add(
-      this.adminService
-        .getTransactionsByAdmin({ userId: userId })
-        .subscribe((resp) => {
-          if (resp.status) {
-            console.log(resp);
-          }
-        })
-    );
+    this.router.navigate(['/admin/dealer-transactions', userId]);
   }
 
   ngOnDestroy(): void {

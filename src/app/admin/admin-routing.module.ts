@@ -9,6 +9,7 @@ import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { ViewDealersComponent } from './view-dealers/view-dealers.component';
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { DealerCreditRequestComponent } from './dealer-credit-request/dealer-credit-request.component';
+import { DealerTrasactionComponent } from './dealer-trasaction/dealer-trasaction.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.DEALER_LEDGER,
         component: DealerLedgerComponent,
+      },
+      {
+        path: `${APP_ROUTES.ADMIN.CHILD_ROUTES.DEALER_TRANSACTIONS}/:id`,
+        component: DealerTrasactionComponent,
       },
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.DEALER_CREDIT_REQUEST,
