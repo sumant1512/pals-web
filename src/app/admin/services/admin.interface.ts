@@ -1,4 +1,4 @@
-import { EUserType } from './admin.enum';
+import { ETransactionStatus, ETransactionType, EUserType } from './admin.enum';
 
 export interface IAddDealerRequestBody {
   userType: EUserType;
@@ -36,5 +36,17 @@ export interface IDealer {
 }
 
 export interface IDealerTransactionByAdminRequestBody {
+  userId: string;
+}
+
+export interface Transaction {
+  amount: number;
+  createdAt: string;
+  reference: string;
+  source: string;
+  status: ETransactionStatus;
+  type: ETransactionType;
+  _id: string;
+  _v: number;
   userId: string;
 }

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Transaction } from '../services/admin.interface';
 
 @Component({
   selector: 'app-dealer-trasaction',
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DealerTrasactionComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
+  transactions: Transaction[] = [];
 
   constructor(
     private adminService: AdminService,
@@ -31,7 +33,7 @@ export class DealerTrasactionComponent implements OnInit, OnDestroy {
         .getTransactionsByAdmin({ userId: userId })
         .subscribe((resp) => {
           if (resp.status) {
-            console.log(resp);
+            this.transactions = resp.transactions;
           }
         })
     );
