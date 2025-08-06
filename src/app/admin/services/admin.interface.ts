@@ -50,3 +50,18 @@ export interface Transaction {
   _v: number;
   userId: string;
 }
+
+export interface RedeemRequest {
+  _id: string;
+  userId: string;
+  name: string;
+  shop: string;
+  address: string;
+  amount: number;
+  reference: string;
+  source: string;
+  status: ETransactionStatus;
+  type: ETransactionType;
+  createdAt: string;
+  __v: number;
+}

@@ -64,4 +64,13 @@ export class AdminService {
       })
     );
   }
+
+  approveAndRejectRedeemRequest(id: string, decision: string): Observable<any> {
+    const getRedeemApi = `${ACTIVE_BE}/api/dealer/redeem-request/${id}`;
+    return this.http.put<any>(getRedeemApi, { decision: decision }).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
 }
