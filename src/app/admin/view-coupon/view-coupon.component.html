@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let coupon of couponList" class="col-12 col-md-3">
+      <img [src]="coupon.qr" alt="" />
+      <p>
+        <span class="me-4"> {{ coupon.code }}</span>
+        <span>{{ coupon.status?.toUpperCase() }}</span>
+      </p>
+    </div>
+  </div>
+</div>

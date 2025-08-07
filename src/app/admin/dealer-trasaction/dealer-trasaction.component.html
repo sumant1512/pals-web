@@ -1,0 +1,63 @@
+<div class="container my-4">
+  <div class="mb-3 text-end">
+    <a routerLink="/admin/dealer-ledger" class="btn btn-outline-primary"
+      >Go to Dealer's Ledger
+    </a>
+  </div>
+  <div *ngIf="transactions?.length; else noData">
+    <div class="row g-3">
+      <div class="col-12" *ngFor="let transaction of transactions">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between flex-wrap">
+              <div>
+                <h5 class="card-title mb-1">Transaction</h5>
+                <span class="badge bg-secondary text-capitalize">
+                  {{ transaction.status }}
+                </span>
+              </div>
+              <div class="text-end">
+                <h4
+                  class="text-{{
+                    transaction.type === 'debit' ? 'danger' : 'success'
+                  }}"
+                >
+                  ₹{{ transaction.amount | number }}
+                </h4>
+                <small class="text-muted">
+                  {{ transaction.createdAt | date : "medium" }}
+                </small>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-12 col-sm-6 mb-2">
+                <strong>Reference:</strong>
+                {{ transaction.reference }}
+              </div>
+              <div class="col-12 col-sm-6 mb-2">
+                <strong>Source:</strong>
+                {{ transaction.source }}
+              </div>
+              <div class="col-12 col-sm-6 mb-2">
+                <strong>Type:</strong>
+                {{ transaction.type }}
+              </div>
+              <div class="col-12 col-sm-6 mb-2">
+                <strong>Status:</strong>
+                {{ transaction.status }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fallback if array is empty -->
+  <ng-template #noData>
+    <div class="alert alert-warning text-center mt-4">
+      No transactions available.
+    </div>
+  </ng-template>
+</div>

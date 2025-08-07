@@ -1,0 +1,42 @@
+<div class="container">
+  <h5 class="pals-heading">Credit Requests</h5>
+
+  <!-- transaction-list.component.html -->
+  <div
+    *ngFor="let txn of dealerCreditRequest; let i = index"
+    class="transaction-card"
+  >
+    <!-- Collapsed Section -->
+    <div class="transaction-header" (click)="toggleExpand(i)">
+      <div class="transaction-left">
+        <div class="shop-name">{{ txn.shop }}</div>
+        <div class="amount">₹{{ txn.amount }}</div>
+      </div>
+      <div class="action-icons">
+        <button
+          (click)="approve(txn); $event.stopPropagation()"
+          title="Approve"
+        >
+          ✅
+        </button>
+        <button (click)="reject(txn); $event.stopPropagation()" title="Reject">
+          ❌
+        </button>
+      </div>
+      <div class="chevron">
+        <span>{{ expanded[i] ? "▲" : "▼" }}</span>
+      </div>
+    </div>
+
+    <!-- Expanded Section -->
+    <div class="transaction-body" *ngIf="expanded[i]">
+      <div><strong>Name:</strong> {{ txn.name }}</div>
+      <div><strong>Address:</strong> {{ txn.address }}</div>
+      <div><strong>Reference:</strong> {{ txn.reference }}</div>
+      <div><strong>Source:</strong> {{ txn.source }}</div>
+      <div><strong>Status:</strong> {{ txn.status }}</div>
+      <div><strong>Created:</strong> {{ txn.createdAt | date : "medium" }}</div>
+      <div><strong>Type:</strong> {{ txn.type }}</div>
+    </div>
+  </div>
+</div>

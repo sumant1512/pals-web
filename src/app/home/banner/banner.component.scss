@@ -21,10 +21,10 @@
   }
 
   .title {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 500;
     font-family: sans-serif;
-    letter-spacing: -2px;
+    line-height: 64px;
   }
 
   .sub-title {
@@ -50,11 +50,18 @@
 }
 
 @media only screen and (min-width: 300px) and (max-width: 767px) {
+  .title {
+    line-height: 56px !important;
+    font-size: 48px !important;
+  }
   .banner-container {
     justify-content: center;
   }
   .bucket-img {
     left: auto !important;
     max-height: 135px !important;
+  }
+  .title {
+    line-height: 48px !important;
   }
 }

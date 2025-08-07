@@ -1,14 +1,10 @@
 <app-admin-header> </app-admin-header>
 <div class="container">
+  <div class="text-end mb-5">
+    <a routerLink="/admin/dashboard" class="btn btn-outline-primary"
+      >Go to Dashboard</a
+    >
+  </div>
+
   <router-outlet></router-outlet>
-  <!-- <div class="row">
-    <div class="col-6">
-      <qrcode
-        [qrdata]="'abhimanyu'"
-        [width]="256"
-        [errorCorrectionLevel]="'M'"
-      ></qrcode>
-    </div>
-    <div class="col-6">Mishra</div>
-  </div> -->
 </div>
