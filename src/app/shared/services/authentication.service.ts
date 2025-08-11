@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { ACTIVE_BE } from 'src/app/shared/constants/config';
 
 export interface MobileInterface {
   mobile: string;
@@ -27,20 +28,23 @@ export class AuthenticationService {
   }
 
   sentOtp(sendOtpBody: MobileInterface): Observable<any> {
+    const sendOtpApi = `${ACTIVE_BE}/api/auth/send-otp`;
     return this.httpClient.post(
-      `http://localhost:8080/api/auth/send-otp`,
+      sendOtpApi,
       sendOtpBody
     );
   }
 
   verifyOtp(loginBody: LoginInterface): Observable<any> {
+    const verifyOtpApi = `${ACTIVE_BE}/api/auth/verify`;
     return this.httpClient.post(
-      `http://localhost:8080/api/auth/verify`,
+      verifyOtpApi,
       loginBody
     );
   }
 
   logout(userId: string): Observable<any> {
-    return this.httpClient.get(`http://localhost:8080/user/signout/${userId}`);
+    const logoutApi = `${ACTIVE_BE}/api/auth/logout`;
+    return this.httpClient.get(logoutApi);
   }
 }
