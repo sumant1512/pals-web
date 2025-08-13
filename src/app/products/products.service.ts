@@ -81,7 +81,7 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {}
 
   getProductList(): Observable<any> {
-    return this.httpClient.get(this.getApiPath('product-list'));
+    return this.httpClient.get(this.getApiPath('/api/product/get'));
   }
 
   fetchProduct(id: number): Observable<any> {
