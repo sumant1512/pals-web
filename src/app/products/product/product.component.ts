@@ -43,7 +43,7 @@ export class ProductComponent implements OnInit {
     this.subscription.add(
       this.productsService.fetchProduct(id).subscribe((response) => {
         if (response?.data?.productId) {
-          this.productDetails = response.data;
+          this.productDetails = response.productDetails;
           this.selectPacket(this.productDetails.packSize[0]);
         }
       })
