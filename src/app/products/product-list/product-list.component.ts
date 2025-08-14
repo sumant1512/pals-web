@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getProductList(): void {
     this.subscription.add(
       this.productsService.getProductList().subscribe((productList) => {
-        this.productList = productList.data;
+        this.productList = productList.products;
       })
     );
   }
