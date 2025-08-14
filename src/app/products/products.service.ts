@@ -85,8 +85,7 @@ export class ProductsService {
   }
 
   fetchProduct(id: string): Observable<any> {
-    console.log(id);
-    return this.httpClient.get(this.getApiPath(`/api/product/${id}`));
+    return this.httpClient.get(this.getApiPath(`/api/product/get/${id}`));
   }
 
   fetchShades(): Observable<any> {
