@@ -42,9 +42,9 @@ export class ProductComponent implements OnInit {
   getProduct(id: string): void {
     this.subscription.add(
       this.productsService.fetchProduct(id).subscribe((response) => {
-        if (response?.data?.productId) {
+        if (response?.data?._id) {
           this.productDetails = response.productDetails;
-          this.selectPacket(this.productDetails.packSize[0]);
+          // this.selectPacket(this.productDetails?.packSize[0]);
         }
       })
     );
@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
   add(shade?: string): void {
     const seletcedColor = {
       ...this.selectedPacket,
-      productId: this.productDetails.productId,
+      productId: this.productDetails._id,
       soldPrice: this.getDiscountedPrice(this.selectedPacket),
       quantity: 1,
       color: shade ? shade : '#ffffff',
