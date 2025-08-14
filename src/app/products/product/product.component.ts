@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getProduct(parseInt(this.activatedRoute.snapshot.params['id']));
+    this.getProduct(this.activatedRoute.snapshot.params['id']);
   }
 
   openModal() {
