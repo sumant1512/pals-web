@@ -9,8 +9,8 @@
         }}</a
         ><span> > </span>
         <a
-          *ngIf="productDetails?.productId"
-          [routerLink]="'/products/' + productDetails.productId"
+          *ngIf="productDetails?._id"
+          [routerLink]="'/products/' + productDetails._id"
           >{{ productDetails.productName }} ({{
             productDetails.productType
           }})</a
@@ -19,14 +19,14 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div *ngIf="productDetails?.productId" class="product-name-heading">
+        <div *ngIf="productDetails?._id" class="product-name-heading">
           {{ productDetails.productName }} ({{ productDetails.productType }})
         </div>
       </div>
       <div class="col-md-6 product-starting-align">
         <div>
           Product Starting from
-          <span class="fw-semibold">₹ 450</span>
+          <span class="fw-semibold">₹ {{ productDetails.price }}</span>
         </div>
       </div>
     </div>
