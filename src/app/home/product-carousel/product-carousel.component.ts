@@ -25,8 +25,7 @@ export class ProductCarouselComponent implements OnInit, OnDestroy {
   getProductList(): void {
     this.subscription.add(
       this.productsService.getProductList().subscribe((productList) => {
-        console.log(productList);
-        this.productList = productList.data;
+        this.productList = productList.products;
       })
     );
   }
