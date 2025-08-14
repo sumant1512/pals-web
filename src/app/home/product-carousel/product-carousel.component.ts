@@ -34,7 +34,7 @@ export class ProductCarouselComponent implements OnInit, OnDestroy {
     this.router.navigate(['products']);
   }
 
-  navigateToProduct(id: number): void {
+  navigateToProduct(id: string): void {
     console.log('called here', id);
     this.router.navigate(['products', id], { relativeTo: this.activatedRoute });
   }
