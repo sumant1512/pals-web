@@ -39,7 +39,7 @@ export class ProductComponent implements OnInit {
     this.showModal = false;
   }
 
-  getProduct(id: number): void {
+  getProduct(id: string): void {
     this.subscription.add(
       this.productsService.fetchProduct(id).subscribe((response) => {
         if (response?.data?.productId) {
