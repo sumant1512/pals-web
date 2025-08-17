@@ -1,11 +1,54 @@
-<div class="container">
+<div class="container mt-3">
+  <!-- Bootstrap Tabs -->
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="selectedTab === 'active'"
+        (click)="selectTab('active')"
+      >
+        Active
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="selectedTab === 'redeemed'"
+        (click)="selectTab('redeemed')"
+      >
+        Redeemed
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="selectedTab === 'expired'"
+        (click)="selectTab('expired')"
+      >
+        Expired
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="selectedTab === 'all'"
+        (click)="selectTab('')"
+      >
+        All
+      </a>
+    </li>
+  </ul>
+
+  <!-- Coupon Grid -->
   <div class="row">
-    <div *ngFor="let coupon of couponList" class="col-12 col-md-3">
-      <img [src]="coupon.qr" alt="" />
-      <p>
-        <span class="me-4"> {{ coupon.code }}</span>
-        <span>{{ coupon.status?.toUpperCase() }}</span>
-      </p>
+    <div *ngFor="let coupon of filteredCoupons()" class="col-12 col-md-3 mb-3">
+      <div class="card p-2">
+        <img [src]="coupon.qr" alt="QR Code" class="img-fluid mb-2" />
+        <p>
+          <span class="me-4">{{ coupon.code }}</span>
+          <span>{{ coupon.status?.toUpperCase() }}</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

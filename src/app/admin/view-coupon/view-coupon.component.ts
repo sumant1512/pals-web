@@ -9,6 +9,7 @@ import { CouponService } from '../services/coupon.service';
 })
 export class ViewCouponComponent {
   couponList: Array<ICouponList> = [];
+  selectedTab = 'active';
   constructor(private couponService: CouponService) {}
 
   ngOnInit(): void {
@@ -21,5 +22,18 @@ export class ViewCouponComponent {
         this.couponList = response.coupons;
       }
     });
+  }
+
+  selectTab(tab: string) {
+    this.selectedTab = tab;
+  }
+
+  filteredCoupons() {
+    if (!this.selectedTab) {
+      return this.couponList;
+    }
+    return this.couponList.filter(
+      (coupon) => coupon.status === this.selectedTab
+    );
   }
 }
