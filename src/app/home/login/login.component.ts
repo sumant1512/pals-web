@@ -51,10 +51,7 @@ export class LoginComponent {
           .subscribe((resp) => {
             if (resp?.status) {
               sessionStorage.setItem('authToken', resp?.authToken);
-              this.router.navigate(['admin']);
-            }
-            if (resp?.userType) {
-              this.router.navigate(['admin']);
+              this.router.navigate(['/admin']);
             }
           })
       );

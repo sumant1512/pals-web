@@ -4,8 +4,10 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -15,22 +17,22 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const authToken = sessionStorage.getItem('authToken'); // Get the token from AuthService
+    const authToken = sessionStorage.getItem('authToken');
 
-    const urlsToIntercept = [
-      'https://api.example.com',
-      'https://api.another.com',
-    ];
-
-    // if (urlsToIntercept.some(url => request.url.startsWith(url))) {
     const clonedRequest = request.clone({
       setHeaders: {
-        authorization: `Bearer ${authToken}`,
+        Authorization: `Bearer ${authToken}`,
       },
     });
-    return next.handle(clonedRequest);
-    // } else {
-    //   return next.handle(request);
-    // }
+
+    return next.handle(clonedRequest).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          console.warn('⚠️ 401 Unauthorized → clearing session storage');
+          sessionStorage.clear();
+        }
+        return throwError(() => error);
+      })
+    );
   }
 }
