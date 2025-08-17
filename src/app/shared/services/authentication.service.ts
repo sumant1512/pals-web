@@ -29,21 +29,15 @@ export class AuthenticationService {
 
   sentOtp(sendOtpBody: MobileInterface): Observable<any> {
     const sendOtpApi = `${ACTIVE_BE}/api/auth/send-otp`;
-    return this.httpClient.post(
-      sendOtpApi,
-      sendOtpBody
-    );
+    return this.httpClient.post(sendOtpApi, sendOtpBody);
   }
 
   verifyOtp(loginBody: LoginInterface): Observable<any> {
     const verifyOtpApi = `${ACTIVE_BE}/api/auth/verify`;
-    return this.httpClient.post(
-      verifyOtpApi,
-      loginBody
-    );
+    return this.httpClient.post(verifyOtpApi, loginBody);
   }
 
-  logout(userId: string): Observable<any> {
+  logout(): Observable<any> {
     const logoutApi = `${ACTIVE_BE}/api/auth/logout`;
     return this.httpClient.get(logoutApi);
   }

@@ -46,11 +46,9 @@ export class HeaderComponent implements OnInit {
   authClick(): void {
     if (this.isUserLoggedIn) {
       this.subcription.add(
-        this.authenticationService
-          .logout(sessionStorage.getItem('userId') as string)
-          .subscribe((response) => {
-            sessionStorage.clear();
-          })
+        this.authenticationService.logout().subscribe((response) => {
+          sessionStorage.clear();
+        })
       );
     }
     this.router.navigate(['login']);
