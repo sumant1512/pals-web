@@ -14,6 +14,8 @@ import { DealerCreditRequestComponent } from './dealer-credit-request/dealer-cre
 import { ViewDealersComponent } from './view-dealers/view-dealers.component';
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { DealerTrasactionComponent } from './dealer-trasaction/dealer-trasaction.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { DealerTrasactionComponent } from './dealer-trasaction/dealer-trasaction
     ViewDealersComponent,
     AddDealerComponent,
     DealerTrasactionComponent,
+    AddProductComponent,
+    ViewProductComponent,
   ],
   imports: [
     CommonModule,

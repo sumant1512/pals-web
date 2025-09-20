@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { ACTIVE_BE, IS_JSON } from '../shared/constants/config';
+import { ACTIVE_BE } from '../shared/constants/config';
 
 @Injectable({
   providedIn: 'root',
@@ -97,6 +97,6 @@ export class ProductsService {
   }
 
   getApiPath(apiName: string): string {
-    return `${ACTIVE_BE}${apiName}${IS_JSON ? '.json' : ''}`;
+    return `${ACTIVE_BE}${apiName}`;
   }
 }

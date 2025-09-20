@@ -10,6 +10,8 @@ import { ViewDealersComponent } from './view-dealers/view-dealers.component';
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { DealerCreditRequestComponent } from './dealer-credit-request/dealer-credit-request.component';
 import { DealerTrasactionComponent } from './dealer-trasaction/dealer-trasaction.component';
+import { ViewProductComponent } from './view-product/view-product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,14 @@ const routes: Routes = [
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.VIEW_DEALER,
         component: ViewDealersComponent,
+      },
+      {
+        path: APP_ROUTES.ADMIN.CHILD_ROUTES.ADD_PRODUCT,
+        component: AddProductComponent,
+      },
+      {
+        path: APP_ROUTES.ADMIN.CHILD_ROUTES.VIEW_PRODUCT,
+        component: ViewProductComponent,
       },
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.DEALER_LEDGER,
