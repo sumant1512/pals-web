@@ -12,12 +12,22 @@
 
     <div class="col-md-6 mb-3">
       <label class="form-label">Product Type</label>
-      <input
-        formControlName="productType"
-        type="text"
-        class="form-control"
-        placeholder="Enter product type"
-      />
+      <select formControlName="productType" class="form-select">
+        <option value="" disabled selected>Select product type</option>
+        <option *ngFor="let type of productTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="
+          productForm.get('productType')?.touched &&
+          productForm.get('productType')?.invalid
+        "
+        class="text-danger mt-1"
+      >
+        Product type is required
+      </div>
     </div>
   </div>
 

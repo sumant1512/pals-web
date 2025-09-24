@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -7,6 +7,9 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
+import { EProductType } from '../services/product.enum';
+import { ProductService } from '../services/product.service';
+import { Subscription } from 'rxjs';
 
 // Custom validator
 function minLengthArray(min: number) {
@@ -25,26 +28,23 @@ function minLengthArray(min: number) {
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
 })
-export class AddProductComponent {
+export class AddProductComponent implements OnDestroy {
   productForm!: FormGroup;
+  productTypes = Object.values(EProductType);
   selectedImage: string | ArrayBuffer | null = null;
+  subscription = new Subscription();
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private readonly productService: ProductService
+  ) {
     this.productForm = this.fb.group({
       productName: ['', Validators.required],
       productType: ['', Validators.required],
       shortDescription: ['', Validators.required],
       image: ['', Validators.required],
-      packSize: this.fb.array([], minLengthArray(1)), // dynamic form array
+      packSize: this.fb.array([], minLengthArray(1)),
     });
-
-    this.productForm
-      .get('isShadeEnabled')
-      ?.valueChanges.subscribe((enabled) => {
-        if (!enabled) {
-          this.productForm.get('pigmentPrice')?.reset();
-        }
-      });
   }
 
   onFileSelected(event: Event) {
@@ -86,6 +86,21 @@ export class AddProductComponent {
       this.productForm.markAllAsTouched();
       return;
     }
-    console.log(this.productForm.value);
+    this.subscription.add(
+      this.productService
+        .createProduct(this.productForm.value)
+        .subscribe((response: any) => {
+          console.log('Product created successfully:', response);
+          if (response && response.status) {
+            this.productForm.reset();
+            this.packSize.clear();
+            this.selectedImage = null;
+          }
+        })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

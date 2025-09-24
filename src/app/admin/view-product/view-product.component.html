@@ -1,1 +1,45 @@
-<p>view-product works!</p>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let product of productList">
+      <div class="card h-100 shadow-sm">
+        <img
+          [src]="product.image"
+          class="card-img-top"
+          alt="{{ product.productName }}"
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.productName }}</h5>
+          <p class="card-subtitle mb-2 text-muted">{{ product.productType }}</p>
+          <p class="card-text">{{ product.shortDescription }}</p>
+
+          <!-- Pigment Price (if shade enabled) -->
+          <p *ngIf="product.isShadeEnabled" class="fw-bold">
+            Pigment Price: ₹{{ product.pigmentPrice }}
+          </p>
+
+          <!-- Pack Sizes -->
+          <div class="mt-auto">
+            <h6>Pack Sizes:</h6>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let pack of product.packSize">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>{{ pack.size }}</span>
+                  <span>
+                    <del>₹{{ pack.mrp }}</del>
+                    <strong>
+                      ₹{{
+                        (pack.mrp * (100 - pack.discount)) / 100
+                          | number : "1.0-0"
+                      }}</strong
+                    >
+                  </span>
+                  <span class="badge bg-success">{{ pack.discount }}% OFF</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
