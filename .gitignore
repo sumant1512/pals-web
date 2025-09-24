@@ -92,6 +92,10 @@ out
 .nuxt
 dist
 
+# env values
+src/app/shared/constants/config.ts
+
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js

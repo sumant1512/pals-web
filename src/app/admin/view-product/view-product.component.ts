@@ -19,7 +19,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
 
   fetchProducts() {
     this.subscription.add(
-      this.productService.getProductList().subscribe((response: any) => {
+      this.productService.getAllProductDetails().subscribe((response: any) => {
         if (response && response.status) {
           this.productList = response.products;
         }

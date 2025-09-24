@@ -21,8 +21,8 @@ export class ProductService {
     );
   }
 
-  getProductList(): Observable<any> {
-    const getProducts = `${ACTIVE_BE}/api/product/get`;
+  getAllProductDetails(): Observable<any> {
+    const getProducts = `${ACTIVE_BE}/api/product/get-all-details`;
     return this.http.get<any>(getProducts).pipe(
       map((response) => {
         if (response) {
