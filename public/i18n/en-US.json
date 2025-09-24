@@ -48,6 +48,17 @@
       "SUBMIT_BTN_LBL": "Submit"
     }
   },
-  "PRODUCT_LIST": {},
+  "PRODUCT_LIST_PAGE": {
+    "HEADING": "Explore our Products",
+    "FILTER": "FILTER",
+    "FILTER_OPTIONS": {
+      "INTERIOR": "Interior Paints",
+      "EXTERIOR": "Exterior Paints",
+      "DISTEMPER": "Distemper",
+      "WALL_PRIMER": "Wall Primer",
+      "PALS_PUTTY": "Pals Putty",
+      "LIME_WASH": "Lime Wash"
+    }
+  },
   "PRODUCT_DESCRIPTION": {}
 }
