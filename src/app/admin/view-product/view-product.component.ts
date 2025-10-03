@@ -28,6 +28,21 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     );
   }
 
+  deleteProduct(productId: string) {
+    if (!productId) return;
+
+    this.subscription.add(
+      this.productService
+        .deleteProduct(productId)
+        .subscribe((response: any) => {
+          if (response && response.status) {
+            this.fetchProducts();
+          }
+          console.log('Delete response:', response);
+        })
+    );
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

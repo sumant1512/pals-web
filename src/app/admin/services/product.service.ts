@@ -31,4 +31,15 @@ export class ProductService {
       })
     );
   }
+
+  deleteProduct(productId: string): Observable<any> {
+    const deleteProductApi = `${ACTIVE_BE}/api/product/delete/${productId}`;
+    return this.http.delete<any>(deleteProductApi).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+      })
+    );
+  }
 }
