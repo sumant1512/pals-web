@@ -17,7 +17,7 @@
         >
       </p>
     </div>
-    <div class="row">
+    <div *ngIf="productDetails?._id" class="row">
       <div class="col-md-6">
         <div *ngIf="productDetails?._id" class="product-name-heading">
           {{ productDetails.productName }} ({{ productDetails.productType }})
@@ -26,14 +26,14 @@
       <div class="col-md-6 product-starting-align">
         <div>
           Product Starting from
-          <span class="fw-semibold">₹ {{ productDetails.price }}</span>
+          <span class="fw-bold">₹ {{ productDetails.priceStartingFrom }}</span>
         </div>
       </div>
     </div>
     <div *ngIf="productDetails?._id" class="row mt-4">
       <div class="col-md-6">
         <img
-          src="bucket-image.png"
+          [src]="productDetails.image"
           class="rounded float-start img-fluid product-image"
           alt="..."
         />
@@ -54,28 +54,12 @@
 
         <label class="fw-semibold d-block mb-2">Select Quantity</label>
         <div class="mb-4">
-          <div class="mb-3">
+          <div *ngFor="let pack of productDetails?.packSize" class="mb-3">
             <app-product-quantity-card
-              [packSize]="'1'"
-              [price]="'4,399'"
-            ></app-product-quantity-card>
-          </div>
-          <div class="mb-3">
-            <app-product-quantity-card
-              [packSize]="'4'"
-              [price]="'1,299'"
-            ></app-product-quantity-card>
-          </div>
-          <div class="mb-3">
-            <app-product-quantity-card
-              [packSize]="'10'"
-              [price]="'2,599'"
-            ></app-product-quantity-card>
-          </div>
-          <div class="mb-3">
-            <app-product-quantity-card
-              [packSize]="'20'"
-              [price]="'4,399'"
+              [productName]="productDetails.productName"
+              [productImage]="productDetails.image"
+              [packSize]="pack.size"
+              [price]="pack.mrp"
             ></app-product-quantity-card>
           </div>
         </div>

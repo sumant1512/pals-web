@@ -1,11 +1,11 @@
 <div class="container d-none d-lg-block">
   <div class="row paint-card">
     <div class="col-2">
-      <img src="products/product_3.jpeg" alt="Paint Bucket" class="img-fluid" />
+      <img [src]="productImage" alt="Paint Bucket" class="img-fluid" />
     </div>
     <div class="col-4">
-      <div class="fw-semibold product-pack">{{ packSize }} Ltr. Pack</div>
-      <div class="text-muted small product-name">Plastic Paint Emulsion</div>
+      <div class="fw-semibold product-pack">{{ packSize }} Pack</div>
+      <div class="text-muted small product-name">{{ productName }}</div>
     </div>
     <div class="col-4 qty-section">
       <span class="me-2 qty-label">Quantity:</span>

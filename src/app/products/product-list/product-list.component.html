@@ -93,7 +93,7 @@
           >
             <app-product-card
               [product]="product"
-              (click)="navigateToProduct(product.productId)"
+              (click)="navigateToProduct(product?._id)"
             ></app-product-card>
           </div>
         </div>

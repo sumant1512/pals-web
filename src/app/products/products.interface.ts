@@ -12,4 +12,5 @@ export interface IProduct {
   packSize?: Array<IPacket>;
   price: string;
   isShadeEnabled: boolean;
+  priceStartingFrom?: string;
 }
