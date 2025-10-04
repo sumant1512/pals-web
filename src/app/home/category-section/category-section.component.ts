@@ -10,28 +10,28 @@ export class CategorySectionComponent {
     {
       title: 'Exterior Paint',
       description:
-        'Enhance your outdoors with paints and textures for every style.',
+        'Bring life to your walls with Pals Paint’s durable exterior paints, offering vibrant colors, weather-resistant protection, and long-lasting finishes for every outdoor surface.',
       image: 'category/exterior.png',
       imageAlt: 'Exterior Paint',
     },
     {
       title: 'Interior Paint',
       description:
-        'Explore interior paints for every style, including our Royale designer collection.',
+        'Explore Pals Paint’s premium interior paints for every style, offering vibrant colors, smooth finishes, and long-lasting protection for your walls.',
       image: 'category/interior.png',
       imageAlt: 'Interior Paint',
     },
     {
       title: 'Pals Putty',
       description:
-        'Perfect your walls with Pal’s Putty for a smooth, flawless finish.',
+        'Perfect your walls with Pals Putty, for a smooth, flawless finish and long-lasting protection before painting.',
       image: 'category/putty.png',
       imageAlt: 'Pals Putty',
     },
     {
       title: 'Lime Wash',
       description:
-        'Bring timeless elegance to your walls with Pal’s Lime Wash.',
+        'Bring timeless elegance to your walls with Pals Lime Wash, a natural, eco-friendly coating that enhances texture, durability, and beauty for both interiors and exteriors.',
       image: 'category/lime_wash.png',
       imageAlt: 'Lime Wash',
     },

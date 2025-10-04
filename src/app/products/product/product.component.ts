@@ -13,6 +13,7 @@ import { faqs } from './faq.contants';
 })
 export class ProductComponent implements OnInit {
   subscription = new Subscription();
+  shadeEnabledFeature = false;
   productDetails!: IProduct;
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
@@ -32,7 +33,13 @@ export class ProductComponent implements OnInit {
   }
 
   openModal() {
-    this.showModal = true;
+    if (this.shadeEnabledFeature) {
+      this.showModal = true;
+    } else {
+      alert(
+        'This product does not have shade selection feature. Connect with us for more details.'
+      );
+    }
   }
 
   closeModal() {
