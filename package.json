@@ -22,7 +22,6 @@
     "@ngx-translate/http-loader": "^16.0.1",
     "angularx-qrcode": "^16.0.2",
     "bootstrap": "^5.0.2",
-    "emailjs-com": "^3.2.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.1",
     "qrcode": "^1.5.4",
