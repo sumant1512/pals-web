@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -10,6 +10,8 @@ import {
 import { EProductType } from '../services/product.enum';
 import { ProductService } from '../services/product.service';
 import { Subscription } from 'rxjs';
+import { ProductsService } from 'src/app/products/products.service';
+import { ActivatedRoute } from '@angular/router';
 
 // Custom validator
 function minLengthArray(min: number) {
@@ -28,15 +30,17 @@ function minLengthArray(min: number) {
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
 })
-export class AddProductComponent implements OnDestroy {
+export class AddProductComponent implements OnInit, OnDestroy {
   productForm!: FormGroup;
   productTypes = Object.values(EProductType);
   selectedImage: string | ArrayBuffer | null = null;
   subscription = new Subscription();
 
   constructor(
-    private fb: FormBuilder,
-    private readonly productService: ProductService
+    private readonly fb: FormBuilder,
+    private readonly productService: ProductService,
+    private readonly productsService: ProductsService,
+    private readonly activatedRoute: ActivatedRoute
   ) {
     this.productForm = this.fb.group({
       productName: ['', Validators.required],
@@ -46,6 +50,34 @@ export class AddProductComponent implements OnDestroy {
       image: ['', Validators.required],
       packSize: this.fb.array([], minLengthArray(1)),
     });
+  }
+
+  ngOnInit(): void {
+    const selectedProductId = this.activatedRoute.snapshot.params['id'];
+    if (selectedProductId) {
+      this.getProduct(this.activatedRoute.snapshot.params['id']);
+    }
+  }
+
+  getProduct(id: string): void {
+    this.subscription.add(
+      this.productsService.fetchProduct(id).subscribe((response) => {
+        if (response?.status) {
+          this.productForm.reset();
+          this.productForm.patchValue({
+            productName: response.productDetails.productName,
+            productType: response.productDetails.productType,
+            shortDescription: response.productDetails.shortDescription,
+            longDescription: response.productDetails.longDescription,
+            image: response.productDetails.image,
+          });
+          this.selectedImage = response.productDetails.image;
+          response.productDetails.packSize.forEach((pack: any) => {
+            this.packSize.push(this.newPack(pack));
+          });
+        }
+      })
+    );
   }
 
   onFileSelected(event: Event) {
@@ -66,11 +98,11 @@ export class AddProductComponent implements OnDestroy {
     return this.productForm.get('packSize') as FormArray;
   }
 
-  newPack(): FormGroup {
+  newPack(data?: any): FormGroup {
     return this.fb.group({
-      mrp: ['', Validators.required],
-      size: ['', Validators.required],
-      discount: [0],
+      mrp: [data?.mrp || '', Validators.required],
+      size: [data?.size || '', Validators.required],
+      discount: [data?.discount || 0],
     });
   }
 

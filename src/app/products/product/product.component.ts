@@ -29,10 +29,6 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(
-      'Product Component Loaded',
-      this.activatedRoute.snapshot.params['id']
-    );
     this.getProduct(this.activatedRoute.snapshot.params['id']);
   }
 
