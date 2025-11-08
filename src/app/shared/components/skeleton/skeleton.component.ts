@@ -1,13 +1,19 @@
-import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  Input,
+  Renderer2,
+} from '@angular/core';
 
 @Component({
   selector: 'app-skeleton',
   templateUrl: './skeleton.component.html',
   styleUrls: ['./skeleton.component.scss'],
 })
-export class SkeletonComponent {
+export class SkeletonComponent implements AfterViewInit {
   @Input() loading = false;
-  @Input() borderRadius: string | number = '8px';
+  @Input() borderRadius?: string | number;
   @Input() height?: string | number;
   @Input() width?: string | number;
 

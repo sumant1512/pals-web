@@ -16,20 +16,26 @@
     </div>
   </div>
   <div class="row">
-    <div
-      *ngFor="let product of productList?.slice(0, 3)"
-      class="col-md-4 col-lg-4 mb-4"
-    >
-      <app-skeleton
-        [loading]="isProductsLoading"
-        [height]="'410px'"
-        borderRadius="12px"
+    <ng-container *ngIf="isProductsLoading">
+      <div *ngFor="let _ of [1, 2, 3]" class="col-md-4 col-lg-4 mb-4">
+        <app-skeleton
+          [loading]="true"
+          [height]="'410px'"
+          borderRadius="12px"
+          class="mb-3"
+        ></app-skeleton>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!isProductsLoading">
+      <div
+        *ngFor="let product of productList?.slice(0, 3)"
+        class="col-md-4 col-lg-4 mb-4"
       >
         <app-product-card
           [product]="product"
           (click)="navigateToProduct(product._id)"
         ></app-product-card>
-      </app-skeleton>
-    </div>
+      </div>
+    </ng-container>
   </div>
 </div>
