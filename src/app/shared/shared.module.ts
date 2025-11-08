@@ -7,6 +7,7 @@ import { ShadeSelectorComponent } from './components/shade-selector/shade-select
 import { HeadingChipsComponent } from './components/heading-chips/heading-chips.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ShadeSelectorComponent,
     HeadingChipsComponent,
     NavButtonComponent,
+    SkeletonComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
   exports: [
@@ -23,6 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     ReactiveFormsModule,
     NavButtonComponent,
+    SkeletonComponent,
     TranslateModule,
   ],
 })

@@ -20,10 +20,16 @@
       *ngFor="let product of productList?.slice(0, 3)"
       class="col-md-4 col-lg-4 mb-4"
     >
-      <app-product-card
-        [product]="product"
-        (click)="navigateToProduct(product._id)"
-      ></app-product-card>
+      <app-skeleton
+        [loading]="isProductsLoading"
+        [height]="'410px'"
+        borderRadius="12px"
+      >
+        <app-product-card
+          [product]="product"
+          (click)="navigateToProduct(product._id)"
+        ></app-product-card>
+      </app-skeleton>
     </div>
   </div>
 </div>

@@ -91,10 +91,16 @@
             *ngFor="let product of productList"
             class="col-md-4 col-lg-3 mb-4"
           >
-            <app-product-card
-              [product]="product"
-              (click)="navigateToProduct(product?._id)"
-            ></app-product-card>
+            <app-skeleton
+              [loading]="isProductsLoading"
+              [height]="'375px'"
+              borderRadius="12px"
+            >
+              <app-product-card
+                [product]="product"
+                (click)="navigateToProduct(product._id)"
+              ></app-product-card>
+            </app-skeleton>
           </div>
         </div>
       </div>

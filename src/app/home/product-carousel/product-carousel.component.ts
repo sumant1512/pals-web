@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/products/products.service';
 })
 export class ProductCarouselComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
+  isProductsLoading = true;
   productList!: any;
 
   constructor(
@@ -25,8 +26,10 @@ export class ProductCarouselComponent implements OnInit, OnDestroy {
   getProductList(): void {
     this.subscription.add(
       this.productsService.getProductList().subscribe((productList) => {
-        this.productList = productList.products;
-        console.log('Product List:', this.productList);
+        this.isProductsLoading = false;
+        if (productList && productList.status) {
+          this.productList = productList.products;
+        }
       })
     );
   }

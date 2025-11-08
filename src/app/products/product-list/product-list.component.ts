@@ -10,6 +10,7 @@ import { ProductsService } from '../products.service';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
+  isProductsLoading = true;
   productList!: any;
 
   constructor(
@@ -25,7 +26,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getProductList(): void {
     this.subscription.add(
       this.productsService.getProductList().subscribe((productList) => {
-        this.productList = productList.products;
+        this.isProductsLoading = false;
+        if (productList && productList.status) {
+          this.productList = productList.products;
+        }
       })
     );
   }

@@ -1,0 +1,14 @@
+<div
+  class="skeleton-container"
+  [style.borderRadius]="getCssValue(borderRadius)"
+  [style.height]="getCssValue(height)"
+  [style.width]="getCssValue(width)"
+>
+  <!-- Skeleton Overlay -->
+  <div class="skeleton-overlay" *ngIf="loading"></div>
+
+  <!-- Actual content -->
+  <div class="skeleton-content" [class.hidden]="loading">
+    <ng-content></ng-content>
+  </div>
+</div>
