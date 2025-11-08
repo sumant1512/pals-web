@@ -42,4 +42,15 @@ export class ProductService {
       })
     );
   }
+
+  updateProduct(productId: string, body: IProductRequestBody): Observable<any> {
+    const updateProductApi = `${ACTIVE_BE}/api/product/update/${productId}`;
+    return this.http.put<any>(updateProductApi, body).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+      })
+    );
+  }
 }

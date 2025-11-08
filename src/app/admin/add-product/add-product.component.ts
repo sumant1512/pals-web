@@ -34,6 +34,8 @@ export class AddProductComponent implements OnInit, OnDestroy {
   productForm!: FormGroup;
   productTypes = Object.values(EProductType);
   selectedImage: string | ArrayBuffer | null = null;
+  isEditMode = false;
+  selectedProductId!: string;
   subscription = new Subscription();
 
   constructor(
@@ -53,8 +55,9 @@ export class AddProductComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const selectedProductId = this.activatedRoute.snapshot.params['id'];
-    if (selectedProductId) {
+    this.selectedProductId = this.activatedRoute.snapshot.params['id'];
+    if (this.selectedProductId) {
+      this.isEditMode = true;
       this.getProduct(this.activatedRoute.snapshot.params['id']);
     }
   }
@@ -119,18 +122,33 @@ export class AddProductComponent implements OnInit, OnDestroy {
       this.productForm.markAllAsTouched();
       return;
     }
-    this.subscription.add(
-      this.productService
-        .createProduct(this.productForm.value)
-        .subscribe((response: any) => {
-          console.log('Product created successfully:', response);
-          if (response && response.status) {
-            this.productForm.reset();
-            this.packSize.clear();
-            this.selectedImage = null;
-          }
-        })
-    );
+    if (this.isEditMode) {
+      this.subscription.add(
+        this.productService
+          .updateProduct(this.selectedProductId, this.productForm.value)
+          .subscribe((response: any) => {
+            console.log('Product created successfully:', response);
+            if (response && response.status) {
+              this.productForm.reset();
+              this.packSize.clear();
+              this.selectedImage = null;
+            }
+          })
+      );
+    } else {
+      this.subscription.add(
+        this.productService
+          .createProduct(this.productForm.value)
+          .subscribe((response: any) => {
+            console.log('Product created successfully:', response);
+            if (response && response.status) {
+              this.productForm.reset();
+              this.packSize.clear();
+              this.selectedImage = null;
+            }
+          })
+      );
+    }
   }
 
   ngOnDestroy(): void {
