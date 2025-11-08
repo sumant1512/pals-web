@@ -8,6 +8,8 @@
     <p class="products-description mt-2 mb-0">
       {{ product.shortDescription }}
     </p>
-    <h6 class="products-price mt-2">$ {{ product?.priceStartingFrom }}</h6>
+    <h6 class="products-price mt-2">
+      $ {{ product?.priceStartingFrom | number : "1.0-0" }}
+    </h6>
   </div>
 </div>

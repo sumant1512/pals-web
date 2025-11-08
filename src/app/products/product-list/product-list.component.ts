@@ -35,6 +35,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   navigateToProduct(id: number): void {
+    console.log('Navigating to product with id:', id);
     this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
 

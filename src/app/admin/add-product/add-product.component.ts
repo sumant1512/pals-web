@@ -42,6 +42,7 @@ export class AddProductComponent implements OnDestroy {
       productName: ['', Validators.required],
       productType: ['', Validators.required],
       shortDescription: ['', Validators.required],
+      longDescription: ['', Validators.required],
       image: ['', Validators.required],
       packSize: this.fb.array([], minLengthArray(1)),
     });
