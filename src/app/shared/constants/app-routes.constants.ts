@@ -19,6 +19,7 @@ export const APP_ROUTES = {
       DEALER_LEDGER: 'dealer-ledger',
       ADD_PRODUCT: 'add-product',
       VIEW_PRODUCT: 'view-product',
+      EDIT_PRODUCT: 'edit-product',
       DEALER_TRANSACTIONS: 'dealer-transactions',
       DEALER_CREDIT_REQUEST: 'dealer-credit-request',
       PAYMENT_REQUEST: 'payment-request',

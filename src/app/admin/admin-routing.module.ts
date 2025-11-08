@@ -52,6 +52,10 @@ const routes: Routes = [
         component: ViewProductComponent,
       },
       {
+        path: `${APP_ROUTES.ADMIN.CHILD_ROUTES.EDIT_PRODUCT}/:id`,
+        component: AddProductComponent,
+      },
+      {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.DEALER_LEDGER,
         component: DealerLedgerComponent,
       },

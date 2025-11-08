@@ -38,7 +38,14 @@
               </li>
             </ul>
             <div class="d-flex justify-content-between mt-3">
-              <span><button class="btn btn-primary">Edit</button></span>
+              <span
+                ><button
+                  class="btn btn-primary"
+                  (click)="editProduct(product?._id)"
+                >
+                  Edit
+                </button></span
+              >
               <span
                 ><button
                   class="btn btn-danger"
