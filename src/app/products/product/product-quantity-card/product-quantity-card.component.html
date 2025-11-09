@@ -8,10 +8,28 @@
       <div class="text-muted small product-name">{{ productName }}</div>
     </div>
     <div class="col-4 qty-section">
-      <span class="me-2 qty-label">Quantity:</span>
-      <button class="btn qty-btn">−</button>
-      <span class="qty-count mx-2">0</span>
-      <button class="btn qty-btn">+</button>
+      <span
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="me-2 qty-label"
+        >Quantity:</span
+      >
+      <button
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="btn qty-btn"
+      >
+        −
+      </button>
+      <span
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="qty-count mx-2"
+        >0</span
+      >
+      <button
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="btn qty-btn"
+      >
+        +
+      </button>
     </div>
     <div class="col-2">
       <div class="text-muted small price-label">Price</div>
@@ -27,15 +45,33 @@
       <div class="fw-semibold product-pack">{{ packSize }} Ltr. Pack</div>
       <div class="text-muted small product-name">Plastic Paint Emulsion</div>
     </div>
-    <div class="col-4">
+    <div class="col-4 text-end">
       <div class="text-muted small price-label">Price</div>
       <div class="fw-bold price-amt">₹ {{ price }}</div>
     </div>
     <div class="col-12 mt-3 text-end">
-      <span class="me-2 qty-label">Quantity:</span>
-      <button class="btn qty-btn">−</button>
-      <span class="qty-count mx-2">0</span>
-      <button class="btn qty-btn">+</button>
+      <span
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="me-2 qty-label"
+        >Quantity:</span
+      >
+      <button
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="btn qty-btn"
+      >
+        −
+      </button>
+      <span
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="qty-count mx-2"
+        >0</span
+      >
+      <button
+        *ngIf="featureService.isEnabled('isOnlineOrderEnabled')"
+        class="btn qty-btn"
+      >
+        +
+      </button>
     </div>
   </div>
 </div>

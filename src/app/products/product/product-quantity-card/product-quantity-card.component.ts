@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FeatureService } from 'src/app/customer/feature.service';
 
 @Component({
   selector: 'app-product-quantity-card',
@@ -10,4 +11,6 @@ export class ProductQuantityCardComponent {
   @Input() productImage!: string;
   @Input() packSize!: string;
   @Input() price!: string;
+
+  constructor(readonly featureService: FeatureService) {}
 }

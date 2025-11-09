@@ -5,6 +5,7 @@ import { ProductsService } from '../products.service';
 import { IPacket, IProduct } from '../products.interface';
 import { CartService } from 'src/app/cart/cart.service';
 import { faqs } from './faq.contants';
+import { FeatureService } from 'src/app/customer/feature.service';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +14,6 @@ import { faqs } from './faq.contants';
 })
 export class ProductComponent implements OnInit {
   subscription = new Subscription();
-  shadeEnabledFeature = false;
   productDetails!: IProduct;
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
@@ -25,7 +25,8 @@ export class ProductComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private readonly featureService: FeatureService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class ProductComponent implements OnInit {
   }
 
   openModal() {
-    if (this.shadeEnabledFeature) {
+    if (this.featureService.isEnabled('isShadeEnabled')) {
       this.showModal = true;
     } else {
       alert(

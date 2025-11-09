@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { AuthInterceptor } from './shared/services/auth.interceptor';
+import { FeatureService } from './customer/feature.service';
+import { provideFeatureFlagInitializer } from './app-init';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'i18n/', '.json');
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
+    provideFeatureFlagInitializer(),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
