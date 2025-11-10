@@ -14,9 +14,7 @@ export class FeatureService {
 
   constructor(private http: HttpClient) {}
 
-  /** Load feature flags from API or local file */
   loadFlags(): Observable<FeatureFlags> {
-    // You can replace this with your backend endpoint
     return this.http.get<FeatureFlags>('feature-flags.json').pipe(
       map((flags) => {
         this.flags$.next(flags);

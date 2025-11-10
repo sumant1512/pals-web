@@ -23,7 +23,9 @@ export class ContactUsComponent {
       this.homeService
         .contactUs(this.contactForm.value)
         .subscribe((response) => {
-          console.log('Contact request sent successfully:', response);
+          if (response?.status) {
+            this.contactForm.reset();
+          }
         });
     }
   }

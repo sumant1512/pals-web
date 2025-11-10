@@ -5,10 +5,11 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { HeaderScrollService } from '../../services/header-scroll.service';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../services/authentication.service';
 import { Subscription } from 'rxjs';
+import { HeaderScrollService } from '../../services/header-scroll.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { FeatureService } from 'src/app/customer/feature.service';
 
 @Component({
   selector: 'app-header',
@@ -23,12 +24,13 @@ export class HeaderComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   headerLinks = [
     { label: 'Home', id: 'banner' },
-    { label: 'About', id: 'about' },
+    { label: 'About Us', id: 'about' },
   ];
   constructor(
     private headerScrollService: HeaderScrollService,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    readonly featureService: FeatureService
   ) {}
 
   ngOnInit(): void {
