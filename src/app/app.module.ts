@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import { importProvidersFrom, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
-  HttpClientModule,
+  provideHttpClient,
 } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -22,20 +22,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    QRCodeModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-      defaultLanguage: 'en-US',
-    }),
-  ],
+  bootstrap: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [
     provideFeatureFlagInitializer(),
     {
@@ -43,7 +31,18 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: AuthInterceptor,
       multi: true,
     },
+    provideHttpClient(),
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+        defaultLanguage: 'en-US',
+      })
+    ),
+    QRCodeModule,
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
