@@ -8,6 +8,9 @@ export const APP_ROUTES = {
   CART: {
     PARENT: 'cart',
   },
+  ABOUT_US: {
+    PARENT: 'about',
+  },
   ADMIN: {
     PARENT: 'admin',
     CHILD_ROUTES: {

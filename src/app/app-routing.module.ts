@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: APP_ROUTES.ABOUT_US.PARENT,
+    loadChildren: () =>
+      import('./about-us/about-us.component').then((m) => m.AboutUsComponent),
+  },
+  {
     path: APP_ROUTES.PRODUCTS.PARENT,
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
