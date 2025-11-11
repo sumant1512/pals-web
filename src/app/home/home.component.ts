@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HeaderScrollService } from '../shared/services/header-scroll.service';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { HeaderScrollService } from '../shared/services/header-scroll.service';
 import { IToggleStatusEvent } from '../shared/interfaces/header-scroll.interface';
 
 @Component({
@@ -12,7 +13,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   status: boolean = false;
 
-  constructor(private headerScrollService: HeaderScrollService) {}
+  constructor(
+    private headerScrollService: HeaderScrollService,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   ngOnInit(): void {
     this.subscription.add(
@@ -31,7 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   smoothScrollToElementWithOffset(elementId: string, offset: number) {
     console.log(elementId);
-    const element = document.getElementById(elementId);
+    const element = this.document.getElementById(elementId);
     if (element) {
       const elementTop = element.getBoundingClientRect().top + window.scrollY;
       const targetScrollY = elementTop - offset;

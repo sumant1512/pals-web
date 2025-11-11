@@ -6,6 +6,7 @@ import { IPacket, IProduct } from '../products.interface';
 import { CartService } from 'src/app/cart/cart.service';
 import { faqs } from './faq.contants';
 import { FeatureService } from 'src/app/customer/feature.service';
+import { SessionStorageService } from 'src/app/shared/services/session-storage.service';
 
 @Component({
   selector: 'app-product',
@@ -26,7 +27,8 @@ export class ProductComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService,
     private cartService: CartService,
-    private readonly featureService: FeatureService
+    private readonly featureService: FeatureService,
+    private sessionStorageService: SessionStorageService
   ) {}
 
   ngOnInit(): void {
@@ -98,7 +100,7 @@ export class ProductComponent implements OnInit {
       quantity: item.quantity,
     }));
     const body = {
-      userId: sessionStorage.getItem('userId'),
+      userId: this.sessionStorageService.getItem('userId'),
       cartItems: transformedItems,
     };
     this.cartService.addItemsToCart(body).subscribe((resp) => {

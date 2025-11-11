@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ACTIVE_BE } from 'src/app/shared/constants/config';
+import { SessionStorageService } from './session-storage.service';
 
 export interface MobileInterface {
   mobile: string;
@@ -16,15 +17,20 @@ export interface LoginInterface extends MobileInterface {
 export class AuthenticationService {
   authToken$: BehaviorSubject<any>;
 
-  constructor(private httpClient: HttpClient) {
-    const sessionValue = sessionStorage.getItem('yourKey');
+  constructor(
+    private httpClient: HttpClient,
+    private sessionStorageService: SessionStorageService
+  ) {
+    const sessionValue = this.sessionStorageService.getItem('yourKey');
     this.authToken$ = new BehaviorSubject<any>(
       sessionValue ? JSON.parse(sessionValue) : null
     );
   }
 
   isUserLoggedIn(): Observable<boolean> {
-    return sessionStorage.getItem('authToken') ? of(true) : of(false);
+    return this.sessionStorageService.getItem('authToken')
+      ? of(true)
+      : of(false);
   }
 
   sentOtp(sendOtpBody: MobileInterface): Observable<any> {

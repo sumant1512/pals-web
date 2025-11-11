@@ -8,16 +8,17 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { SessionStorageService } from './session-storage.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private sessionStorageService: SessionStorageService) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const authToken = sessionStorage.getItem('authToken');
+    const authToken = this.sessionStorageService.getItem('authToken');
 
     const clonedRequest = request.clone({
       setHeaders: {
@@ -29,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           console.warn('⚠️ 401 Unauthorized → clearing session storage');
-          sessionStorage.clear();
+          this.sessionStorageService.clearAll();
         }
         return throwError(() => error);
       })

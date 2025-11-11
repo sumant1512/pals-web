@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { HeaderScrollService } from '../../services/header-scroll.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { FeatureService } from 'src/app/customer/feature.service';
+import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +31,8 @@ export class HeaderComponent implements OnInit {
     private headerScrollService: HeaderScrollService,
     private authenticationService: AuthenticationService,
     private router: Router,
-    readonly featureService: FeatureService
+    readonly featureService: FeatureService,
+    private sessionStorageService: SessionStorageService
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class HeaderComponent implements OnInit {
     if (this.isUserLoggedIn) {
       this.subcription.add(
         this.authenticationService.logout().subscribe((response) => {
-          sessionStorage.clear();
+          this.sessionStorageService.clearAll();
         })
       );
     }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { Router } from '@angular/router';
+import { SessionStorageService } from '../shared/services/session-storage.service';
 
 @Component({
   selector: 'app-admin',
@@ -10,13 +11,14 @@ import { Router } from '@angular/router';
 export class AdminComponent {
   constructor(
     private authenticationService: AuthenticationService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly sessionStorageService: SessionStorageService
   ) {}
 
   logout() {
     this.authenticationService.logout().subscribe((resp) => {
       if (resp?.status) {
-        sessionStorage.clear();
+        this.sessionStorageService.clearAll();
         this.router.navigate(['/login']);
       }
     });

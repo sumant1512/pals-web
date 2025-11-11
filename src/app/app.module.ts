@@ -1,9 +1,18 @@
-import { importProvidersFrom, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  APP_INITIALIZER,
+  importProvidersFrom,
+  Injector,
+  NgModule,
+} from '@angular/core';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
   provideHttpClient,
+  withInterceptorsFromDi,
 } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -31,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: AuthInterceptor,
       multi: true,
     },
-    provideHttpClient(),
+    AuthInterceptor,
+    provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {
@@ -43,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       })
     ),
     QRCodeModule,
+    provideClientHydration(),
   ],
 })
 export class AppModule {}
