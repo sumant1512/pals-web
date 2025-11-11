@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { SessionStorageService } from 'src/app/shared/services/session-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private sessionStorageService: SessionStorageService
   ) {
     this.loginForm = this.fb.group({
       mobile: [
@@ -36,7 +38,7 @@ export class LoginComponent {
           .subscribe((resp) => {
             if (resp?.status) {
               this.otpSent = true;
-              sessionStorage.setItem('userType', resp?.userType);
+              this.sessionStorageService.setItem('userType', resp?.userType);
             }
           })
       );
@@ -50,7 +52,7 @@ export class LoginComponent {
           .verifyOtp(this.loginForm.value)
           .subscribe((resp) => {
             if (resp?.status) {
-              sessionStorage.setItem('authToken', resp?.authToken);
+              this.sessionStorageService.setItem('authToken', resp?.authToken);
               this.router.navigate(['/admin']);
             }
           })

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CartService } from './cart.service';
 import { Subscription } from 'rxjs';
+import { CartService } from './cart.service';
+import { SessionStorageService } from '../shared/services/session-storage.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +12,13 @@ export class CartComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   userId: any;
   cartItems: any = [];
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private sessionStorageService: SessionStorageService
+  ) {}
 
   ngOnInit(): void {
-    this.userId = sessionStorage.getItem('userId');
+    this.userId = this.sessionStorageService.getItem('userId');
     this.getCartItems();
   }
 
