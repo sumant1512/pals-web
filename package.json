@@ -10,7 +10,8 @@
     "dev:ssr": "ng run pals-web:serve-ssr",
     "serve:ssr": "node dist/pals-web/server/main.js",
     "build:ssr": "ng build && ng run pals-web:server",
-    "prerender": "ng run pals-web:prerender"
+    "prerender": "ng run pals-web:prerender",
+    "netlify-build": "npm run build:ssr"
   },
   "private": true,
   "dependencies": {
