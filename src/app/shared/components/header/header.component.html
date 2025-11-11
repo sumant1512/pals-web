@@ -38,30 +38,14 @@
             aria-current="page"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
-            (click)="scrollPage(link.id)"
+            (click)="navigateToPage(link.routePath)"
             [innerHTML]="link.label"
           ></a>
           <a
             class="nav-link active d-none d-lg-block"
             aria-current="page"
-            (click)="scrollPage(link.id)"
+            (click)="navigateToPage(link.routePath)"
             [innerHTML]="link.label"
-          ></a>
-        </li>
-        <li class="nav-item me-0 me-md-3 me-lg-4">
-          <a
-            class="nav-link active d-block d-lg-none"
-            aria-current="page"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            [routerLink]="'/products'"
-            [innerHTML]="'Products'"
-          ></a>
-          <a
-            class="nav-link active d-none d-lg-block"
-            aria-current="page"
-            [routerLink]="'/products'"
-            [innerHTML]="'Products'"
           ></a>
         </li>
         <li class="nav-item me-0 me-md-3 me-lg-4 d-block d-lg-none">

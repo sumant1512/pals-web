@@ -11,6 +11,7 @@ import { HeaderScrollService } from '../../services/header-scroll.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { FeatureService } from 'src/app/customer/feature.service';
 import { SessionStorageService } from '../../services/session-storage.service';
+import { APP_ROUTES } from '../../constants/app-routes.constants';
 
 @Component({
   selector: 'app-header',
@@ -24,9 +25,16 @@ export class HeaderComponent implements OnInit {
   isHeaderOpen: boolean = false;
   isUserLoggedIn: boolean = false;
   headerLinks = [
-    { label: 'Home', id: 'banner' },
-    { label: 'About Us', id: 'about' },
+    { label: 'Home', id: 'banner', routePath: APP_ROUTES.HOME },
+    { label: 'About Us', id: 'about', routePath: APP_ROUTES.ABOUT_US.PARENT },
+    {
+      label: 'Products',
+      id: 'products',
+      routePath: APP_ROUTES.PRODUCTS.PARENT,
+    },
   ];
+  // Callback property to allow external method invocation
+  callback?: () => void;
   constructor(
     private headerScrollService: HeaderScrollService,
     private authenticationService: AuthenticationService,
@@ -37,6 +45,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLogin();
+    // Example: call the callback if it's set
+    if (this.callback) {
+      this.callback();
+    }
   }
 
   checkLogin(): void {
@@ -93,5 +105,9 @@ export class HeaderComponent implements OnInit {
       selectedPage: selectedPage,
     };
     this.headerScrollService.updateToggleData(toggleDataEmit);
+  }
+
+  navigateToPage(routePath: string) {
+    this.router.navigate([routePath]);
   }
 }
