@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: APP_ROUTES.ABOUT_US.PARENT,
-    loadChildren: () =>
+    loadComponent: () =>
       import('./about-us/about-us.component').then((m) => m.AboutUsComponent),
   },
   {
