@@ -35,7 +35,7 @@
     <div *ngIf="productDetails?._id" class="row mt-4">
       <div class="col-md-6">
         <img
-          [src]="productDetails.image"
+          [src]="productDetails.largeImage"
           class="rounded float-start img-fluid product-image"
           alt="..."
         />
@@ -71,18 +71,7 @@
     <div class="row mt-4">
       <div class="product-name-heading">Instruction to use</div>
       <p class="mt-1">
-        To achieve remarkable results with our Plastic Emulsion paint, begin by
-        preparing your walls properly. Make sure they are clean, dry, and devoid
-        of any peeling paint or dust. After that, give the paint a good stir to
-        ensure it's well-mixed before you start applying it. Use a high-quality
-        brush or roller to achieve a smooth finish, and don't forget to apply
-        two coats for the best coverage. Allow the first coat to dry completely
-        before moving on to the second one.For optimal results, it's best to
-        paint in a well-ventilated area and steer clear of extreme temperatures
-        during application. This will help the paint adhere better and dry
-        evenly. Once you're done, step back and admire your beautifully
-        transformed space, knowing that you've put in the effort to create a
-        stunning environment with our high-quality paint!
+        {{ productDetails.longDescription }}
       </p>
     </div>
 

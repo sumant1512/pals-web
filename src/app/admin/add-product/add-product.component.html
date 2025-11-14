@@ -1,4 +1,11 @@
 <form [formGroup]="productForm" (ngSubmit)="submit()" class="container mt-4">
+  <div class="row my-3">
+    <div class="col-12 text-end">
+      <div class="btn btn-primary" [routerLink]="'../view-product'">
+        View Product
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-6 mb-3">
       <label class="form-label">Product Name</label>
@@ -56,26 +63,47 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6 mb-3">
-      <label class="form-label">Image</label>
+    <div class="col-md-12 mb-3">
+      <label class="form-label">Product large image</label>
       <input
-        type="file"
+        type="text"
         class="form-control"
-        (change)="onFileSelected($event)"
-        accept="image/*"
+        placeholder="Enter large image URL"
+        formControlName="largeImage"
       />
-      <!-- Preview selected file -->
-      <div *ngIf="selectedImage" class="mt-2">
+
+      <div *ngIf="productForm.get('largeImage')?.value">
         <img
-          [src]="selectedImage"
-          alt="Preview"
-          class="img-thumbnail"
-          width="150"
+          class="large-image-preview"
+          [src]="productForm.get('largeImage')?.value"
+          alt="Image"
         />
       </div>
     </div>
+  </div>
 
-    <div class="col-md-6 mb-3 d-flex align-items-end justify-content-end">
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <label class="form-label">Carousel image</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter image URL"
+        formControlName="image"
+      />
+
+      <div *ngIf="productForm.get('image')?.value">
+        <img
+          class="small-image-preview"
+          [src]="productForm.get('image')?.value"
+          alt="Image"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mb-3 text-end">
       <button type="button" class="btn btn-primary mt-2" (click)="addPack()">
         + Add Pack
       </button>

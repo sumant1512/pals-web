@@ -9,6 +9,9 @@ export interface IProduct {
   productName: string;
   productType: string;
   image: string;
+  largeImage: string;
+  shortDescription: string;
+  longDescription: string;
   packSize?: Array<IPacket>;
   price: string;
   isShadeEnabled: boolean;

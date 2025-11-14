@@ -49,7 +49,14 @@ export class AddProductComponent implements OnInit, OnDestroy {
       productType: ['', Validators.required],
       shortDescription: ['', Validators.required],
       longDescription: ['', Validators.required],
-      image: ['', Validators.required],
+      image: [
+        'https://palspaint.netlify.app/products/product_1.jpeg',
+        Validators.required,
+      ],
+      largeImage: [
+        'https://palspaint.netlify.app/products/product_1.jpeg',
+        Validators.required,
+      ],
       packSize: this.fb.array([], minLengthArray(1)),
     });
   }
@@ -73,6 +80,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
             shortDescription: response.productDetails.shortDescription,
             longDescription: response.productDetails.longDescription,
             image: response.productDetails.image,
+            largeImage: response.productDetails.largeImage,
           });
           this.selectedImage = response.productDetails.image;
           response.productDetails.packSize.forEach((pack: any) => {
