@@ -64,19 +64,19 @@
 
   <div class="row">
     <div class="col-md-12 mb-3">
-      <label class="form-label">Product large image</label>
+      <label class="form-label">Thumbnail image</label>
       <input
         type="text"
         class="form-control"
-        placeholder="Enter large image URL"
-        formControlName="largeImage"
+        placeholder="Enter thumbnail URL"
+        formControlName="thumbnail"
       />
 
-      <div *ngIf="productForm.get('largeImage')?.value">
+      <div *ngIf="productForm.get('thumbnail')?.value">
         <img
-          class="large-image-preview"
-          [src]="productForm.get('largeImage')?.value"
-          alt="Image"
+          class="thumbnail-image-preview"
+          [src]="productForm.get('thumbnail')?.value"
+          alt="Thumbnail Image"
         />
       </div>
     </div>
@@ -96,7 +96,27 @@
         <img
           class="small-image-preview"
           [src]="productForm.get('image')?.value"
-          alt="Image"
+          alt="Carousel Image"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <label class="form-label">Product large image</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter large image URL"
+        formControlName="largeImage"
+      />
+
+      <div *ngIf="productForm.get('largeImage')?.value">
+        <img
+          class="large-image-preview"
+          [src]="productForm.get('largeImage')?.value"
+          alt="Large Image"
         />
       </div>
     </div>
