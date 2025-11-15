@@ -1,4 +1,5 @@
 {
   "isOnlineOrderEnabled": false,
-  "isShadeEnabled": true
+  "isShadeEnabled": true,
+  "isFilterEnabled": false
 }

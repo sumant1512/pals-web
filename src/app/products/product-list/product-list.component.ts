@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
+import { FeatureService } from 'src/app/customer/feature.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,7 +17,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   constructor(
     private productsService: ProductsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    readonly featureService: FeatureService
   ) {}
 
   ngOnInit(): void {
