@@ -15,7 +15,7 @@ export class FeatureService {
   constructor(private http: HttpClient) {}
 
   loadFlags(): Observable<FeatureFlags> {
-    return this.http.get<FeatureFlags>('feature-flags.json').pipe(
+    return this.http.get<FeatureFlags>('/mockApi/feature-flags.json').pipe(
       map((flags) => {
         this.flags$.next(flags);
         return flags;
