@@ -133,9 +133,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
           .subscribe((response: any) => {
             console.log('Product created successfully:', response);
             if (response && response.status) {
-              this.productForm.reset();
-              this.packSize.clear();
-              this.selectedImage = null;
+              this.getProduct(this.selectedProductId);
             }
           })
       );

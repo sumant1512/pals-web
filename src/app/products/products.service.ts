@@ -89,7 +89,7 @@ export class ProductsService {
   }
 
   fetchShades(): Observable<any> {
-    return this.httpClient.get(`shades1.json`);
+    return this.httpClient.get(`/mockApi/shades1.json`);
   }
 
   generateFanDeck(colors: any): Observable<any> {

@@ -10,6 +10,7 @@ export interface IProduct {
   productType: string;
   image: string;
   largeImage: string;
+  thumbnail: string;
   shortDescription: string;
   longDescription: string;
   packSize?: Array<IPacket>;
