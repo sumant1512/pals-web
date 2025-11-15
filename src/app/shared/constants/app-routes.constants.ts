@@ -11,6 +11,9 @@ export const APP_ROUTES = {
   ABOUT_US: {
     PARENT: 'about',
   },
+  CONTACT_US: {
+    PARENT: 'contact',
+  },
   ADMIN: {
     PARENT: 'admin',
     CHILD_ROUTES: {

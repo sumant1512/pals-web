@@ -54,13 +54,13 @@
             class="nav-link contact-link"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
-            (click)="scrollPage('contact')"
+            [routerLink]="'contact'"
           >
             <button type="button" class="contact">CONTACT</button></a
           >
         </li>
         <li class="nav-item me-0 me-md-3 me-lg-4 d-none d-lg-block">
-          <a class="nav-link contact-link" (click)="scrollPage('contact')">
+          <a class="nav-link contact-link" [routerLink]="'contact'">
             <button type="button" class="contact">CONTACT</button></a
           >
         </li>

@@ -14,6 +14,11 @@ const routes: Routes = [
       import('./about-us/about-us.component').then((m) => m.AboutUsComponent),
   },
   {
+    path: APP_ROUTES.CONTACT_US.PARENT,
+    loadComponent: () =>
+      import('./contact/contact.component').then((m) => m.ContactComponent),
+  },
+  {
     path: APP_ROUTES.PRODUCTS.PARENT,
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
