@@ -17,25 +17,53 @@
         >
       </p>
     </div>
-    <div *ngIf="productDetails?._id" class="row">
+    <div class="row">
       <div class="col-md-6">
         <div *ngIf="productDetails?._id" class="product-name-heading">
           {{ productDetails.productName }} ({{ productDetails.productType }})
         </div>
+        <div *ngIf="!productDetails?._id">
+          <app-skeleton
+            [loading]="!productDetails?._id"
+            [width]="'75%'"
+            [height]="'48px'"
+            borderRadius="50px"
+          >
+          </app-skeleton>
+        </div>
       </div>
       <div class="col-md-6 product-starting-align">
         <div>
-          Price Starting from
-          <span class="fw-bold"
-            >₹ {{ productDetails.priceStartingFrom | number : "1.0-0" }}</span
+          <span class="price-lbl"> Price Starting from </span>
+          <span *ngIf="productDetails?._id" class="fw-bold"
+            >₹ {{ productDetails?.priceStartingFrom | number : "1.0-0" }}</span
           >
+          <ng-content *ngIf="!productDetails?._id">
+            <app-skeleton
+              [loading]="!productDetails?._id"
+              [height]="'23px'"
+              [width]="'44px'"
+              borderRadius="8px"
+            >
+            </app-skeleton>
+          </ng-content>
         </div>
       </div>
     </div>
-    <div *ngIf="productDetails?._id" class="row mt-4">
+    <div class="row mt-4">
       <div class="col-md-6">
+        <div *ngIf="!productDetails?.largeImage">
+          <app-skeleton
+            [loading]="!productDetails?.largeImage"
+            [height]="'450px'"
+            [width]="'100%'"
+            borderRadius="8px"
+          >
+          </app-skeleton>
+        </div>
         <img
-          [src]="productDetails.largeImage"
+          *ngIf="productDetails?.largeImage"
+          [src]="productDetails?.largeImage"
           class="rounded float-start img-fluid product-image"
           alt="..."
         />
@@ -74,6 +102,19 @@
 
     <div class="row mt-4">
       <div class="product-name-heading">Instruction to use</div>
+
+      <ng-content *ngIf="!productDetails?.longDescription">
+        <ng-content *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7]">
+          <div class="mt-2">
+            <app-skeleton
+              [loading]="!productDetails?.longDescription"
+              [height]="'18px'"
+              [width]="'100%'"
+              borderRadius="12px"
+            ></app-skeleton>
+          </div>
+        </ng-content>
+      </ng-content>
       <p class="mt-1">
         {{ productDetails?.longDescription }}
       </p>
