@@ -1,15 +1,43 @@
 <div class="container d-none d-lg-block">
   <div class="row paint-card">
     <div class="col-2 text-center">
+      <app-skeleton
+        *ngIf="!productImage"
+        [loading]="!productImage"
+        [height]="'50px'"
+        [width]="'50px'"
+        borderRadius="8px"
+      ></app-skeleton>
       <img
+        *ngIf="productImage"
         [src]="productImage"
         alt="Paint Bucket"
         class="img-fluid product-thumbnail"
       />
     </div>
     <div class="col-4">
-      <div class="fw-semibold product-pack">{{ packSize }} Pack</div>
-      <div class="text-muted small product-name">{{ productName }}</div>
+      <div *ngIf="packSize" class="fw-semibold product-pack">
+        {{ packSize }} Pack
+      </div>
+      <div *ngIf="!packSize">
+        <app-skeleton
+          [loading]="true"
+          [height]="'18px'"
+          [width]="'120px'"
+          borderRadius="8px"
+        ></app-skeleton>
+      </div>
+      <div *ngIf="productName" class="text-muted small product-name">
+        {{ productName }}
+      </div>
+      <div *ngIf="!productName">
+        <app-skeleton
+          [loading]="true"
+          [height]="'18px'"
+          [width]="'80px'"
+          borderRadius="8px"
+        ></app-skeleton>
+      </div>
     </div>
     <div class="col-4 qty-section">
       <span
@@ -36,8 +64,24 @@
       </button>
     </div>
     <div class="col-2">
-      <div class="text-muted small price-label">Price</div>
-      <div class="fw-bold price-amt">₹ {{ price }}</div>
+      <div *ngIf="price" class="text-muted small price-label">Price</div>
+      <div *ngIf="!price">
+        <app-skeleton
+          [loading]="true"
+          [height]="'18px'"
+          [width]="'60px'"
+          borderRadius="8px"
+        ></app-skeleton>
+      </div>
+      <div *ngIf="price" class="fw-bold price-amt">₹ {{ price }}</div>
+      <div *ngIf="!price">
+        <app-skeleton
+          [loading]="true"
+          [height]="'18px'"
+          [width]="'80px'"
+          borderRadius="8px"
+        ></app-skeleton>
+      </div>
     </div>
   </div>
 </div>

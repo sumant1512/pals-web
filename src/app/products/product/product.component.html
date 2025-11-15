@@ -25,7 +25,7 @@
         <div *ngIf="!productDetails?._id">
           <app-skeleton
             [loading]="!productDetails?._id"
-            [width]="'75%'"
+            [width]="'50%'"
             [height]="'48px'"
             borderRadius="50px"
           >
@@ -41,7 +41,7 @@
           <ng-content *ngIf="!productDetails?._id">
             <app-skeleton
               [loading]="!productDetails?._id"
-              [height]="'23px'"
+              [height]="'21px'"
               [width]="'44px'"
               borderRadius="8px"
             >
@@ -88,6 +88,11 @@
 
         <label class="fw-semibold d-block mb-2">Select Quantity</label>
         <div class="mb-4">
+          <ng-content *ngIf="!productDetails?._id">
+            <div *ngFor="let _ of [1, 2, 3]" class="mb-3">
+              <app-product-quantity-card></app-product-quantity-card>
+            </div>
+          </ng-content>
           <div *ngFor="let pack of productDetails?.packSize" class="mb-3">
             <app-product-quantity-card
               [productName]="productDetails.productName"
