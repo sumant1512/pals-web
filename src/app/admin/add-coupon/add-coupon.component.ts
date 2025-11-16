@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { CreateCouponForm } from './create-coupon.form';
+import { AddCouponForm } from './add-coupon.form';
 import { CouponService } from '../services/coupon.service';
 
 @Component({
-  selector: 'app-create-coupon',
-  templateUrl: './create-coupon.component.html',
-  styleUrls: ['./create-coupon.component.scss'],
+  selector: 'app-add-coupon',
+  templateUrl: './add-coupon.component.html',
+  styleUrls: ['./add-coupon.component.scss'],
 })
-export class CreateCouponComponent {
-  createCouponForm = CreateCouponForm();
+export class AddCouponComponent {
+  createCouponForm = AddCouponForm();
 
   constructor(private couponService: CouponService) {}
 

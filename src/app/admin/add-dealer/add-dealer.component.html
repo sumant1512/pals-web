@@ -1,4 +1,12 @@
 <div class="container mt-4">
+  <div class="row my-3">
+    <div class="col-12 text-end">
+      <div class="btn btn-primary" [routerLink]="'../view-dealer'">
+        View Dealers
+      </div>
+    </div>
+  </div>
+
   <h3 class="text-center mb-4">Add Dealer</h3>
 
   <form [formGroup]="dealerForm" (ngSubmit)="onSubmit()">

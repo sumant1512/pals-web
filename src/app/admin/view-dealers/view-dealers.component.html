@@ -1,6 +1,9 @@
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="page-title">Dealer List</h2>
+    <div class="btn btn-primary" [routerLink]="'../add-dealer'">
+      Add Dealers
+    </div>
   </div>
 
   <div class="row g-4">
@@ -9,25 +12,19 @@
       *ngFor="let dealer of dealerList; let i = index"
     >
       <div class="card dealer-card shadow-sm">
-        <div class="card-body">
+        <div
+          class="card-body"
+          data-bs-toggle="collapse"
+          [attr.href]="'#dealerDetails' + i"
+          role="button"
+          aria-expanded="false"
+          [attr.aria-controls]="'dealerDetails' + i"
+        >
           <!-- Title and toggle button -->
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="card-title mb-0">
               {{ dealer.shop }} - {{ dealer.city }}
             </h5>
-            <a
-              class="btn btn-sm btn-light"
-              data-bs-toggle="collapse"
-              [attr.href]="'#dealerDetails' + i"
-              role="button"
-              aria-expanded="false"
-              [attr.aria-controls]="'dealerDetails' + i"
-            >
-              <i
-                class="bi bi-chevron-down collapse-icon"
-                [attr.data-bs-target]="'#dealerDetails' + i"
-              ></i>
-            </a>
           </div>
 
           <!-- Credit Info -->
@@ -44,9 +41,11 @@
           <div [id]="'dealerDetails' + i" class="collapse mt-2">
             <p class="mt-0"><strong>Name:</strong> {{ dealer.name }}</p>
             <p><strong>Mobile:</strong> {{ dealer.mobile }}</p>
+            <p><strong>Email:</strong> {{ dealer.email }}</p>
             <p><strong>Address:</strong> {{ dealer.address }}</p>
-            <p><strong>Pin:</strong> {{ dealer.pin }}</p>
+            <p><strong>City:</strong> {{ dealer.city }}</p>
             <p><strong>State:</strong> {{ dealer.state }}</p>
+            <p><strong>Pin:</strong> {{ dealer.pin }}</p>
             <p><strong>User Type:</strong> {{ dealer.userType }}</p>
           </div>
         </div>

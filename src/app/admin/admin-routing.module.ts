@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { APP_ROUTES } from '../shared/constants/app-routes.constants';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { CreateCouponComponent } from './create-coupon/create-coupon.component';
+import { AddCouponComponent } from './add-coupon/add-coupon.component';
 import { ViewCouponComponent } from './view-coupon/view-coupon.component';
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { ViewDealersComponent } from './view-dealers/view-dealers.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.CREATE_COUPON,
-        component: CreateCouponComponent,
+        component: AddCouponComponent,
       },
       {
         path: APP_ROUTES.ADMIN.CHILD_ROUTES.VIEW_COUPON,

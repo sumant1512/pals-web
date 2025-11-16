@@ -18,7 +18,7 @@ export const APP_ROUTES = {
     PARENT: 'admin',
     CHILD_ROUTES: {
       DASHBOARD: 'dashboard',
-      CREATE_COUPON: 'create-coupon',
+      CREATE_COUPON: 'add-coupon',
       VIEW_COUPON: 'view-coupon',
       ADD_DEALER: 'add-dealer',
       VIEW_DEALER: 'view-dealer',

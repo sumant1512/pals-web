@@ -4,10 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { CreateCouponComponent } from './create-coupon/create-coupon.component';
+import { AddCouponComponent } from './add-coupon/add-coupon.component';
 import { ViewCouponComponent } from './view-coupon/view-coupon.component';
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { DealerCreditRequestComponent } from './dealer-credit-request/dealer-credit-request.component';
@@ -20,9 +19,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
 @NgModule({
   declarations: [
     AdminComponent,
-    AdminHeaderComponent,
     AdminDashboardComponent,
-    CreateCouponComponent,
+    AddCouponComponent,
     ViewCouponComponent,
     DealerLedgerComponent,
     DealerCreditRequestComponent,

@@ -22,6 +22,7 @@ export interface IDealer {
   _id: string;
   name: string;
   mobile: string;
+  email: string;
   shop: string;
   address: string;
   pin: string;

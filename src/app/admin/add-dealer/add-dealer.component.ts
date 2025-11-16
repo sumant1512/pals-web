@@ -26,17 +26,14 @@ export class AddDealerComponent implements OnInit, OnDestroy {
   ) {
     this.dealerForm = this.fb.group({
       userType: ['Dealer', Validators.required],
-      name: ['Chetan Kulchania', Validators.required],
-      mobile: [
-        '9111097770',
-        [Validators.required, Validators.pattern(/^\d{10}$/)],
-      ],
+      name: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      shop: ['Om Building materials', Validators.required],
-      address: ['Infront of govt bima, Ujjain Road', Validators.required],
-      pin: ['455001', Validators.required],
-      city: ['Dewas', Validators.required],
-      state: ['Madhya Pradesh', Validators.required],
+      shop: ['', Validators.required],
+      address: ['', Validators.required],
+      pin: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
     });
   }
 

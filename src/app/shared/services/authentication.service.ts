@@ -6,6 +6,7 @@ import { SessionStorageService } from './session-storage.service';
 
 export interface MobileInterface {
   mobile: string;
+  device?: string;
 }
 export interface LoginInterface extends MobileInterface {
   otp: string;
@@ -35,7 +36,7 @@ export class AuthenticationService {
 
   sentOtp(sendOtpBody: MobileInterface): Observable<any> {
     const sendOtpApi = `${ACTIVE_BE}/api/auth/send-otp`;
-    return this.httpClient.post(sendOtpApi, sendOtpBody);
+    return this.httpClient.post(sendOtpApi, { ...sendOtpBody, device: 'web' });
   }
 
   verifyOtp(loginBody: LoginInterface): Observable<any> {

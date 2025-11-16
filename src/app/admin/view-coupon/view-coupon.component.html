@@ -1,4 +1,10 @@
 <div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="page-title">Coupon List</h2>
+    <div class="btn btn-primary" [routerLink]="'../add-coupon'">
+      Add Coupons
+    </div>
+  </div>
   <!-- Bootstrap Tabs -->
   <ul class="nav nav-tabs mb-3">
     <li class="nav-item">
@@ -44,10 +50,11 @@
     <div *ngFor="let coupon of filteredCoupons()" class="col-12 col-md-3 mb-3">
       <div class="card p-2">
         <img [src]="coupon.qr" alt="QR Code" class="img-fluid mb-2" />
-        <p>
-          <span class="me-4">{{ coupon.code }}</span>
-          <span>{{ coupon.status?.toUpperCase() }}</span>
-        </p>
+        <div class="d-flex justify-content-between">
+          <p class="me-4">{{ coupon.code }}</p>
+          <p>{{ coupon.status?.toUpperCase() }}</p>
+        </div>
+        <p class="fw-bold">₹ {{ coupon.amount }}</p>
       </div>
     </div>
   </div>
