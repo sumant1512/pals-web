@@ -63,7 +63,7 @@
         </div>
         <img
           *ngIf="productDetails?.largeImage"
-          [src]="productDetails?.largeImage"
+          [src]="getSafeImageUrl(productDetails?.largeImage)"
           class="rounded float-start img-fluid product-image"
           alt="..."
         />

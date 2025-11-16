@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-card',
@@ -7,4 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductCardComponent {
   @Input() product!: any;
+
+  constructor(private sanitizer: DomSanitizer) {}
+
+  getSafeImageUrl(imgUrl: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(imgUrl);
+  }
 }

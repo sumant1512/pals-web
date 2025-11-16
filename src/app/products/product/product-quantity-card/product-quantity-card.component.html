@@ -10,7 +10,7 @@
       ></app-skeleton>
       <img
         *ngIf="productImage"
-        [src]="productImage"
+        [src]="getSafeImageUrl(productImage)"
         alt="Paint Bucket"
         class="img-fluid product-thumbnail"
       />

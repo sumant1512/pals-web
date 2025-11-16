@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { IPacket, IProduct } from '../products.interface';
@@ -28,11 +29,16 @@ export class ProductComponent implements OnInit {
     private productsService: ProductsService,
     private cartService: CartService,
     private readonly featureService: FeatureService,
-    private sessionStorageService: SessionStorageService
+    private sessionStorageService: SessionStorageService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
     this.getProduct(this.activatedRoute.snapshot.params['id']);
+  }
+
+  getSafeImageUrl(imgUrl: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(imgUrl);
   }
 
   openModal() {

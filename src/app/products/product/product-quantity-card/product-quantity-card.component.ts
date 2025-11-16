@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FeatureService } from 'src/app/customer/feature.service';
 
 @Component({
@@ -12,5 +13,12 @@ export class ProductQuantityCardComponent {
   @Input() packSize!: string;
   @Input() price!: string;
 
-  constructor(readonly featureService: FeatureService) {}
+  constructor(
+    readonly featureService: FeatureService,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  getSafeImageUrl(imgUrl: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(imgUrl);
+  }
 }
