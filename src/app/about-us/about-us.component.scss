@@ -1,3 +1,33 @@
 .banner-container {
   margin-top: 70px;
+  font-family: "Manrope", sans-serif;
+
+  .about-heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3b018e;
+  }
+
+  .about-subheading {
+    font-size: 26px;
+    font-weight: bold;
+    color: #270d4d;
+  }
+
+  .about-description {
+    font-size: 14px;
+    color: #282828;
+  }
+
+  .pals-capabilities {
+    font-size: 30px;
+    font-weight: 600;
+    color: #282828;
+  }
+
+  .capabilities-card {
+    background-color: #e3f0ff;
+    text-align: center;
+    padding: 30px 25px 20px 25px;
+  }
 }

@@ -1,3 +1,48 @@
 <div class="banner-container">
   <img class="img-fluid w-100" src="about_banner.png" alt="About Pals Paint" />
+
+  <div class="container mt-5 pt-md-5">
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <img src="about_roller.png" alt="Pals Paint Roller" class="img-fluid" />
+      </div>
+      <div class="col-1"></div>
+      <div class="col-12 col-md-8">
+        <h1 class="about-heading mt-5 mt-md-0">About Pals Paint</h1>
+        <h3 class="about-subheading mt-3">Overview & Legacy</h3>
+        <p class="about-description mt-2">
+          Pals Paint has been a trusted name in the Indian paints and coatings
+          industry, known for its commitment to quality, innovation and customer
+          satisfaction. Over the years, the company has steadily expanded its
+          presence, strengthening its capabilities, product portfolio and
+          nationwide reach. Today, Pals Paint stands as a dynamic and
+          forward-looking organization, continuously evolving to meet the
+          growing demands of the market
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-5 text-center mb-3">
+      <div class="col-12">
+        <p class="pals-capabilities">Our Capabilities & Strengths</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        *ngFor="let capabilities of palsCapabilities"
+        class="col-12 col-md-4 mb-3"
+      >
+        <div class="capabilities-card">
+          <img
+            [src]="capabilities.sequence"
+            [alt]="'Pals' + capabilities.heading"
+            class="img-fluid mb-4"
+          />
+          <h2 class="mb-3">{{ capabilities.heading }}</h2>
+          <p>{{ capabilities.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
