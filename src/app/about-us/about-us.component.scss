@@ -42,4 +42,11 @@
     display: block;
     border-radius: 8px;
   }
+
+  @media only screen and (min-width: 300px) and (max-width: 767px) {
+    .masonry {
+      column-count: 2; /* number of columns */
+      column-gap: 10px;
+    }
+  }
 }
