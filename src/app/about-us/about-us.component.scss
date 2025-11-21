@@ -30,4 +30,16 @@
     text-align: center;
     padding: 30px 25px 20px 25px;
   }
+
+  .masonry {
+    column-count: 3; /* number of columns */
+    column-gap: 15px;
+  }
+
+  .masonry img {
+    width: 100%;
+    margin-bottom: 15px;
+    display: block;
+    border-radius: 8px;
+  }
 }
