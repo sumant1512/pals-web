@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { APP_ROUTES } from 'src/app/shared/constants/app-routes.constants';
 
 @Component({
   selector: 'app-banner',
@@ -10,6 +11,6 @@ export class BannerComponent {
   constructor(private router: Router) {}
 
   navigateToProductsPage(): void {
-    this.router.navigate(['products']);
+    this.router.navigate([APP_ROUTES.PRODUCTS.PARENT]);
   }
 }

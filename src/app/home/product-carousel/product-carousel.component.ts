@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/products/products.service';
+import { APP_ROUTES } from 'src/app/shared/constants/app-routes.constants';
 
 @Component({
   selector: 'app-product-carousel',
@@ -35,12 +36,14 @@ export class ProductCarouselComponent implements OnInit, OnDestroy {
   }
 
   navigateToProductsPage(): void {
-    this.router.navigate(['products']);
+    this.router.navigate([APP_ROUTES.PRODUCTS.PARENT]);
   }
 
   navigateToProduct(id: string): void {
     console.log('called here', id);
-    this.router.navigate(['products', id], { relativeTo: this.activatedRoute });
+    this.router.navigate([APP_ROUTES.PRODUCTS.PARENT, id], {
+      relativeTo: this.activatedRoute,
+    });
   }
 
   ngOnDestroy(): void {
