@@ -1,4 +1,4 @@
-export const faqs = [
+export const FAQS = [
   {
     id: 'coll1',
     question: '1. What makes Pals Paints different from other brands?',

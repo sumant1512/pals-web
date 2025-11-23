@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { HeaderScrollService } from '../../services/header-scroll.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { FeatureService } from 'src/app/customer/feature.service';
 import { SessionStorageService } from '../../services/session-storage.service';
@@ -36,7 +35,6 @@ export class HeaderComponent implements OnInit {
   // Callback property to allow external method invocation
   callback?: () => void;
   constructor(
-    private headerScrollService: HeaderScrollService,
     private authenticationService: AuthenticationService,
     private router: Router,
     readonly featureService: FeatureService,
@@ -98,13 +96,8 @@ export class HeaderComponent implements OnInit {
   }
 
   // this function is for scrollPage of pages
-  scrollPage(selectedPage: string) {
+  scrollPage() {
     this.isHeaderOpen = false; // this close the scrollPage bar for i-pad and mobile view.
-    const toggleDataEmit = {
-      toggleStatus: false,
-      selectedPage: selectedPage,
-    };
-    this.headerScrollService.updateToggleData(toggleDataEmit);
   }
 
   navigateToPage(routePath: string) {

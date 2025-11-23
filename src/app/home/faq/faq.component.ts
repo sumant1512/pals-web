@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { faqs } from 'src/app/products/product/faq.contants';
-import { HeaderScrollService } from 'src/app/shared/services/header-scroll.service';
+import { Router } from '@angular/router';
+import { FAQS } from 'src/app/products/product/faq.contants';
+import { APP_ROUTES } from 'src/app/shared/constants/app-routes.constants';
 
 @Component({
   selector: 'app-faq',
@@ -8,15 +9,11 @@ import { HeaderScrollService } from 'src/app/shared/services/header-scroll.servi
   styleUrls: ['./faq.component.scss'],
 })
 export class FaqComponent {
-  faqQuestions = faqs;
+  faqQuestions = FAQS;
 
-  constructor(private readonly headerScrollService: HeaderScrollService) {}
+  constructor(private readonly router: Router) {}
 
   navigateToContactsPage(): void {
-    const toggleDataEmit = {
-      toggleStatus: false,
-      selectedPage: 'contact',
-    };
-    this.headerScrollService.updateToggleData(toggleDataEmit);
+    this.router.navigate([APP_ROUTES.CONTACT_US.PARENT]);
   }
 }
