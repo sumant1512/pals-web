@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { ContactUsForm } from './contact-us.form';
+import { ContactForm } from './contact-form';
 import { HomeService } from '../home.service';
 
 @Component({
-  selector: 'app-contact-us',
-  templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss'],
+  selector: 'app-contact-form',
+  templateUrl: './contact-form.component.html',
+  styleUrls: ['./contact-form.component.scss'],
 })
-export class ContactUsComponent {
-  contactForm = ContactUsForm();
+export class ContactFormComponent {
+  contactForm = ContactForm();
   isModalOpen = false;
   modalMessage = '';
 

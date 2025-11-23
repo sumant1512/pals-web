@@ -16,7 +16,9 @@ const routes: Routes = [
   {
     path: APP_ROUTES.CONTACT_US.PARENT,
     loadComponent: () =>
-      import('./contact/contact.component').then((m) => m.ContactComponent),
+      import('./contact-us/contact-us.component').then(
+        (m) => m.ContactUsComponent
+      ),
   },
   {
     path: APP_ROUTES.PRODUCTS.PARENT,
