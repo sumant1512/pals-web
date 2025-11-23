@@ -58,6 +58,50 @@
     </div>
   </div>
 
+  <div class="about-section pt-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <app-heading-chips
+          [label]="'CONTACT_US_PAGE.ABOUT_US_LBL' | translate"
+        ></app-heading-chips>
+
+        <p class="about-contact-heading w-100 mt-1">
+          A Journey of Colors and Innovation
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-3">
+          <div *ngFor="let questionList of leftQuestions">
+            <p class="innovation-ques">
+              {{ questionList.question }}
+            </p>
+            <p class="innovation-ans">
+              {{ questionList.answer }}
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-5">
+          <img
+            src="contact-girl-img.png"
+            alt="Girl Contacting"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-12 col-md-4">
+          <div *ngFor="let questionList of rightQuestions">
+            <p class="innovation-ques">
+              {{ questionList.question }}
+            </p>
+            <p class="innovation-ans">
+              {{ questionList.answer }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <app-contact-form></app-contact-form>
+
   <app-faq></app-faq>
 </div>

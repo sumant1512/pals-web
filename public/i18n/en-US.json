@@ -68,7 +68,8 @@
     "COMPANY_NAME": "Pals Paint Private Limited",
     "COMPANY_ADDRESS": "122/1, SR Compound, Lasudia Mori, Dewas Naka, Indore, Madhya Pradesh, 453771",
     "COMPANY_EMAIL": "palspaint923@gmail.com ",
-    "COMPANY_PHONE": "+91 96446 44611"
+    "COMPANY_PHONE": "+91 96446 44611",
+    "ABOUT_US_LBL": "About Us"
   },
   "PRODUCT_DESCRIPTION": {}
 }
