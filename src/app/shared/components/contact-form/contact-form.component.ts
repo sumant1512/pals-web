@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactForm } from './contact-form';
-import { HomeService } from '../home.service';
+import { HomeService } from '../../../home/home.service';
 
 @Component({
   selector: 'app-contact-form',

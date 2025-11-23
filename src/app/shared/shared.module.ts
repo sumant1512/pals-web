@@ -8,6 +8,8 @@ import { HeadingChipsComponent } from './components/heading-chips/heading-chips.
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     HeadingChipsComponent,
     NavButtonComponent,
     SkeletonComponent,
+    ContactFormComponent,
+    FaqComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
   exports: [
@@ -27,6 +31,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     NavButtonComponent,
     SkeletonComponent,
     TranslateModule,
+    ContactFormComponent,
+    FaqComponent,
   ],
 })
 export class SharedModule {}

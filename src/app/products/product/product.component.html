@@ -142,34 +142,7 @@
         ></app-nav-button>
       </div>
       <div class="col-12 col-md-8">
-        <div class="accordion accordion-flush" id="faqAacordion">
-          <div
-            class="question-card"
-            *ngFor="let faq of faqQuestions; let i = index"
-          >
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button pb-0"
-                [class.collapsed]="!faq.isOpen"
-                type="button"
-                data-bs-toggle="collapse"
-                [attr.data-bs-target]="'#' + faq.id"
-                [attr.aria-expanded]="faq.isOpen"
-                [attr.aria-controls]="faq.id"
-              >
-                <p class="question">{{ faq.question }}</p>
-              </button>
-            </h2>
-            <div
-              [id]="faq.id"
-              class="accordion-collapse collapse answer"
-              [class.show]="faq.isOpen"
-              data-bs-parent="#faqAacordion"
-            >
-              <div class="accordion-body pt-0" [innerHTML]="faq.answer"></div>
-            </div>
-          </div>
-        </div>
+        <app-faq></app-faq>
       </div>
     </div>
   </div>
