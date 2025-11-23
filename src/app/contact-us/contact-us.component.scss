@@ -1,3 +1,29 @@
 .banner-container {
   margin-top: 70px;
+  font-family: "Manrope", sans-serif;
+
+  .contact-sub-heading {
+    font-size: 40px;
+    color: #282828;
+    width: 80%;
+  }
+
+  .company-name {
+    font-size: 16px;
+    color: #0069a4;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .company-address {
+    color: #282828;
+  }
+
+  .phone {
+    margin-bottom: 4px;
+  }
+
+  .email {
+    margin-top: -4px;
+  }
 }

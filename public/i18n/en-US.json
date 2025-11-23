@@ -48,6 +48,7 @@
       "SUBMIT_BTN_LBL": "Submit"
     }
   },
+  "ABOUT_US_PAGE": {},
   "PRODUCT_LIST_PAGE": {
     "HEADING": "Explore our Products",
     "FILTER": "FILTER",
@@ -60,6 +61,14 @@
       "LIME_WASH": "Lime Wash",
       "ALL_ROUNDER": "All Rounder"
     }
+  },
+  "CONTACT_US_PAGE": {
+    "HEADING": "Get in Touch",
+    "SUB_HEADING": "We’d love to hear from you",
+    "COMPANY_NAME": "Pals Paint Private Limited",
+    "COMPANY_ADDRESS": "122/1, SR Compound, Lasudia Mori, Dewas Naka, Indore, Madhya Pradesh, 453771",
+    "COMPANY_EMAIL": "palspaint923@gmail.com ",
+    "COMPANY_PHONE": "+91 96446 44611"
   },
   "PRODUCT_DESCRIPTION": {}
 }

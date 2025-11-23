@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
 })

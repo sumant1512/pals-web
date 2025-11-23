@@ -4,4 +4,57 @@
     src="contact_banner.png"
     alt="Contact Pals Paint"
   />
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <app-heading-chips
+          [label]="'CONTACT_US_PAGE.HEADING' | translate"
+        ></app-heading-chips>
+        <p class="mt-2 contact-sub-heading">
+          {{ "CONTACT_US_PAGE.SUB_HEADING" | translate }}
+        </p>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="row">
+          <div class="col-12 col-md-7 mb-4">
+            <p class="company-name">
+              {{ "CONTACT_US_PAGE.COMPANY_NAME" | translate }}
+            </p>
+            <p class="company-address">
+              {{ "CONTACT_US_PAGE.COMPANY_ADDRESS" | translate }}
+            </p>
+          </div>
+          <div class="col-12 col-md-5">
+            <p class="d-flex align-items-center phone">
+              <img
+                class="me-1"
+                src="icons/phone.png"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              <span>{{ "CONTACT_US_PAGE.COMPANY_PHONE" | translate }}</span>
+            </p>
+
+            <p class="d-flex align-items-center">
+              <img
+                class="me-1"
+                src="icons/at.png"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              <span class="email">{{
+                "CONTACT_US_PAGE.COMPANY_EMAIL" | translate
+              }}</span>
+            </p>
+
+            <!-- <p>{{ "CONTACT_US_PAGE.COMPANY_PHONE" | translate }}</p> -->
+            <!-- <p>{{ "CONTACT_US_PAGE.COMPANY_EMAIL" | translate }}</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
