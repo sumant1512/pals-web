@@ -12,7 +12,8 @@
 
   @media only screen and (min-width: 300px) and (max-width: 767px) {
     .about-bannr-img {
-      background-image: url("/about_banner.png");
+      background-image: url("/about_mobile_banner.png");
+      height: 400px;
     }
   }
 
