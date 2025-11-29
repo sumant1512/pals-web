@@ -22,10 +22,7 @@ export class LoginComponent {
     private sessionStorageService: SessionStorageService
   ) {
     this.loginForm = this.fb.group({
-      mobile: [
-        '9579310997',
-        [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)],
-      ],
+      mobile: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
       otp: [''],
     });
   }
