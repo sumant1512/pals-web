@@ -1,11 +1,12 @@
 export interface IPacket {
+  _id?: string;
   size: string;
-  mrp: string;
-  discount: string;
+  mrp: number;
+  discount: number;
 }
 
 export interface IProduct {
-  _id: number;
+  _id?: string;
   productName: string;
   productType: string;
   image: string;
@@ -14,7 +15,10 @@ export interface IProduct {
   shortDescription: string;
   longDescription: string;
   packSize?: Array<IPacket>;
-  price: string;
-  isShadeEnabled: boolean;
-  priceStartingFrom?: string;
+  price?: string;
+  isShadeEnabled?: boolean;
+  updatedAt?: string;
+  createdAt?: string;
+  __v?: number;
+  priceStartingFrom?: number;
 }

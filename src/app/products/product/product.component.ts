@@ -8,6 +8,7 @@ import { CartService } from 'src/app/cart/cart.service';
 import { FAQS } from './faq.contants';
 import { FeatureService } from 'src/app/customer/feature.service';
 import { SessionStorageService } from 'src/app/shared/services/session-storage.service';
+import { PRODUCT_DETAILS } from 'src/app/shared/constants/products';
 
 @Component({
   selector: 'app-product',
@@ -19,6 +20,7 @@ export class ProductComponent implements OnInit {
   productDetails!: IProduct;
   selectedPacket!: IPacket;
   selectedPacketList: Array<any> = [];
+  productDetailsList = PRODUCT_DETAILS;
   showModal = false;
 
   faqQuestions = FAQS;
@@ -56,6 +58,9 @@ export class ProductComponent implements OnInit {
   }
 
   getProduct(id: string): void {
+    this.productDetails = this.productDetailsList.find(
+      (productLocal) => productLocal._id === id
+    ) as IProduct;
     this.subscription.add(
       this.productsService.fetchProduct(id).subscribe((response) => {
         if (response?.productDetails) {
@@ -127,8 +132,9 @@ export class ProductComponent implements OnInit {
   }
 
   getDiscountedPrice(selectedPacket: IPacket): string {
-    const mrp = parseFloat(selectedPacket.mrp);
-    const discountPercentage = parseFloat(selectedPacket.discount) / 100;
+    const mrp = parseFloat(selectedPacket.mrp.toString());
+    const discountPercentage =
+      parseFloat(selectedPacket.discount.toString()) / 100;
     const discountedPrice = mrp - mrp * discountPercentage;
     return discountedPrice.toFixed(2);
   }
