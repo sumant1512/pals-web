@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/products/products.service';
 import { APP_ROUTES } from 'src/app/shared/constants/app-routes.constants';
+import { ALL_PRODUCTS } from 'src/app/shared/constants/products';
 
 @Component({
   selector: 'app-product-carousel',
@@ -11,8 +12,8 @@ import { APP_ROUTES } from 'src/app/shared/constants/app-routes.constants';
 })
 export class ProductCarouselComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
-  isProductsLoading = true;
-  productList!: any;
+  isProductsLoading = false;
+  productList = ALL_PRODUCTS;
 
   constructor(
     private productsService: ProductsService,

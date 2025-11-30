@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { FeatureService } from 'src/app/customer/feature.service';
+import { ALL_PRODUCTS } from 'src/app/shared/constants/products';
 
 @Component({
   selector: 'app-product-list',
@@ -11,8 +12,8 @@ import { FeatureService } from 'src/app/customer/feature.service';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
-  isProductsLoading = true;
-  productList!: any;
+  isProductsLoading = false;
+  productList = ALL_PRODUCTS;
 
   constructor(
     private productsService: ProductsService,
