@@ -16,7 +16,7 @@ export const ALL_PRODUCTS = [
     productType: 'Interior',
     shortDescription:
       'Give your walls a smooth, long-lasting finish with premium Plastic Paint Interior for beautiful, durable home interiors.',
-    image: 'http://palspaint.netlify.app/products/ppi_1.png',
+    image: 'http://palspaint.netlify.app/products/ppi_1.webp',
     priceStartingFrom: 279.29999999999995,
   },
   {
@@ -25,7 +25,7 @@ export const ALL_PRODUCTS = [
     productType: 'Exterior',
     shortDescription:
       'Protects your home from rain, dust, and sunlight while keeping it beautiful all year with pals plastic paint exterior.',
-    image: 'https://palspaint.netlify.app/products/ppe_1.png',
+    image: 'https://palspaint.netlify.app/products/ppe_1.webp',
     priceStartingFrom: 349.29999999999995,
   },
   {
@@ -34,7 +34,7 @@ export const ALL_PRODUCTS = [
     productType: 'Interior',
     shortDescription:
       'Enhance adhesion and durability with a high-performance wall primer built for perfect results.',
-    image: 'https://palspaint.netlify.app/products/wpi_1.png',
+    image: 'https://palspaint.netlify.app/products/wpi_1.webp',
     priceStartingFrom: 249,
   },
   {
@@ -104,7 +104,7 @@ export const PRODUCT_DETAILS: IProduct[] = [
     _id: '68d4506f8ede7ba95213add5',
     productName: 'Plastic Paint',
     productType: 'Interior',
-    image: 'http://palspaint.netlify.app/products/ppi_1.png',
+    image: 'http://palspaint.netlify.app/products/ppi_1.webp',
     shortDescription:
       'Give your walls a smooth, long-lasting finish with premium Plastic Paint Interior for beautiful, durable home interiors.',
     packSize: [
@@ -138,15 +138,15 @@ export const PRODUCT_DETAILS: IProduct[] = [
     __v: 0,
     longDescription:
       'Before applying Pals Plastic Paint Interior, ensure that the surface is clean, dry, and free from dust, grease, or loose particles. If the wall has old or flaking paint, scrape it off and smoothen the surface using sandpaper. Apply a suitable primer and allow it to dry completely for better adhesion and durability. Mix the paint thoroughly before use and, if required, dilute it with clean water (up to 40% by volume) depending on the surface and desired finish. Apply the paint evenly using a brush, roller, or spray gun, maintaining consistent strokes for a smooth finish. For best results, apply two coats with a gap of 4–6 hours between coats, ensuring proper drying in a well-ventilated area. Clean all tools immediately after use with water and allow the painted surface to dry completely before exposure to dust or moisture.',
-    largeImage: 'http://palspaint.netlify.app/products/ppi_2.png',
-    thumbnail: 'http://palspaint.netlify.app/products/ppi_0.png',
+    largeImage: 'http://palspaint.netlify.app/products/ppi_2.webp',
+    thumbnail: 'http://palspaint.netlify.app/products/ppi_0.webp',
     priceStartingFrom: 279.29999999999995,
   },
   {
     _id: '690f85ae119aceff71abeb86',
     productName: 'Plastic Paint',
     productType: 'Exterior',
-    image: 'https://palspaint.netlify.app/products/ppe_1.png',
+    image: 'https://palspaint.netlify.app/products/ppe_1.webp',
     shortDescription:
       'Protects your home from rain, dust, and sunlight while keeping it beautiful all year with pals plastic paint exterior.',
     longDescription:
@@ -180,7 +180,7 @@ export const PRODUCT_DETAILS: IProduct[] = [
     createdAt: '2025-11-08T18:02:22.658Z',
     updatedAt: '2025-11-30T05:32:09.596Z',
     __v: 0,
-    largeImage: 'https://palspaint.netlify.app/products/ppe_2.png',
+    largeImage: 'https://palspaint.netlify.app/products/ppe_2.webp',
     thumbnail: 'https://palspaint.netlify.app/products/ppe_0.webp',
     priceStartingFrom: 349.29999999999995,
   },
@@ -188,7 +188,7 @@ export const PRODUCT_DETAILS: IProduct[] = [
     _id: '6918241bcbdba7e53dbd0d82',
     productName: 'Wall Primer',
     productType: 'Interior',
-    image: 'https://palspaint.netlify.app/products/wpi_1.png',
+    image: 'https://palspaint.netlify.app/products/wpi_1.webp',
     largeImage: 'https://palspaint.netlify.app/products/wpi_2.webp',
     shortDescription:
       'Enhance adhesion and durability with a high-performance wall primer built for perfect results.',
@@ -223,7 +223,7 @@ export const PRODUCT_DETAILS: IProduct[] = [
     createdAt: '2025-11-15T06:56:27.304Z',
     updatedAt: '2025-11-30T05:33:23.228Z',
     __v: 0,
-    thumbnail: 'https://palspaint.netlify.app/products/wpi_0.png',
+    thumbnail: 'https://palspaint.netlify.app/products/wpi_0.webp',
     priceStartingFrom: 249,
   },
   {
@@ -265,7 +265,7 @@ export const PRODUCT_DETAILS: IProduct[] = [
     createdAt: '2025-11-15T07:01:05.982Z',
     updatedAt: '2025-11-30T05:32:58.653Z',
     __v: 0,
-    thumbnail: 'https://palspaint.netlify.app/products/wpe_0.png',
+    thumbnail: 'https://palspaint.netlify.app/products/wpe_0.webp',
     priceStartingFrom: 299,
   },
   {
