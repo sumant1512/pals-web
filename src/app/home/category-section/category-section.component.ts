@@ -11,14 +11,14 @@ export class CategorySectionComponent {
       title: 'Exterior Paint',
       description:
         'Bring life to your walls with Pals Paint’s durable exterior paints, offering vibrant colors, weather-resistant protection, and long-lasting finishes for every outdoor surface.',
-      image: 'category/exterior.png',
+      image: 'category/exterior.webp',
       imageAlt: 'Exterior Paint',
     },
     {
       title: 'Interior Paint',
       description:
         'Explore Pals Paint’s premium interior paints for every style, offering vibrant colors, smooth finishes, and long-lasting protection for your walls.',
-      image: 'category/interior.png',
+      image: 'category/interior.webp',
       imageAlt: 'Interior Paint',
     },
     {
