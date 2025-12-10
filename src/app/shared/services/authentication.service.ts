@@ -48,4 +48,9 @@ export class AuthenticationService {
     const logoutApi = `${ACTIVE_BE}/api/auth/logout`;
     return this.httpClient.get(logoutApi);
   }
+
+  isBeActive(): Observable<any> {
+    const healthCheckApi = `${ACTIVE_BE}/health`;
+    return this.httpClient.get(healthCheckApi);
+  }
 }
