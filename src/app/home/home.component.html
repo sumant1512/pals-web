@@ -6,5 +6,11 @@
   <app-testimonials></app-testimonials>
   <app-contact-form></app-contact-form>
   <app-faq></app-faq>
-  <span [ngClass]="isBeActive ? 'bg-success' : 'bg-danger'" class="badge bg-success">{{isBeActive ? 'Success' : 'Danger'}}</span>
+  <div class="text-end">
+    <span
+      [ngClass]="isBeActive ? 'bg-success' : 'bg-danger'"
+      class="badge bg-success"
+      >{{ isBeActive ? "Success" : "Danger" }}</span
+    >
+  </div>
 </div>

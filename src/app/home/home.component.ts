@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../shared/services/authentication.service'
+import { AuthenticationService } from '../shared/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +8,17 @@ import { AuthenticationService } from '../shared/services/authentication.service
 })
 export class HomeComponent implements OnInit {
   isBeActive = false;
-  constructor(private readonly authenticationService: AuthenticationService){}
+  constructor(private readonly authenticationService: AuthenticationService) {}
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.fetchBeHealth();
   }
 
-  fetchBeHealth():void{
-    this.authenticationService.isBeActive().subscribe(resp => {
-      if(resp?.status){
+  fetchBeHealth(): void {
+    this.authenticationService.isBeActive().subscribe((resp) => {
+      if (resp?.status) {
         this.isBeActive = resp?.status;
       }
-    })
+    });
   }
-  
 }
