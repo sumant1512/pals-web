@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../shared/services/authentication.service'
 
 @Component({
@@ -6,9 +6,13 @@ import { AuthenticationService } from '../shared/services/authentication.service
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   isBeActive = false;
   constructor(private readonly authenticationService: AuthenticationService){}
+
+  ngOnInit():void {
+    this.fetchBeHealth();
+  }
 
   fetchBeHealth():void{
     this.authenticationService.isBeActive().subscribe(resp => {
