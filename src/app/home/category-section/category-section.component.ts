@@ -25,14 +25,14 @@ export class CategorySectionComponent {
       title: 'Pals Putty',
       description:
         'Perfect your walls with Pals Putty, for a smooth, flawless finish and long-lasting protection before painting.',
-      image: 'category/putty.png',
+      image: 'category/putty.webp',
       imageAlt: 'Pals Putty',
     },
     {
       title: 'Lime Wash',
       description:
         'Bring timeless elegance to your walls with Pals Lime Wash, a natural, eco-friendly coating that enhances texture, durability, and beauty for both interiors and exteriors.',
-      image: 'category/lime_wash.png',
+      image: 'category/lime_wash.webp',
       imageAlt: 'Lime Wash',
     },
   ];
