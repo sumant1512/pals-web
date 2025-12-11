@@ -3,7 +3,7 @@
   font-family: "Manrope", sans-serif;
 
   .contact-banner-img {
-    background-image: url("/contact_banner.png");
+    background-image: url("/contact_banner.webp");
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -12,7 +12,7 @@
 
   @media only screen and (min-width: 300px) and (max-width: 767px) {
     .contact-banner-img {
-      background-image: url("/contact_mobile_banner.png");
+      background-image: url("/contact_mobile_banner.webp");
       height: 450px;
     }
   }
