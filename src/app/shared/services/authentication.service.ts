@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { ACTIVE_BE } from 'src/app/shared/constants/config';
+import { ACTIVE_BE, BE_PROD_NEW_PATH } from 'src/app/shared/constants/config';
 import { SessionStorageService } from './session-storage.service';
 
 export interface MobileInterface {
@@ -51,6 +51,11 @@ export class AuthenticationService {
 
   isBeActive(): Observable<any> {
     const healthCheckApi = `${ACTIVE_BE}/health`;
+    return this.httpClient.get(healthCheckApi);
+  }
+
+  isNewBeActive(): Observable<any> {
+    const healthCheckApi = `${BE_PROD_NEW_PATH}/health`;
     return this.httpClient.get(healthCheckApi);
   }
 }
