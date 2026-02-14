@@ -53,9 +53,4 @@ export class AuthenticationService {
     const healthCheckApi = `${ACTIVE_BE}/health`;
     return this.httpClient.get(healthCheckApi);
   }
-
-  isNewBeActive(): Observable<any> {
-    const healthCheckApi = `${BE_PROD_PATH}/health`;
-    return this.httpClient.get(healthCheckApi);
-  }
 }

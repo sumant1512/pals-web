@@ -8,7 +8,6 @@ import { AuthenticationService } from '../shared/services/authentication.service
 })
 export class HomeComponent implements OnInit {
   isBeActive = false;
-  isNewBeActive = false;
   constructor(private readonly authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
@@ -19,12 +18,6 @@ export class HomeComponent implements OnInit {
     this.authenticationService.isBeActive().subscribe((resp) => {
       if (resp?.status) {
         this.isBeActive = resp?.status;
-      }
-    });
-
-    this.authenticationService.isNewBeActive().subscribe((resp) => {
-      if (resp?.status) {
-        this.isNewBeActive = resp?.status;
       }
     });
   }

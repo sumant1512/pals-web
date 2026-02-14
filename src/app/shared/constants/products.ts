@@ -16,7 +16,7 @@ export const ALL_PRODUCTS = [
     productType: 'Interior',
     shortDescription:
       'Give your walls a smooth, long-lasting finish with premium Plastic Paint Interior for beautiful, durable home interiors.',
-    image: 'http://palspaint.netlify.app/products/ppi_1.webp',
+    image: 'https://palspaint.netlify.app/products/ppi_1.webp',
     priceStartingFrom: 279.29999999999995,
   },
   {
@@ -96,15 +96,15 @@ export const PRODUCT_DETAILS: IProduct[] = [
     __v: 0,
     longDescription:
       'Before applying Pals Paint Beta Shine All Rounder, ensure that the surface is clean, dry, and free from dust, grease, algae, or loose paint particles. Scrape off any old or flaking paint and smoothen uneven areas using sandpaper. Apply a suitable primer and allow it to dry completely for a strong base and improved adhesion. Stir the paint thoroughly before and during use to maintain uniform consistency. If required, dilute the paint with clean water up to 40% by volume for the first coat and 20% for the second coat, depending on the application method and surface condition. Apply evenly using a brush, roller, or spray gun, maintaining uniform strokes to achieve a smooth, glossy finish. Allow 4–6 hours of drying time between coats and ensure good ventilation for faster drying and long-lasting results. Clean all tools immediately after painting with water, and let the surface dry completely before exposure to moisture, dust, or heavy contact.',
-    largeImage: 'http://palspaint.netlify.app/products/ppbsa_2.webp',
-    thumbnail: 'http://palspaint.netlify.app/products/ppbsa_0.webp',
+    largeImage: 'https://palspaint.netlify.app/products/ppbsa_2.webp',
+    thumbnail: 'https://palspaint.netlify.app/products/ppbsa_0.webp',
     priceStartingFrom: 799,
   },
   {
     _id: '68d4506f8ede7ba95213add5',
     productName: 'Plastic Paint',
     productType: 'Interior',
-    image: 'http://palspaint.netlify.app/products/ppi_1.webp',
+    image: 'https://palspaint.netlify.app/products/ppi_1.webp',
     shortDescription:
       'Give your walls a smooth, long-lasting finish with premium Plastic Paint Interior for beautiful, durable home interiors.',
     packSize: [
@@ -138,8 +138,8 @@ export const PRODUCT_DETAILS: IProduct[] = [
     __v: 0,
     longDescription:
       'Before applying Pals Plastic Paint Interior, ensure that the surface is clean, dry, and free from dust, grease, or loose particles. If the wall has old or flaking paint, scrape it off and smoothen the surface using sandpaper. Apply a suitable primer and allow it to dry completely for better adhesion and durability. Mix the paint thoroughly before use and, if required, dilute it with clean water (up to 40% by volume) depending on the surface and desired finish. Apply the paint evenly using a brush, roller, or spray gun, maintaining consistent strokes for a smooth finish. For best results, apply two coats with a gap of 4–6 hours between coats, ensuring proper drying in a well-ventilated area. Clean all tools immediately after use with water and allow the painted surface to dry completely before exposure to dust or moisture.',
-    largeImage: 'http://palspaint.netlify.app/products/ppi_2.webp',
-    thumbnail: 'http://palspaint.netlify.app/products/ppi_0.webp',
+    largeImage: 'https://palspaint.netlify.app/products/ppi_2.webp',
+    thumbnail: 'https://palspaint.netlify.app/products/ppi_0.webp',
     priceStartingFrom: 279.29999999999995,
   },
   {

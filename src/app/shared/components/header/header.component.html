@@ -42,13 +42,13 @@
             aria-current="page"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
-            (click)="navigateToPage(link.routePath)"
+            [routerLink]="link.routePath"
             [innerHTML]="link.label"
           ></a>
           <a
             class="nav-link active d-none d-lg-block"
             aria-current="page"
-            (click)="navigateToPage(link.routePath)"
+            [routerLink]="link.routePath"
             [innerHTML]="link.label"
           ></a>
         </li>

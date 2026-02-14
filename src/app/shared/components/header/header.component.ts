@@ -99,8 +99,4 @@ export class HeaderComponent implements OnInit {
   scrollPage() {
     this.isHeaderOpen = false; // this close the scrollPage bar for i-pad and mobile view.
   }
-
-  navigateToPage(routePath: string) {
-    this.router.navigate([routePath]);
-  }
 }
