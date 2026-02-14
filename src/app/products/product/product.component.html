@@ -65,7 +65,10 @@
           *ngIf="productDetails?.largeImage"
           [src]="getSafeImageUrl(productDetails?.largeImage)"
           class="rounded float-start img-fluid product-image"
-          alt="..."
+          [alt]="productDetails?.productName || 'Product Image'"
+          width="450"
+          height="450"
+          loading="eager"
         />
       </div>
       <div class="col-md-6 mt-3 mt-md-0">

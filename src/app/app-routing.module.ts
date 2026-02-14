@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { APP_ROUTES } from './shared/constants/app-routes.constants';
 import { authGuard } from './shared/guards/auth.guard';
+import { SelectivePreloadingStrategy } from './shared/strategies/selective-preloading.strategy';
 
 const routes: Routes = [
   {
@@ -57,7 +58,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
-      preloadingStrategy: PreloadAllModules,
+      preloadingStrategy: SelectivePreloadingStrategy,
+      initialNavigation: 'enabledBlocking',
     }),
   ],
   exports: [RouterModule],

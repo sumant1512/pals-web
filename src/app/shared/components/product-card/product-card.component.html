@@ -3,6 +3,9 @@
     class="w-100"
     [src]="getSafeImageUrl(product.image)"
     [alt]="product.productName"
+    width="400"
+    height="400"
+    loading="lazy"
   />
   <div>
     <h6 class="products-title mt-3" [title]="product.productName">
