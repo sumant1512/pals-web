@@ -3,4 +3,4 @@ export const BE_PROD_PATH = 'https://api.palspaint.com';
 const BE_PROD_NEW_PATH = 'https://api-new.palspaint.com';
 const BE_LOCAL_PATH = 'http://localhost:8080';
 
-export const ACTIVE_BE = BE_PROD_NEW_PATH;
+export const ACTIVE_BE = BE_PROD_PATH;
