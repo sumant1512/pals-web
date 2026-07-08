@@ -9,10 +9,11 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { SessionStorageService } from './session-storage.service';
+import { VERIFICATION_APP_ID } from '../constants/config';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private sessionStorageService: SessionStorageService) {}
+  constructor(private sessionStorageService: SessionStorageService) { }
 
   intercept(
     request: HttpRequest<unknown>,
@@ -20,10 +21,16 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const authToken = this.sessionStorageService.getItem('authToken');
 
+    const requestHeaders: any = {};
+
+    if (authToken) {
+      requestHeaders['Authorization'] = `Bearer ${authToken}`;
+    }
+
+    requestHeaders['X-Verification-App-Id'] = VERIFICATION_APP_ID;
+
     const clonedRequest = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authToken}`,
-      },
+      setHeaders: requestHeaders,
     });
 
     return next.handle(clonedRequest).pipe(
